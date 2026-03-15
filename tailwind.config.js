@@ -28,7 +28,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        gotham: ['Gotham', 'system-ui', 'sans-serif'],
+        gotham: ['Gotham', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
       },
       backdropBlur: {
         md: '12px',
