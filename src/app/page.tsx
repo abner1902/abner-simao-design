@@ -1,11 +1,12 @@
-import { HeroSection } from '@/components';
-import ToolsCarousel from '@/components/ToolsCarousel/ToolsCarousel';
+import { Navbar, HeroSection, ToolsCarousel, ServicesSection } from '@/components';
 
 export default function Home() {
   return (
-    <>
+    <main>
+      <Navbar />
       <HeroSection />
       <ToolsCarousel />
-    </>
+      <ServicesSection />
+    </main>
   );
 }
