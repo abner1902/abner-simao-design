@@ -18,10 +18,12 @@ export default function Navbar() {
   const { scrollToSection } = useSmoothScroll();
 
   useEffect(() => {
-    const isDarkMode = localStorage.getItem('theme') === 'dark' || 
-      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDarkMode = savedTheme === 'dark' || (!savedTheme && prefersDark);
     setIsDark(isDarkMode);
     if (isDarkMode) document.documentElement.classList.add('dark');
+    else document.documentElement.classList.remove('dark');
   }, []);
 
   const toggleTheme = () => {
@@ -82,8 +84,8 @@ export default function Navbar() {
             <Image
               src="/assets/images/logos/logotipo-abnersimao-branco.png"
               alt="Abner Simão"
-              width={60}
-              height={60}
+              width={160}
+              height={40}
               className="h-10 w-auto lg:h-12"
               priority
             />
