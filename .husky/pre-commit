@@ -1,18 +1,1 @@
 npm run lint
-```
-
-Agora configura o `lint-staged` no `package.json`:
-
-**🔍 Acha:**
-```
-  "devDependencies": {
-```
-
-**✅ Substitui por:**
-```
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ]
-  },
-  "devDependencies": {
