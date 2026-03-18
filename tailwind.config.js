@@ -30,6 +30,9 @@ module.exports = {
       fontFamily: {
         gotham: ['Gotham', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
       },
+      fontWeight: {
+        ultra: '950',
+      },
       backdropBlur: {
         md: '12px',
       },

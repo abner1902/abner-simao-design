@@ -31,6 +31,13 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/GothamUltra.woff2') format('woff2');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Fallback até os arquivos Gotham estarem em public/fonts/ (geométrica parecida) */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap');

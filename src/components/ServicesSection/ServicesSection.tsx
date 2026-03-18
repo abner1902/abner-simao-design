@@ -79,11 +79,11 @@ export default function ServicesSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
 
-        <div className="mb-16 text-center flex flex-col items-center">
-          <h2 className="text-3xl md:text-5xl font-black text-sky-900 dark:text-sky-300 uppercase tracking-tighter mb-4 max-w-3xl">
+        <div className="flex flex-col items-center gap-4 text-center mb-16">
+          <h2 className="font-gotham font-ultra text-sky-900 dark:text-sky-300 text-3xl sm:text-4xl uppercase tracking-wide">
             Soluções criativas que impulsionam seu negócio
           </h2>
-          <p className="text-base md:text-lg text-stone-800 dark:text-stone-300 font-medium max-w-2xl">
+          <p className="font-gotham text-stone-800 dark:text-stone-300 text-lg sm:text-2xl leading-9 max-w-[982px]">
             Logotipos, sites, vídeos e estratégias digitais feitas sob medida. Sem modelos prontos, foco total em criar uma presença única e profissional para sua empresa.
           </p>
         </div>
@@ -94,18 +94,18 @@ export default function ServicesSection() {
               key={i}
               className={`relative rounded-3xl p-5 lg:p-6 overflow-hidden shadow-[0px_4px_14px_0px_rgba(0,0,0,0.25)] ${s.gridClass}`}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-sky-100/80 to-sky-50/80 rounded-3xl" aria-hidden="true" />
-              <div className="absolute inset-0 top-2 opacity-30 bg-gradient-to-b from-sky-100/80 to-sky-50/80 rounded-3xl" aria-hidden="true" />
+              <div className="absolute inset-0 bg-gradient-to-b from-sky-100/80 to-sky-50/80 dark:from-slate-900/60 dark:to-slate-800/60 rounded-3xl" aria-hidden="true" />
+              <div className="absolute inset-0 top-2 opacity-30 bg-gradient-to-b from-sky-100/80 to-sky-50/80 dark:from-slate-900/60 dark:to-slate-800/60 rounded-3xl" aria-hidden="true" />
 
               <div className="relative z-10 h-full flex flex-col">
 
                 {s.type === "tall" ? (
                   <div className="flex flex-col h-full">
                     <div>
-                      <h3 className="text-sky-800 text-2xl font-black uppercase tracking-tighter mb-4 whitespace-pre-line">
+                      <h3 className="text-sky-800 dark:text-sky-300 text-2xl font-black uppercase tracking-tighter mb-4 whitespace-pre-line">
                         {s.title}
                       </h3>
-                      <p className="text-stone-900 text-sm md:text-base font-medium">
+                      <p className="text-stone-900 dark:text-stone-300 text-sm md:text-base font-medium">
                         {s.description}
                       </p>
                     </div>
@@ -125,10 +125,10 @@ export default function ServicesSection() {
                 ) : (
                   <div className="flex flex-col lg:flex-row items-center gap-4 h-full">
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-sky-800 text-2xl font-black uppercase tracking-tighter mb-2">
+                      <h3 className="text-sky-800 dark:text-sky-300 text-2xl font-black uppercase tracking-tighter mb-2">
                         {s.title}
                       </h3>
-                      <p className="text-stone-900 text-sm font-medium leading-snug">
+                      <p className="text-stone-900 dark:text-stone-300 text-sm font-medium leading-snug">
                         {s.description}
                       </p>
                     </div>
