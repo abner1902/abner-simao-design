@@ -51,21 +51,23 @@ export default function Footer() {
                 <ul className="flex flex-col gap-2 font-gotham font-medium text-stone-900 dark:text-stone-300 text-lg leading-8">
                   <li>• Criação de Logotipos</li>
                   <li>• Identidade Visual</li>
-                  <li>• Direção de Arte</li>
-                  <li>• Motion Design</li>
+                  <li>• Ilustração e Vetores</li>
+                  <li>• Artes para Impressão</li>
+                  <li>• Edição de Vídeo e Reels</li>
                 </ul>
               </div>
 
               {/* COLUNA 2 — DESENVOLVIMENTO WEB */}
               <div className="flex flex-col gap-4">
                 <h3 className="font-gotham font-ultra text-sky-800 dark:text-sky-300 text-lg uppercase tracking-wide">
-                  Desenvolvimento Web
+                  Desenvolvimento & Marketing
                 </h3>
                 <ul className="flex flex-col gap-2 font-gotham font-medium text-stone-900 dark:text-stone-300 text-lg leading-8">
-                  <li>• Desenvolvimento React e Next.js</li>
+                  <li>• Sites em React e Next.js</li>
                   <li>• Criação de Landing Pages</li>
                   <li>• UI/UX Design</li>
-                  <li>• Otimização de SEO</li>
+                  <li>• SEO e Performance</li>
+                  <li>• Tráfego Pago e Marketing Digital</li>
                 </ul>
               </div>
 
@@ -130,7 +132,7 @@ export default function Footer() {
               className="flex-1 inline-flex items-center justify-center gap-3 min-h-[5rem] py-4 px-6 rounded-2xl font-gotham font-bold text-stone-900 dark:text-white text-lg uppercase tracking-widest text-center bg-gradient-to-r from-white/40 to-blue-200/60 dark:from-slate-800/60 dark:to-blue-900/50 border border-sky-500 dark:border-sky-400 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.25)] transition-all duration-300 hover:brightness-95 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500"
             >
               <FaFilePdf className="text-red-500 shrink-0" size={24} />
-              Baixar Currículo Designer & Front End
+              Baixar Currículo Designer & Dev
             </Link>
 
             <Link
@@ -169,7 +171,7 @@ export default function Footer() {
       {/* BARRA FINAL */}
       <div className="w-full bg-green-200 dark:bg-slate-900 py-6 px-6">
         <p className="font-gotham text-sky-800 dark:text-sky-400 text-sm text-center leading-9">
-          © {currentYear} Abner Simão Design. Built with Next.js, React, and Tailwind CSS. | UI/UX Design | Front-end Developer | Branding | Motion Design | São Paulo, Brazil.
+          © {currentYear} Abner Simão Design. Sites em Next.js, UI/UX, Branding, Vídeos para Eventos, Artes para Impressão e Tráfego Pago | São Paulo, Brasil.
         </p>
       </div>
 

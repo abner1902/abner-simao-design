@@ -6,3 +6,5 @@ export { default as ServicesSection } from './ServicesSection/ServicesSection';
 export { default as ProjectsSection } from './ProjectsSection/ProjectsSection';
 export { default as AboutSection } from './AboutSection/AboutSection';
 export { default as Footer } from './Footer/Footer';
+export { default as EventosArtistasSection } from './EventosArtistasSection/EventosArtistasSection';
+export { default as LogotiposIdentidadeSection } from './LogotiposIdentidadeSection/LogotiposIdentidadeSection';

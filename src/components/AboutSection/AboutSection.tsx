@@ -76,7 +76,7 @@ export default function AboutSection() {
             <div className="flex flex-col gap-4 font-gotham text-stone-900 dark:text-stone-300 text-lg leading-8">
               <p>Graduado pelo <strong>Mackenzie</strong> SP (2011–2015), com especializações no <strong>Senac e Impacta</strong>.</p>
               <p>Sou um <strong>designer criativo por essência</strong>, mestre em Adobe e Figma.</p>
-              <p>Com passagens por <strong>Lenoxx</strong>, <strong>Equilibrium</strong>, <strong>Portal Telemedicina</strong> e atualmente no <strong>Grupo Fróes</strong>, acumulo experiência em agências, multinacionais e <strong>projetos freelance</strong> para clientes nacionais e internacionais.</p>
+              <p>Com passagens por <strong>Lenoxx</strong>, <strong>Equilibrium</strong>, <strong>Portal Telemedicina</strong> e <strong>Grupo Fróes</strong>, acumulo experiência em agências, multinacionais e atuo como <strong>freelancer</strong> para clientes nacionais e internacionais.</p>
             </div>
           </article>
 

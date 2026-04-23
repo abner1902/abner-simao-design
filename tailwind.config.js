@@ -9,11 +9,12 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        marquee: 'marquee 30s linear infinite',
+        'marquee-fast': 'marquee 35s linear infinite',
+        'marquee-slow': 'marquee 50s linear infinite reverse',
       },
       keyframes: {
         marquee: {
-          '0%': { transform: 'translateX(0%)' },
+          '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
       },

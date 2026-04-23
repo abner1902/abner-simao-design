@@ -1,0 +1,51 @@
+export const logotiposIdentidade = [
+  {
+    id: 1,
+    title: 'MUBALI',
+    category: 'Logo para produtor de psytrance',
+    image: '/assets/images/projects/02-logotipos/mubali-logo.png',
+    imageAlt: 'Logo Mubali',
+  },
+  {
+    id: 2,
+    title: 'ATWORK',
+    category: 'Branding para projeto de música eletrônica',
+    image: '/assets/images/projects/02-logotipos/at-work-Logo-oficial-color.png',
+    imageAlt: 'Logo Atwork',
+  },
+  {
+    id: 3,
+    title: 'BALANAR',
+    category: 'Identidade visual para DJ de psytrance',
+    image: '/assets/images/projects/02-logotipos/Balanar-color-fundo-branco.png',
+    imageAlt: 'Logo Balanar',
+  },
+  {
+    id: 4,
+    title: 'BRAINFLOW',
+    category: 'Marca para empresa de marketing digital',
+    image: '/assets/images/projects/02-logotipos/brainflow-logo.png',
+    imageAlt: 'Logo Brainflow',
+  },
+  {
+    id: 5,
+    title: 'TOTAL10 SEGUROS',
+    category: 'Branding para corretora de seguros',
+    image: '/assets/images/projects/02-logotipos/total-10-seguros-logo-oficial-colorido.png',
+    imageAlt: 'Logo Total10 Seguros',
+  },
+  {
+    id: 6,
+    title: 'PAHU LOGO',
+    category: 'Logotipo para terapias holísticas',
+    image: '/assets/images/projects/02-logotipos/pahu-logo.png',
+    imageAlt: 'Logo Pahu',
+  },
+  {
+    id: 7,
+    title: 'GYPSY BURGER',
+    category: 'Identidade visual para hamburgueria',
+    image: '/assets/images/projects/02-logotipos/gypsy-burger-logo.png',
+    imageAlt: 'Logo Gypsy Burger',
+  },
+];

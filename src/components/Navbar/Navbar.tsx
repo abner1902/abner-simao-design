@@ -47,6 +47,7 @@ export default function Navbar() {
 
   const getHref = (item: string) => {
     if (item === 'Contato') return '/contact';
+    if (item === 'Projetos') return '/projetos';
     return `/#${getSectionId(item)}`;
   };
 
@@ -66,7 +67,6 @@ export default function Navbar() {
       router.push('/contact');
       return;
     }
-
     if (pathname === '/') {
       scrollToSection(getSectionId(item));
     } else {

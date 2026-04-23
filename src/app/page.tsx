@@ -1,4 +1,13 @@
-import { Navbar, HeroSection, ToolsCarousel, ServicesSection, ProjectsSection, AboutSection, Footer } from '@/components';
+import { 
+  Navbar, 
+  HeroSection, 
+  ToolsCarousel, 
+  ServicesSection, 
+  ProjectsSection, 
+  AboutSection, 
+  Footer 
+} from '@/components';
+
 export default function Home() {
   return (
     <main>
@@ -6,7 +15,9 @@ export default function Home() {
       <HeroSection />
       <ToolsCarousel />
       <ServicesSection />
-      <ProjectsSection />
+      <section id="projetos">
+        <ProjectsSection />
+      </section>
       <AboutSection />
       <Footer />
     </main>

@@ -31,7 +31,7 @@ const projects = [
     category: 'Ui/Ux React & Next.js',
     description:
       'Desenvolvimento de plataforma digital para gravadora de música eletrônica, focando em performance, SEO e uma interface imersiva que reflete a identidade psicodélica da marca.',
-    image: '/assets/images/Projects/agya-sounds-site-photo.jpg',
+    image: '/assets/images/projects/03-web-design/agya-sounds-mockup.jpg',
     imageAlt: 'Website Agya Sounds Recs — interface dark psicodélica',
     slug: 'agya-sounds',
   },
