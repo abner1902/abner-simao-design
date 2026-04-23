@@ -15,19 +15,28 @@ export default function ToolsCarousel() {
     { src: '/assets/images/logos/vercel-logotipo.png', alt: 'Vercel' },
   ];
 
-  const doubled = [...tools, ...tools];
+  // Triplicamos para garantir que nunca falte ícone na tela durante a transição
+  const items = [...tools, ...tools, ...tools];
 
   return (
     <section className="py-12 overflow-hidden">
-      <h2 className="text-center text-2xl lg:text-3xl font-black font-gotham uppercase text-sky-800 dark:text-sky-300 tracking-tight mb-10">
+      <h2 className="text-center text-2xl lg:text-3xl font-black font-gotham uppercase text-[#005B80] dark:text-sky-300 tracking-tight mb-10">
         Ferramentas e tecnologias que utilizo
       </h2>
-      <div className="relative w-full bg-sky-50/20 shadow-[0px_4px_44px_0px_rgba(0,0,0,0.25)] py-6">
-        <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10 pointer-events-none" />
-        <div className="flex animate-marquee gap-12 w-max">
-          {doubled.map((tool, index) => (
-            <div key={index} className="relative w-20 h-20 shrink-0">
+      
+      {/* Container com sombra e blur conforme seu print */}
+      <div className="relative w-full bg-white/10 backdrop-blur-sm shadow-[0px_4px_44px_0px_rgba(0,0,0,0.15)] py-8 border-y border-white/20">
+        
+        {/* Gradientes laterais para o efeito de sumir nas pontas */}
+        <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10 pointer-events-none" />
+
+        {/* AQUI ESTAVA O ERRO: 
+            Alterado de 'animate-marquee' para 'animate-marquee-fast' (conforme seu tailwind.config)
+        */}
+        <div className="flex animate-marquee-fast gap-16 w-max">
+          {items.map((tool, index) => (
+            <div key={index} className="relative w-16 h-16 shrink-0 transition-transform hover:scale-110">
               <Image
                 src={tool.src}
                 alt={tool.alt}
