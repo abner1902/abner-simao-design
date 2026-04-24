@@ -76,8 +76,8 @@ export default function LogotiposIdentidadeSection() {
       </div>
 
       {/* Fade laterais para acabamento premium */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-0 lg:w-48 lg:bg-gradient-to-r lg:from-white dark:lg:from-slate-950 to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-0 lg:w-48 lg:bg-gradient-to-l lg:from-white dark:lg:from-slate-950 to-transparent z-10" />
     </section>
   );
 }
