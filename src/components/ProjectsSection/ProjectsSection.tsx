@@ -11,7 +11,7 @@ const projects = [
     category: 'Branding & Identidade Visual',
     description:
       'Projeto de modernização de marca para o setor de saúde, unindo minimalismo e confiança para criar uma presença visual autoritária no mercado odontológico.',
-    image: '/assets/images/Projects/valbao-photo.jpg',
+    image: '/assets/images/projects/valbao-photo.jpg',
     imageAlt: 'Identidade visual Valbão Odontologia — logo e paleta de cores',
     slug: 'valbao-odontologia',
   },
@@ -21,7 +21,7 @@ const projects = [
     category: 'Design de Experiência e Eventos',
     description:
       'Comunicação visual estratégica para estande em evento de tecnologia de escala global, garantindo unidade visual e impacto de marca em grandes formatos.',
-    image: '/assets/images/Projects/global-summit-photo.jpg',
+    image: '/assets/images/projects/global-summit-photo.jpg',
     imageAlt: 'Estande Global Summit 2022 — Portal Telemedicina',
     slug: 'global-summit',
   },
@@ -41,7 +41,7 @@ const projects = [
     category: 'Cover Art, Motion & Stop Motion',
     description:
       'Direção de arte completa para o lançamento do EP Lunar Pareidolia, integrando a criação da capa oficial com uma produção em Stop Motion biomecânica e sombria. Um projeto autoral que une design lúdico e psicodelia densa para o cenário de festivais.',
-    image: '/assets/images/Projects/naturaiz-ep-photo.jpg',
+    image: '/assets/images/projects/naturaiz-ep-photo.jpg',
     imageAlt: 'Cover Art EP Lunar Pareidolia — Naturaíz Records',
     slug: 'naturaiz-records',
   },

@@ -63,6 +63,10 @@ export default function Navbar() {
       }
       return;
     }
+    if (item === 'Projetos') {
+      router.push('/projetos');
+      return;
+    }
     if (item === 'Contato') {
       router.push('/contact');
       return;
