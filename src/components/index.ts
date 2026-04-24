@@ -8,3 +8,4 @@ export { default as AboutSection } from './AboutSection/AboutSection';
 export { default as Footer } from './Footer/Footer';
 export { default as EventosArtistasSection } from './EventosArtistasSection/EventosArtistasSection';
 export { default as LogotiposIdentidadeSection } from './LogotiposIdentidadeSection/LogotiposIdentidadeSection';
+export { default as WebDesignSection } from './WebDesignSection/WebDesignSection';

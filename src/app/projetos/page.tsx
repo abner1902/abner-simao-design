@@ -1,4 +1,4 @@
-import { Navbar, EventosArtistasSection, LogotiposIdentidadeSection, Footer } from '@/components';
+import { Navbar, EventosArtistasSection, LogotiposIdentidadeSection, WebDesignSection, Footer } from '@/components';
 
 export default function ProjetosPage() {
   return (
@@ -14,6 +14,7 @@ export default function ProjetosPage() {
       <div className="relative">
         <EventosArtistasSection />
         <LogotiposIdentidadeSection />
+        <WebDesignSection />
       </div>
 
       <Footer />
