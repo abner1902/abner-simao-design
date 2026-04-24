@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function HeroSection() {
   return (
@@ -39,14 +40,14 @@ export default function HeroSection() {
                 combinando criatividade, estratégia e desenvolvimento front-end.
               </p>
 
-              {/* Foto mobile - Onde aplicamos o Zoom de "5px" (scale-110) */}
+              {/* Foto mobile */}
               <div className="flex justify-center lg:hidden w-full animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700 fill-mode-both py-4">
                 <div className="relative w-full max-w-[280px] aspect-square rounded-3xl overflow-hidden border border-white/20 shadow-xl bg-white/5">
                   <Image
                     src="/assets/images/profile/abner-hero-photo.png"
                     alt="Abner Simão"
                     fill
-                    className="object-cover object-top scale-[1.10]" 
+                    className="object-cover object-top scale-[1.10]"
                     priority
                     quality={100}
                   />
@@ -55,23 +56,26 @@ export default function HeroSection() {
 
               {/* Botões */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full justify-center lg:justify-start animate-in fade-in slide-in-from-bottom-4 duration-700 delay-1000 fill-mode-both">
-                <button className="px-8 py-3 rounded-xl border-2 border-blue-900 dark:border-blue-400 text-blue-900 dark:text-blue-300 font-bold uppercase tracking-tight transition-all hover:bg-blue-900 hover:text-white text-sm">
+                <Link
+                  href="/projetos"
+                  className="px-8 py-3 rounded-xl border-2 border-blue-900 dark:border-blue-400 text-blue-900 dark:text-blue-300 font-bold uppercase tracking-tight transition-all hover:bg-blue-900 hover:text-white text-sm text-center"
+                >
                   Ver Projetos
-                </button>
+                </Link>
                 <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-white/40 to-emerald-400/50 dark:from-slate-800/60 dark:to-emerald-600/50 border border-emerald-500 text-slate-900 dark:text-white font-bold uppercase tracking-tight transition-all hover:shadow-lg backdrop-blur-sm text-sm">
                   Solicitar Orçamento
                 </button>
               </div>
             </div>
 
-            {/* Foto desktop - Aplicado o mesmo Zoom de "5px" (scale-110) */}
+            {/* Foto desktop */}
             <div className="hidden lg:flex justify-center items-center animate-in fade-in zoom-in-95 duration-1000 delay-500 fill-mode-both order-2">
               <div className="relative w-full aspect-square max-w-[360px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-white/5">
                 <Image
                   src="/assets/images/profile/abner-hero-photo.png"
                   alt="Abner Simão"
                   fill
-                  className="object-cover object-top scale-[1.10]" // <- Atualizado aqui tbm
+                  className="object-cover object-top scale-[1.10]"
                   priority
                   quality={100}
                 />
