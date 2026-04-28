@@ -160,10 +160,10 @@ export default function VideosSection() {
         
         {/* HEADER - UNIFICADO COM WEB DESIGN */}
       <div className="flex flex-col items-center gap-4 text-center px-6 mb-16 lg:mb-24">
-        <h2 className="font-gotham font-black text-[#075985] dark:text-sky-300 text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight leading-[0.9]">
-          Vídeos para Eventos <br className="hidden lg:block" /> e Lançamentos
-        </h2>
-        <p className="font-gotham font-medium text-stone-800 dark:text-stone-300 text-lg sm:text-xl max-w-3xl leading-relaxed">
+        <h2 className="font-gotham font-black text-[#075985] dark:text-sky-300 text-[19px] sm:text-4xl uppercase tracking-tighter leading-tight whitespace-nowrap">
+  Vídeos para Eventos e Lançamentos
+</h2>
+        <p className="font-gotham font-medium text-stone-800 dark:text-stone-300 text-base lg:text-lg max-w-3xl leading-relaxed">
           Mais de 10 anos criando impacto visual com motion design, aftermovies 
           e covers animadas para a cena eletrônica e grandes marcas.
         </p>

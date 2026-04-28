@@ -6,7 +6,6 @@ import {
   ProjectsSection, 
   AboutSection, 
   Footer,
-  DesignImpressosSection
 } from '@/components';
 
 export default function Home() {
@@ -16,11 +15,9 @@ export default function Home() {
       <HeroSection />
       <ToolsCarousel />
       <ServicesSection />
-      
       <section id="projetos" className="relative">
         <ProjectsSection />
-        </section>
-
+      </section>
       <AboutSection />
       <Footer />
     </main>

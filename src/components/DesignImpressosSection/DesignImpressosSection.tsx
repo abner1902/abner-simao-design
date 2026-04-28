@@ -10,10 +10,10 @@ export default function DesignImpressosSection() {
     <section className="relative w-full py-24 bg-transparent flex flex-col items-center overflow-hidden">
       
       <header className="flex flex-col items-center mb-16 px-6 text-center">
-        <h2 className="w-full max-w-[1029px] text-[#075985] dark:text-sky-300 text-4xl lg:text-5xl font-black uppercase tracking-tighter mb-6">
+        <h2 className="w-full max-w-[1029px] text-[#075985] dark:text-sky-300 text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-6">
           Design para Impressos
         </h2>
-        <p className="w-full max-w-[1084px] text-stone-900 dark:text-stone-300 text-xl lg:text-2xl font-medium leading-relaxed">
+        <p className="w-full max-w-[1084px] text-stone-900 dark:text-stone-300 text-base lg:text-lg font-medium leading-relaxed">
           Criação de folders, flyers, banners, adesivos, cardápios e embalagens personalizadas. 
           <br className="hidden lg:block" />
           Arte final pronta para gráfica em alta qualidade e fechamento de arquivo profissional.

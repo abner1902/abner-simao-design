@@ -37,12 +37,12 @@ export default function EventosArtistasSection() {
   return (
     <section className="relative w-full py-24 overflow-hidden bg-transparent">
       
-      {/* HEADER UNIFICADO - TEXTO ORIGINAL */}
+      {/* HEADER UNIFICADO - Ajustado para linha única */}
       <div className="flex flex-col items-center gap-4 text-center px-6 mb-16">
-        <h2 className="font-gotham font-black text-[#075985] dark:text-sky-300 text-4xl lg:text-6xl uppercase tracking-tighter leading-[0.9]">
-          ARTES PARA EVENTOS <br className="hidden lg:block" /> E ARTISTAS
+        <h2 className="font-gotham font-black text-[#075985] dark:text-sky-300 text-2xl sm:text-4xl uppercase tracking-tighter leading-tight whitespace-nowrap">
+          ARTES PARA EVENTOS E ARTISTAS
         </h2>
-        <p className="font-gotham font-medium text-stone-800 dark:text-stone-300 text-lg lg:text-xl max-w-3xl leading-relaxed">
+        <p className="font-gotham font-medium text-stone-800 dark:text-stone-300 text-base lg:text-lg max-w-3xl leading-relaxed">
           Flyers, capas de álbum e motion design para shows, festivais e lançamentos. 
           Artes que vendem mais ingresso e engajam mais o seu público.
         </p>
@@ -58,7 +58,6 @@ export default function EventosArtistasSection() {
               return (
                 <div
                   key={item.id}
-                  // Mobile: 75% para mostrar os vizinhos | Desktop: 450px fixo
                   className="flex-[0_0_75%] sm:flex-[0_0_450px] min-w-0 px-2 sm:px-4"
                   style={{ perspective: '1200px' }}
                 >
@@ -112,7 +111,7 @@ export default function EventosArtistasSection() {
           </div>
         </div>
 
-        {/* INDICADORES (DOTS) - Sutil para Mobile */}
+        {/* INDICADORES (DOTS) */}
         <div className="flex justify-center gap-2 mt-4 sm:hidden">
           {eventosArtistas.map((_, index) => (
             <button

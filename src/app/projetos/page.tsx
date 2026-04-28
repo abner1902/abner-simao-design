@@ -5,6 +5,7 @@ import {
   WebDesignSection, 
   VideosSection, 
   DesignImpressosSection,
+  DesignEmpresasSection,  
   Footer 
 } from '@/components';
 
@@ -26,7 +27,8 @@ export default function ProjetosPage() {
         <VideosSection />
         <DesignImpressosSection />
         
-        
+        {/* Nova Seção Adicionada */}
+        <DesignEmpresasSection />
       </div>
 
       <Footer />
