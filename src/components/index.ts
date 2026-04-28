@@ -9,3 +9,5 @@ export { default as Footer } from './Footer/Footer';
 export { default as EventosArtistasSection } from './EventosArtistasSection/EventosArtistasSection';
 export { default as LogotiposIdentidadeSection } from './LogotiposIdentidadeSection/LogotiposIdentidadeSection';
 export { default as WebDesignSection } from './WebDesignSection/WebDesignSection';
+export { default as VideosSection } from './VideosSection/VideosSection';
+export { default as DesignImpressosSection } from './DesignImpressosSection/DesignImpressosSection';

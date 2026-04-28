@@ -5,19 +5,22 @@ import {
   ServicesSection, 
   ProjectsSection, 
   AboutSection, 
-  Footer 
+  Footer,
+  DesignImpressosSection
 } from '@/components';
 
 export default function Home() {
   return (
-    <main>
+    <main className="relative min-h-screen">
       <Navbar />
       <HeroSection />
       <ToolsCarousel />
       <ServicesSection />
-      <section id="projetos">
+      
+      <section id="projetos" className="relative">
         <ProjectsSection />
-      </section>
+        </section>
+
       <AboutSection />
       <Footer />
     </main>

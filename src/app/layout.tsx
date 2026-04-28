@@ -3,23 +3,23 @@ import { Navbar } from '@/components';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: 'Abner Simão | Designer & Front-end Developer',
-  description: 'Designer gráfico com 15+ anos de experiência em branding, UI/UX e front-end development. Especialista em identidade visual, UI/UX e desenvolvimento front-end moderno.',
-  keywords: ['designer gráfico', 'front-end', 'UI/UX', 'branding', 'Next.js', 'React', 'São Paulo'],
+  title: 'Abner Simão | Design Engineer & Art Director',
+  description: 'Designer gráfico com 16 anos de experiência em branding, UI/UX e Design Engineering. Especialista em identidade visual e desenvolvimento front-end moderno.',
+  keywords: ['designer gráfico', 'front-end', 'UI/UX', 'branding', 'Next.js', 'React', 'São Paulo', 'Design Engineer'],
   authors: [{ name: 'Abner Simão' }],
   creator: 'Abner Simão',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://abner-simao-design.vercel.app'),
   openGraph: {
-    title: 'Abner Simão | Designer & Front-end Developer',
-    description: 'Designer gráfico com 15+ anos de experiência em branding, UI/UX e front-end development.',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3001',
+    title: 'Abner Simão | Design Engineer & Art Director',
+    description: '16 anos de experiência unindo design estratégico e código de alta performance.',
+    url: '/',
     siteName: 'Abner Simão Design',
     images: [
       {
         url: '/assets/images/Favicon/og_image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Abner Simão - Designer Gráfico e Front-end Developer',
+        alt: 'Abner Simão - Portfolio',
       },
     ],
     locale: 'pt_BR',
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Abner Simão | Designer & Front-end Developer',
-    description: 'Designer gráfico com 15+ anos de experiência em branding, UI/UX e front-end development.',
+    title: 'Abner Simão | Design Engineer',
+    description: 'Branding, UI/UX e Front-end Development.',
     images: ['/assets/images/Favicon/og_image.jpg'],
   },
   icons: {
@@ -44,12 +44,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <head>
-        <meta name="color-scheme" content="light dark" />
-      </head>
-      <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors">
+      <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors antialiased">
         <Navbar />
-        <main className="pt-20">{children}</main>
+        <main id="main-content" className="pt-20">
+          {children}
+        </main>
       </body>
     </html>
   );
