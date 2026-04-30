@@ -5,8 +5,9 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import { webDesignProjects } from '@/data/webDesign';
+import SectionHeader from '@/components/ui/SectionHeader';  
 
 export default function WebDesignSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -27,16 +28,11 @@ export default function WebDesignSection() {
       aria-label="Projetos de Web Design e Desenvolvimento"
     >
       
-      {/* HEADER SEO OPTIMIZED */}
-      <div className="flex flex-col items-center gap-4 text-center px-6 mb-16">
-        <h2 className="font-gotham font-black text-[#075985] dark:text-sky-300 text-heading-lg uppercase tracking-tighter">
-          WEB DESIGN & DESENVOLVIMENTO
-        </h2>
-        <p className="font-gotham font-medium text-stone-800 dark:text-stone-300 text-body-md lg:text-body-lg max-w-3xl leading-relaxed">
-          Criação de sites, lojas online e plataformas digitais com foco em UI/UX e performance.
-          Projetos em React, Next.js e Tailwind para conversão.
-        </p>
-      </div>
+      {/* ✅ HEADER UNIFICADO */}
+      <SectionHeader 
+        title="WEB DESIGN & DESENVOLVIMENTO" 
+        description="Criação de sites, lojas online e plataformas digitais com foco em UI/UX e performance. Projetos em React, Next.js e Tailwind para conversão." 
+      />
 
       {/* CAROUSEL */}
       <div className="relative w-full max-w-[1440px] mx-auto px-4 md:px-12">
@@ -89,14 +85,26 @@ export default function WebDesignSection() {
                     </div>
 
                     {/* Conteúdo Textual */}
-                    <div className="p-8 flex flex-col gap-2 text-center flex-grow justify-center relative z-20">
-                      {/* ✅ TÍTULO AJUSTADO: Font Bold e Tamanho Reduzido */}
-                      <h3 className="font-gotham font-bold text-sky-900 dark:text-sky-300 text-body-lg sm:text-heading-md uppercase tracking-tight leading-snug group-hover:text-emerald-600 transition-colors duration-300">
-                        {item.title}
-                      </h3>
-                      <p className="font-gotham font-medium text-sky-800/80 dark:text-sky-400/80 text-body-md sm:text-body-lg leading-snug">
-                        {item.category}
-                      </p>
+                    <div className="p-6 flex flex-col gap-3 text-center flex-grow justify-between relative z-20">
+                      <div>
+                        {/* TÍTULO */}
+                        <h3 className="font-gotham font-bold text-sky-900 dark:text-sky-300 text-body-lg sm:text-heading-md uppercase tracking-tight leading-snug group-hover:text-emerald-600 transition-colors duration-300">
+                          {item.title}
+                        </h3>
+                        <p className="font-gotham font-medium text-sky-800/80 dark:text-sky-400/80 text-body-md sm:text-body-lg leading-snug mt-1">
+                          {item.category}
+                        </p>
+                      </div>
+
+                      {/* ✅ CTA VISUAL - "Ver detalhes" com ícone */}
+                      <div className="flex items-center justify-center gap-2 mt-2 text-sky-600 dark:text-sky-400 font-gotham font-bold text-[11px] sm:text-xs uppercase tracking-widest group-hover:gap-3 transition-all duration-300">
+                        <span>Ver detalhes</span>
+                        <ArrowUpRight 
+                          size={14} 
+                          className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" 
+                          aria-hidden="true"
+                        />
+                      </div>
                     </div>
 
                   </motion.article>

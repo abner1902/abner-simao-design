@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { eventosArtistas } from '@/data/eventosArtistas';
 import { ChevronLeft, ChevronRight, ExternalLink, X, ZoomIn } from 'lucide-react';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 // ✅ Tipo explícito para os itens do carousel
 interface EventoArtista {
@@ -88,19 +89,11 @@ export default function EventosArtistasSection() {
       className="relative w-full py-24 overflow-hidden bg-transparent" 
       aria-labelledby="eventos-artistas-heading"
     >
-      {/* Header Semântico + SEO */}
-      <div className="flex flex-col items-center gap-4 text-center px-6 mb-16">
-        <h2 
-          id="eventos-artistas-heading"
-          className="font-gotham font-black text-[#075985] dark:text-sky-300 text-2xl sm:text-4xl uppercase tracking-tighter leading-tight"
-        >
-          ARTES PARA EVENTOS E ARTISTAS
-        </h2>
-        <p className="font-gotham font-medium text-stone-800 dark:text-stone-300 text-base lg:text-lg max-w-3xl leading-relaxed">
-          Flyers, capas de álbum e motion design para shows, festivais e lançamentos. 
-          Artes que vendem mais ingresso e engajam mais o seu público.
-        </p>
-      </div>
+      {/* ✅ HEADER UNIFICADO */}
+      <SectionHeader 
+        title="ARTES PARA EVENTOS E ARTISTAS" 
+        description="Flyers, capas de álbum e motion design para shows, festivais e lançamentos. Artes que vendem mais ingresso e engajam mais o seu público." 
+      />
 
       <div className="relative w-full">
         <div ref={emblaRef} className="overflow-hidden px-4 sm:px-0">

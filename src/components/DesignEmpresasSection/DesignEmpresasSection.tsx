@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { empresasData } from '@/data/empresas';
+import SectionHeader from '@/components/ui/SectionHeader';
 
 export default function DesignEmpresasSection() {
   return (
@@ -10,19 +11,11 @@ export default function DesignEmpresasSection() {
       aria-labelledby="empresas-section-title"
       className="relative w-full py-24 bg-transparent flex flex-col items-center overflow-hidden"
     >
-      {/* ── Cabeçalho ── */}
-      <header className="flex flex-col items-center mb-16 px-6 text-center">
-        <h2
-          id="empresas-section-title"
-          className="font-gotham font-black text-[#075985] dark:text-sky-300 text-3xl sm:text-4xl uppercase tracking-tighter mb-4"
-        >
-          Design para Empresas
-        </h2>
-        <p className="font-gotham font-medium text-stone-800 dark:text-stone-300 text-base lg:text-lg max-w-3xl leading-relaxed">
-          Soluções de design para empresas: branding, e-commerce, eventos, saúde e esporte.
-          Projetos para clínicas, indústrias, times e negócios B2B que querem crescer com design estratégico.
-        </p>
-      </header>
+      {/* ✅ HEADER UNIFICADO */}
+      <SectionHeader 
+        title="DESIGN PARA EMPRESAS" 
+        description="Soluções de design para empresas: branding, e-commerce, eventos, saúde e esporte. Projetos para clínicas, indústrias, times e negócios B2B que querem crescer com design estratégico." 
+      />
 
       <div className="max-w-[1280px] mx-auto w-full px-6">
 
