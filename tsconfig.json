@@ -10,13 +10,14 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
     "incremental": true,
+    "types": ["node"],
     "plugins": [
       {
         "name": "next"
