@@ -8,7 +8,7 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({ title, description, className = '' }: SectionHeaderProps) {
   return (
-    <div className={`flex flex-col items-center gap-3 sm:gap-4 text-center px-4 sm:px-6 mb-12 sm:mb-16 ${className}`}>
+    <div className={`flex flex-col items-center gap-3 sm:gap-6 text-center px-4 sm:px-6 mb-12 sm:mb-16 ${className}`}>
       <h2 className="font-gotham font-black text-[#075985] dark:text-sky-300 text-heading-lg uppercase tracking-tighter">
         {title}
       </h2>

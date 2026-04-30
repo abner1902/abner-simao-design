@@ -226,10 +226,11 @@ export default function VideosSection() {
     <section className="relative w-full py-32 overflow-visible">
       <div className="relative max-w-7xl mx-auto px-6">
         
-        {/* ✅ HEADER CORRIGIDO - Mobile com respiro + quebra de linha */}
+        {/* ✅ HEADER COM MAIS RESPIRO (só nesta seção) */}
         <SectionHeader 
           title="VÍDEOS PARA EVENTOS E LANÇAMENTOS" 
           description="Há mais de 10 anos criando mais impacto visual com stop motion, aftermovies e covers animadas. Conteúdo pré e pós para eventos e lançamentos." 
+          className="mb-20 sm:mb-28"
         />
 
         <div className="hidden md:block relative">
