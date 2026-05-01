@@ -7,7 +7,6 @@ import {
   AboutSection, 
   Footer,
 } from '@/components';
-import DesignImpressosSection from '@/components/DesignImpressosSection/DesignImpressosSection';
 
 export default function Home() {
   return (
@@ -19,8 +18,6 @@ export default function Home() {
       <section id="projetos" className="relative">
         <ProjectsSection />
       </section>
-      {/* SEÇÃO DE DESIGN PARA IMPRESSOS */}
-      <DesignImpressosSection />
       <AboutSection />
       <Footer />
     </main>
