@@ -1,53 +1,19 @@
-export interface Impresso {
+export interface ImpressoProject {
   id: string;
   title: string;
   category: string;
   client: string;
   year: string;
   tools: string[];
-  thumb: string;
+  paperType: string;
+  challenge: string;
   image: string;
+  thumb: string;
   imageAlt: string;
-  // Novos campos técnicos
-  paperType: string;           // Tipo de papel
-  finishing: string[];         // Acabamentos
-  cmyk: boolean;               // Fechamento CMYK
-  dieCut?: string;             // Faca de corte (opcional)
-  challenge: string;           // Descrição do projeto/desafio
+  behanceUrl: string;
 }
 
-export const impressosData: Impresso[] = [
-  {
-    id: 'duque-caixas',
-    title: 'Caixa Personalizada para Carnes Nobres',
-    category: 'Embalagem Premium',
-    client: 'Center Caixas / Duque Carnes',
-    year: '2022',
-    tools: ['Illustrator'],
-    thumb: '/assets/images/projects/05-impressos/thumbs/caixa-churrasco-impresso.webp',
-    image: '/assets/images/projects/05-impressos/full/caixa-churrasco-impresso.webp',
-    imageAlt: 'Caixa personalizada para carnes nobres - Duque Carnes',
-    paperType: 'Cartão Triplex 300g',
-    finishing: ['Laminação Fosca', 'Verniz UV Localizado', 'Hot Stamping Dourado'],
-    cmyk: true,
-    dieCut: 'Faca especial para estrutura de caixa com encaixe',
-    challenge: 'Criar embalagem premium que transmitisse qualidade e sofisticação para carnes nobres. Desenvolvimento de faca personalizada e arte final pronta para gráfica com fechamento CMYK e sangria adequada.'
-  },
-  {
-    id: 'gradiente-flyer',
-    title: 'Flyer Institucional para Equipamentos de Som',
-    category: 'Material Promocional',
-    client: 'Gradiente',
-    year: '2019',
-    tools: ['Photoshop', 'Illustrator'],
-    thumb: '/assets/images/projects/05-impressos/thumbs/gradiente-speaker-mockup.webp',
-    image: '/assets/images/projects/05-impressos/full/gradiente-speaker-mockup.webp',
-    imageAlt: 'Flyer institucional Gradiente equipamentos de som',
-    paperType: 'Couchê Brilho 150g',
-    finishing: ['Verniz Total UV'],
-    cmyk: true,
-    challenge: 'Material promocional institucional para linha de speakers aquáticos. Foco em destacar resistência à água e qualidade sonora com layout moderno e técnico.'
-  },
+export const impressosData: ImpressoProject[] = [
   {
     id: 'patacones-banner',
     title: 'Banner para Restaurante Colombiano',
@@ -55,13 +21,12 @@ export const impressosData: Impresso[] = [
     client: 'Patacones Gastronomia',
     year: '2020',
     tools: ['Photoshop', 'Illustrator'],
-    thumb: '/assets/images/projects/05-impressos/thumbs/patacones-impresso-mockup.webp',
-    image: '/assets/images/projects/05-impressos/full/patacones-impresso-mockup.webp',
-    imageAlt: 'Banner restaurante colombiano Patacones',
     paperType: 'Lona Microperfurada 350g',
-    finishing: ['Impressão Digital UV'],
-    cmyk: true,
-    challenge: 'Banner institucional para restaurante de gastronomia colombiana. Integração com identidade visual completa (logotipo já desenvolvido), destacando cultura e autenticidade da culinária.'
+    challenge: 'Banner institucional para restaurante de gastronomia colombiana. Integração com identidade visual e foco em legibilidade externa.',
+    image: '/assets/images/projects/05-impressos/full/patacones-alta-aprovada.webp',
+    thumb: '/assets/images/projects/05-impressos/thumbs/patacones-impresso-mockup.webp',
+    imageAlt: 'Banner Patacones',
+    behanceUrl: 'https://www.behance.net/gallery/SEU_LINK_AQUI'
   },
   {
     id: 'pizza-cardapio',
@@ -70,12 +35,39 @@ export const impressosData: Impresso[] = [
     client: 'Melhor Fatia da Pizza',
     year: '2017',
     tools: ['InDesign', 'Illustrator'],
-    thumb: '/assets/images/projects/05-impressos/thumbs/cardapio-mockup-melhor-fatia-pizza.webp',
-    image: '/assets/images/projects/05-impressos/full/cardapio-mockup-melhor-fatia-pizza.webp',
-    imageAlt: 'Cardápio completo pizzaria Melhor Fatia',
     paperType: 'Couchê Fosco 200g (capa) + 150g (miolo)',
-    finishing: ['Laminação Fosca', 'Espiral Wire-O'],
-    cmyk: true,
-    challenge: 'Cardápio completo para rede de pizzaria de shopping. Organização de mais de 80 itens, fotos profissionais, descrições apetitosas e hierarquia visual clara. Fechamento profissional para gráfica rápida.'
+    challenge: 'Desenvolvimento de cardápio focado em engenharia de menu e experiência do usuário no PDV.',
+    image: '/assets/images/projects/05-impressos/full/pizza-alta-aprovada.webp',
+    thumb: '/assets/images/projects/05-impressos/thumbs/cardapio-mockup-melhor-fatia-pizza.webp',
+    imageAlt: 'Cardápio Melhor Fatia da Pizza',
+    behanceUrl: 'https://www.behance.net/gallery/SEU_LINK_AQUI'
+  },
+  {
+    id: 'duque-carnes-caixa',
+    title: 'Caixa Personalizada para Delivery',
+    category: 'Embalagem Premium',
+    client: 'Duque Carnes',
+    year: '2024',
+    tools: ['Illustrator', 'Photoshop'],
+    paperType: 'Papelão Kraft 350g com verniz local',
+    challenge: 'Desenvolvimento de arte em vetor para faca de corte, garantindo encaixe perfeito e alta qualidade na impressão para açougue delivery.',
+    image: '/assets/images/projects/05-impressos/full/caixa-duque-alta-aprovada.webp',
+    thumb: '/assets/images/projects/05-impressos/thumbs/caixa-churrasco-impresso.webp',
+    imageAlt: 'Caixa Duque Carnes',
+    behanceUrl: ''
+  },
+  {
+    id: 'gradiente-speaker',
+    title: 'Identidade Visual para Speaker Bluetooth',
+    category: 'Branding + Embalagem',
+    client: 'Gradiente',
+    year: '2023',
+    tools: ['Illustrator', 'Photoshop'],
+    paperType: 'Papel Couchê 250g com laminação fosca',
+    challenge: 'Criação de identidade visual e embalagem para linha de speakers, unindo design retrô com tecnologia moderna.',
+    image: '/assets/images/projects/05-impressos/full/speaker-alta-aprovada.webp',
+    thumb: '/assets/images/projects/05-impressos/thumbs/gradiente-speaker-mockup.webp',
+    imageAlt: 'Speaker Gradiente',
+    behanceUrl: ''
   }
 ];
