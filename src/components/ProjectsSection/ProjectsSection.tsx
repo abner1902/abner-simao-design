@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react'; // Importação limpa
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
@@ -12,7 +12,6 @@ const projects = [
     category: 'Branding & Identidade Visual',
     description:
       'Projeto de modernização de marca para o setor de saúde, unindo minimalismo e confiança para criar uma presença visual autoritária no mercado odontológico.',
-    // CORREÇÃO: .jpg -> .webp
     image: '/assets/images/projects/valbao-photo.webp',
     imageAlt: 'Identidade visual Valbão Odontologia — logo e paleta de cores',
     slug: 'valbao-odontologia',
@@ -23,10 +22,9 @@ const projects = [
     category: 'Design de Experiência e Eventos',
     description:
       'Comunicação visual estratégica para estande em evento de tecnologia de escala global, garantindo unidade visual e impacto de marca em grandes formatos.',
-    // CORREÇÃO: .jpg -> .webp
-    image: '/assets/images/projects/global-summit-photo.webp',
+    image: '/assets/images/projects/06-empresas/stande-portal-south-summit-v2.webp', // Caminho da V2
     imageAlt: 'Estande Global Summit 2022 — Portal Telemedicina',
-    slug: 'global-summit',
+    slug: 'eventos-estandes', // Slug corrigido para abrir o projeto
   },
   {
     id: 'agya-sounds',
@@ -34,7 +32,6 @@ const projects = [
     category: 'Ui/Ux React & Next.js',
     description:
       'Desenvolvimento de plataforma digital para gravadora de música eletrônica, focando em performance, SEO e uma interface imersiva que reflete a identidade psicodélica da marca.',
-    // CORREÇÃO: .jpg -> .webp
     image: '/assets/images/projects/03-web-design/agya-sounds-mockup.webp',
     imageAlt: 'Website Agya Sounds Recs — interface dark psicodélica',
     slug: 'agya-sounds',
@@ -45,7 +42,6 @@ const projects = [
     category: 'Cover Art, Motion & Stop Motion',
     description:
       'Direção de arte completa para o lançamento do EP Lunar Pareidolia, integrando a criação da capa oficial com uma produção em Stop Motion biomecânica e sombria. Um projeto autoral que une design lúdico e psicodelia densa para o cenário de festivais.',
-    // CORREÇÃO: .jpg -> .webp
     image: '/assets/images/projects/naturaiz-ep-photo.webp',
     imageAlt: 'Cover Art EP Lunar Pareidolia — Naturaíz Records',
     slug: 'naturaiz-records',
@@ -77,15 +73,18 @@ export default function ProjectsSection() {
             <li key={project.id}>
               <article className="group flex flex-col sm:flex-row gap-6 rounded-3xl bg-gradient-to-b from-sky-100/80 to-sky-50/80 dark:from-slate-900/60 dark:to-slate-800/60 backdrop-blur-md border border-white/60 dark:border-white/10 shadow-[0px_4px_14px_0px_rgba(0,0,0,0.25)] p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0px_8px_24px_0px_rgba(0,0,0,0.15)]">
 
-                <div className="relative w-full sm:w-[370px] h-56 sm:h-auto shrink-0 overflow-hidden rounded-2xl bg-zinc-200">
+                <div className="relative w-full sm:w-[370px] h-64 sm:h-auto shrink-0 overflow-hidden rounded-2xl bg-zinc-200">
                   <Image
                     src={project.image}
                     alt={project.imageAlt}
                     fill
-                    // Otimização de LCP: Prioridade apenas na primeira imagem visível
                     priority={index === 0}
                     sizes="(max-width: 640px) 100vw, 370px"
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                    className={`object-cover object-center transition-transform duration-500 ease-out ${
+                      project.id === 'global-summit' 
+                        ? 'scale-[1.4] group-hover:scale-[1.55]' 
+                        : 'group-hover:scale-110'
+                    }`}
                   />
                 </div>
 
