@@ -56,7 +56,7 @@ export default function ProjetosPage() {
 
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden">
-      <style>{layoutStyles}</style>
+      <style dangerouslySetInnerHTML={{ __html: layoutStyles }} />
 
       {/* Background Fixo */}
       <div 
