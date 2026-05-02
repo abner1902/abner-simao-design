@@ -31,7 +31,7 @@ export default function Footer() {
           {/* HEADER - Ajustado com -4 pontos de escala */}
           <div className="flex flex-col items-center gap-4 text-center">
             <h2 className="font-gotham font-ultra text-sky-900 dark:text-sky-300 text-xl sm:text-3xl uppercase tracking-wide">
-              Vamos criar algo incrível juntos!
+              Vamos criar algo incrível juntos?
             </h2>
             <p className="font-gotham text-sky-800 dark:text-sky-400 text-base sm:text-lg leading-relaxed max-w-[900px]">
               Designer gráfico desde 2011 e desenvolvedor front-end em São Paulo

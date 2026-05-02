@@ -24,15 +24,17 @@ export default function WebDesignSection() {
 
   return (
     <section 
-      className="relative w-full py-20 overflow-hidden bg-white/10 backdrop-blur-md border border-white/40 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.25)]" 
+      className="relative w-full py-16 md:py-24 overflow-hidden bg-white/10 backdrop-blur-md border-y border-white/30 shadow-2xl rounded-none" 
       aria-label="Projetos de Web Design e Desenvolvimento"
     >
       
-      {/* ✅ HEADER UNIFICADO */}
-      <SectionHeader 
-        title="WEB DESIGN & DESENVOLVIMENTO" 
-        description="Criação de sites, lojas online e plataformas digitais com foco em UI/UX e performance. Projetos em React, Next.js e Tailwind para conversão." 
-      />
+      {/* HEADER UNIFICADO */}
+      <div className="mb-12 md:mb-16">
+        <SectionHeader 
+          title="WEB DESIGN & DESENVOLVIMENTO" 
+          description="Criação de sites, lojas online e plataformas digitais com foco em UI/UX e performance. Projetos em React, Next.js e Tailwind para conversão." 
+        />
+      </div>
 
       {/* CAROUSEL */}
       <div className="relative w-full max-w-[1440px] mx-auto px-4 md:px-12">
@@ -60,7 +62,6 @@ export default function WebDesignSection() {
                 key={item.id}
                 className="flex-[0_0_85%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-3"
               >
-                {/* ✅ LINK INTERNO PARA CASE STUDY */}
                 <Link 
                   href={`/projetos/${item.slug}`} 
                   className="block h-full group focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 rounded-3xl"
@@ -72,7 +73,6 @@ export default function WebDesignSection() {
                     className="relative flex flex-col h-full rounded-3xl bg-gradient-to-b from-sky-100/70 to-sky-50/70 dark:from-slate-800/60 dark:to-slate-700/60 backdrop-blur-lg border border-white/60 dark:border-white/10 shadow-lg overflow-hidden cursor-pointer"
                   >
                     
-                    {/* Imagem com Zoom Interno */}
                     <div className="relative w-full aspect-video overflow-hidden rounded-t-3xl bg-slate-200 dark:bg-slate-900">
                       <Image
                         src={item.image}
@@ -84,10 +84,8 @@ export default function WebDesignSection() {
                       />
                     </div>
 
-                    {/* Conteúdo Textual */}
                     <div className="p-6 flex flex-col gap-3 text-center flex-grow justify-between relative z-20">
                       <div>
-                        {/* TÍTULO */}
                         <h3 className="font-gotham font-bold text-sky-900 dark:text-sky-300 text-body-lg sm:text-heading-md uppercase tracking-tight leading-snug group-hover:text-emerald-600 transition-colors duration-300">
                           {item.title}
                         </h3>
@@ -96,7 +94,6 @@ export default function WebDesignSection() {
                         </p>
                       </div>
 
-                      {/* ✅ CTA VISUAL - "Ver detalhes" com ícone */}
                       <div className="flex items-center justify-center gap-2 mt-2 text-sky-600 dark:text-sky-400 font-gotham font-bold text-[11px] sm:text-xs uppercase tracking-widest group-hover:gap-3 transition-all duration-300">
                         <span>Ver detalhes</span>
                         <ArrowUpRight 

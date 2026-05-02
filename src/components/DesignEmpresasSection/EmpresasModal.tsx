@@ -1,9 +1,10 @@
 'use client';
 
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { EmpresaProject } from '@/data/empresas';
+import { EmpresaProject, GalleryItem } from '@/data/empresas';
 
 interface EmpresasModalProps {
   isOpen: boolean;
@@ -16,6 +17,18 @@ export default function EmpresasModal({
   onClose,
   project,
 }: EmpresasModalProps) {
+  
+  // Lógica para fechar com a tecla ESC
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleEsc);
+    }
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [isOpen, onClose]);
+
   if (!project) return null;
 
   return (
@@ -25,17 +38,18 @@ export default function EmpresasModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
           onClick={onClose}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-white/40 dark:bg-black/80 backdrop-blur-3xl p-4 md:p-8 overflow-y-auto"
           role="dialog"
           aria-modal="true"
         >
           <motion.div
-            initial={{ scale: 0.95, y: 20 }}
-            animate={{ scale: 1, y: 0 }}
-            exit={{ scale: 0.95, y: 20 }}
-            transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
-            className="relative max-w-5xl w-full flex flex-col gap-6 my-auto bg-white/95 dark:bg-zinc-900/90 backdrop-blur-md border border-white dark:border-white/10 rounded-3xl p-6 md:p-10 shadow-display"
+            initial={{ scale: 0.9, opacity: 0, y: 30 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 30 }}
+            transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+            className="relative max-w-5xl w-full flex flex-col gap-6 my-auto bg-white/95 dark:bg-zinc-900/90 backdrop-blur-md border border-white dark:border-white/10 rounded-3xl p-6 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* ── Header ── */}
@@ -51,7 +65,6 @@ export default function EmpresasModal({
               <button
                 onClick={onClose}
                 className="p-2 bg-zinc-900/5 hover:bg-zinc-900/10 dark:bg-white/5 dark:hover:bg-white/20 text-zinc-900 dark:text-white rounded-full transition-all shrink-0"
-                aria-label="Fechar modal"
               >
                 <X size={24} />
               </button>
@@ -64,26 +77,34 @@ export default function EmpresasModal({
               </p>
             )}
 
-            {/* ── Masonry Gallery (Pinterest Style) ── */}
+            {/* ── Masonry Gallery ── */}
             {project.gallery && project.gallery.length > 0 && (
               <div className="columns-2 sm:columns-3 gap-4 space-y-4 py-4">
-                {project.gallery.map((item, index) => (
+                {project.gallery.map((item: GalleryItem, index: number) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
+                    transition={{ 
+                      delay: 0.1 + index * 0.05, 
+                      duration: 0.5, 
+                      ease: [0.19, 1, 0.22, 1] 
+                    }}
                     className="break-inside-avoid rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 group"
                   >
                     <div className="relative w-full">
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        width={600}
-                        height={800}
-                        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 640px) 50vw, 33vw"
-                      />
+                      {item.type === 'video' ? (
+                        <video src={item.src} autoPlay muted loop playsInline className="w-full h-auto object-cover" />
+                      ) : (
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          width={600}
+                          height={800}
+                          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 640px) 50vw, 33vw"
+                        />
+                      )}
                     </div>
                     <div className="p-3 bg-white/80 dark:bg-black/60 backdrop-blur-md border-t border-zinc-200 dark:border-white/5">
                       <p className="font-gotham text-zinc-500 dark:text-white/40 text-label-sm uppercase tracking-widest leading-none">
@@ -102,15 +123,8 @@ export default function EmpresasModal({
               </p>
               
               {project.behance && (
-                <a 
-                  href={project.behance}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-8 py-4 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-sky-600 dark:hover:bg-sky-400 transition-all group shadow-lg"
-                >
-                  <span className="font-gotham font-black text-label-lg uppercase tracking-widest">
-                    Ver projeto no Behance
-                  </span>
+                <a href={project.behance} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-8 py-4 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-sky-600 dark:hover:bg-sky-400 transition-all group shadow-lg">
+                  <span className="font-gotham font-black text-label-lg uppercase tracking-widest">Ver no Behance</span>
                   <ArrowUpRight size={18} />
                 </a>
               )}

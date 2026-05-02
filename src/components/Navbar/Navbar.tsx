@@ -82,7 +82,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-0 left-0 z-[60] w-full bg-blue-900/80 dark:bg-slate-950/90 backdrop-blur-md border-b border-white/20 dark:border-white/10 shadow-lg">
-        <div className="flex h-20 w-full items-center justify-between px-6 md:px-12 lg:px-20">
+        <div className="flex h-16 md:h-20 w-full items-center justify-between px-6 md:px-12 lg:px-20">
           {/* Logo */}
           <Link href="/" className="transition-transform hover:scale-105">
             <Image

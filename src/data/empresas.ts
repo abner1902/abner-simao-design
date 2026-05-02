@@ -2,14 +2,17 @@ export interface GalleryItem {
   src: string;
   alt: string;
   caption: string;
+  type?: 'image' | 'video';
 }
 
 export interface EmpresaProject {
   id: number;
+  slug: string;
   title: string;
+  category: string;
   image: string;
   imageAlt: string;
-  description?: string;
+  description: string;
   behance?: string;
   gallery?: GalleryItem[];
 }
@@ -17,82 +20,69 @@ export interface EmpresaProject {
 export const empresasData: EmpresaProject[] = [
   {
     id: 1,
+    slug: 'e-commerce-varejo',
     title: 'Design para E-commerce e Varejo',
+    category: 'Graphic Design',
     image: '/assets/images/projects/06-empresas/ecommerce/lenoxx-fotos.webp',
-    imageAlt: 'Campanha de E-commerce e Varejo Digital para Lenoxx e Gradiente',
-    description: 'Desenvolvimento de campanhas digitais e artes promocionais de alto impacto para a Lenoxx (Gradiente). Projetos focados em conversão para grandes varejistas como Casas Bahia e Magazine Luiza.',
+    imageAlt: 'Campanha de E-commerce e Varejo Digital para marcas Lenoxx e Gradiente',
+    description: 'Desenvolvimento de ecossistemas visuais e artes promocionais de alta conversão para marcas como Lenoxx e Gradiente. Projetos focados em performance para grandes players do varejo nacional, incluindo Magazine Luiza e Casas Bahia.',
     behance: 'https://www.behance.net/gallery/75504923/Gradiente-Marketing-2019',
     gallery: [
-      {
-        src: '/assets/images/projects/06-empresas/ecommerce/meu-primeiro-gradiente.webp',
-        alt: 'Campanha Gradiente Meu Primeiro - Design de Produto e Marketing',
-        caption: 'Gradiente — Meu Primeiro'
-      },
-      {
-        src: '/assets/images/projects/06-empresas/ecommerce/gril-emaik-mkt.webp',
-        alt: 'E-mail Marketing Promocional para Linha Grill Lenoxx',
-        caption: 'Lenoxx — Email Marketing'
-      },
-      {
-        src: '/assets/images/projects/06-empresas/ecommerce/cafeteira-lenoxx-email-mkt.webp',
-        alt: 'Design de E-mail Marketing para Cafeteira Lenoxx',
-        caption: 'Lenoxx — Cafeteira'
-      },
-      {
-        src: '/assets/images/projects/06-empresas/ecommerce/gradient-aqua-boombox.webp',
-        alt: 'Anúncio Digital Boombox Gradiente Aqua',
-        caption: 'Gradiente Aqua — Boombox'
-      },
-      {
-        src: '/assets/images/projects/06-empresas/ecommerce/speaker-aqua-waterphone.webp',
-        alt: 'Campanha de Lançamento Speaker Aqua Waterphone Gradiente',
-        caption: 'Gradiente Aqua — Speaker'
-      },
-      {
-        src: '/assets/images/projects/06-empresas/ecommerce/boombox-anuncio-digital.webp',
-        alt: 'Social Media e Anúncio Digital para Boombox Gradiente',
-        caption: 'Gradiente — Anúncio Digital'
-      },
-      {
-        src: '/assets/images/projects/06-empresas/ecommerce/tartaruga-speaker-aqua.webp',
-        alt: 'Design de Produto Gradiente Aqua Tartaruga Speaker',
-        caption: 'Gradiente Aqua — Promocional'
-      }
+      { src: '/assets/images/projects/06-empresas/ecommerce/meu-primeiro-gradiente.webp', alt: 'Campanha Gradiente Meu Primeiro', caption: 'Gradiente — Meu Primeiro' },
+      { src: '/assets/images/projects/06-empresas/ecommerce/gril-emaik-mkt.webp', alt: 'E-mail Marketing Promocional Linha Grill Lenoxx', caption: 'Lenoxx — Email Marketing' },
+      { src: '/assets/images/projects/06-empresas/ecommerce/cafeteira-lenoxx-email-mkt.webp', alt: 'Design de E-mail Marketing para Cafeteira Lenoxx', caption: 'Lenoxx — Cafeteira' },
+      { src: '/assets/images/projects/06-empresas/ecommerce/gradient-aqua-boombox.webp', alt: 'Anúncio Digital Boombox Gradiente Aqua', caption: 'Gradiente — Boombox Aqua' },
+      { src: '/assets/images/projects/06-empresas/ecommerce/speaker-aqua-waterphone.webp', alt: 'Campanha Speaker Aqua Waterphone Gradiente', caption: 'Gradiente — Speaker Aqua' },
+      { src: '/assets/images/projects/06-empresas/ecommerce/boombox-anuncio-digital.webp', alt: 'Social Media e Anúncio Digital Boombox Gradiente', caption: 'Gradiente — Anúncio Digital' },
+      { src: '/assets/images/projects/06-empresas/ecommerce/tartaruga-speaker-aqua.webp', alt: 'Design de Produto Tartaruga Speaker Gradiente Aqua', caption: 'Gradiente — Tartaruga Speaker' }
     ]
   },
   {
     id: 2,
+    slug: 'saude-bem-estar',
     title: 'Design para Saúde e Bem-Estar',
+    category: 'Marketing Digital',
     image: '/assets/images/projects/06-empresas/saude/design-para-saude-cover.webp',
-    imageAlt: 'Design de Interface e Identidade para setor de Saúde e Bem-Estar',
-    description: 'Projetos de design estratégico focados em clínicas e profissionais da saúde, unindo sobriedade e confiança visual.'
+    imageAlt: 'Ecossistema Visual para Grupo Equilibrium - Health Marketing',
+    description: 'Comunicação estratégica para o Grupo Equilibrium (Health Marketing). Produção audiovisual e design de performance para BHB Food e Academia da Nutrição. Gestão técnica de campanhas de Ads e produção de podcasts semanais para o mercado de nutrição.',
+    gallery: [
+      // --- GRUPO BHB FOOD ---
+      { src: 'https://res.cloudinary.com/dq3qu3lv0/video/upload/q_auto/f_auto/v1777650879/BHB_FOOD_-_ONLINE_EDITION_VIDEO_PRINCIPAL_Behance_v1no0p.mp4', alt: 'BHB Food Online Edition Vídeo Principal', caption: 'BHB Food — Principal', type: 'video' },
+      { src: 'https://res.cloudinary.com/dq3qu3lv0/video/upload/q_auto/f_auto/v1777650869/BHB_FOODCAST-_SOCIAL_EDITADO_MIDIA_DESIGN_Behance_tf56dd.mp4', alt: 'BHB Foodcast Social Media Design', caption: 'BHB Foodcast — Social', type: 'video' },
+      { src: '/assets/images/projects/06-empresas/saude/bhb-thumbnail.webp', alt: 'BHB Food Marketing Digital Podcast', caption: 'BHB Food — Podcast' },
+      // --- GRUPO ACADEMIA DA NUTRIÇÃO ---
+      { src: 'https://res.cloudinary.com/dq3qu3lv0/video/upload/q_auto/f_auto/v1777650979/FORUMACADEMIA_DA_NUTRIAO_2021_-_ONLINE_WEBINAR_EVENT_Behance_zfiol3.mp4', alt: 'Fórum Academia da Nutrição 2021 Webinar', caption: 'Academia — Fórum Webinar', type: 'video' },
+      { src: '/assets/images/projects/06-empresas/saude/academia-emagrecimento.webp', alt: 'Ebook Academia da Nutrição Emagrecimento', caption: 'Academia — Emagrecimento' },
+      { src: '/assets/images/projects/06-empresas/saude/academia-forum-02.webp', alt: 'Interface Digital Academia da Nutrição Fórum', caption: 'Academia — Fórum 02' },
+      { src: '/assets/images/projects/06-empresas/saude/academia-forum-03.webp', alt: 'Comunicação Visual Evento Saúde e Nutrição', caption: 'Academia — Fórum 03' }
+    ]
   },
   {
     id: 3,
+    slug: 'branding-esportivo',
     title: 'Branding e Design Esportivo',
+    category: 'Branding',
     image: '/assets/images/projects/06-empresas/esportivo/esportivo-cover.webp',
-    imageAlt: 'Criação de Marca e Identidade Visual para o Setor Esportivo',
-    description: 'Identidades dinâmicas e materiais promocionais para atletas, times e eventos esportivos.'
+    imageAlt: 'Branding e Ilustração para Marketing Esportivo e Times Oficiais',
+    description: 'Atuação estratégica na ESM (2022) desenvolvendo ativos de branding e ilustrações vetoriais complexas via Wacom. Destaque para as ilustrações oficiais das camisetas comemorativas de 1992 do SPFC, Palmeiras, Vasco, Internacional e broadcasting para LBF e Vôlei Renata.',
+    behance: 'https://www.behance.net/gallery/147477893/Ilustracao-Camisetas-Comemorativas-Oficiais-1992-SPFC',
+    gallery: [
+      { src: '/assets/images/projects/06-empresas/esportivo/spfc-camisetas-01.webp', alt: 'Ilustração Oficial SPFC 1992 Wacom', caption: 'SPFC — Ilustração 01' },
+      { src: '/assets/images/projects/06-empresas/esportivo/spfc-camisetas-02.webp', alt: 'Vetor Camiseta SPFC 1992', caption: 'SPFC — Ilustração 02' },
+      { src: '/assets/images/projects/06-empresas/esportivo/spfc-camisetas-03.webp', alt: 'Detalhe Ilustração Camiseta SPFC', caption: 'SPFC — Ilustração 03' },
+      { src: '/assets/images/projects/06-empresas/esportivo/camiseta-spfc-loja-online.webp', alt: 'Loja Online SPFC Camisetas 1992', caption: 'SPFC — Loja Online' },
+      { src: '/assets/images/projects/06-empresas/esportivo/liga-basquete-feminina-01.webp', alt: 'LBF Liga de Basquete Feminina Branding', caption: 'LBF — Branding 01' },
+      { src: '/assets/images/projects/06-empresas/esportivo/liga-basquete-feminina-02.webp', alt: 'LBF Marketing Digital Social', caption: 'LBF — Branding 02' },
+      { src: '/assets/images/projects/06-empresas/esportivo/liga-basquete-feminina-03.webp', alt: 'LBF Story Design Atletas', caption: 'LBF — Branding 03' },
+      { src: '/assets/images/projects/06-empresas/esportivo/parabens-junior-vasco-story.webp', alt: 'Vasco da Gama Story Design Premium', caption: 'Vasco — Story' },
+      { src: '/assets/images/projects/06-empresas/esportivo/internacional-club-01.webp', alt: 'S.C. Internacional Branding Marketing', caption: 'Inter — Branding 01' },
+      { src: '/assets/images/projects/06-empresas/esportivo/internacional-club-02.webp', alt: 'Internacional Campanha 113 anos', caption: 'Inter — Branding 02' },
+      { src: '/assets/images/projects/06-empresas/esportivo/volei-renata-01.webp', alt: 'Vôlei Renata Arena Design', caption: 'Vôlei Renata — 01' },
+      { src: '/assets/images/projects/06-empresas/esportivo/volei-renata-02.webp', alt: 'Vôlei Renata Broadcasting Kit', caption: 'Vôlei Renata — 02' },
+      { src: '/assets/images/projects/06-empresas/esportivo/volei-renata-03.webp', alt: 'Vôlei Renata Story Vertical', caption: 'Vôlei Renata — 03' }
+    ]
   },
-  {
-    id: 4,
-    title: 'Identidade Visual para Fonoaudiologia',
-    image: '/assets/images/projects/06-empresas/fonoaudiologia/girafala-cover-mockup.webp',
-    imageAlt: 'Projeto de Branding Girafala - Fonoaudiologia Infantil',
-    description: 'Desenvolvimento de marca lúdica e acolhedora para clínica especializada em fonoaudiologia infantil.'
-  },
-  {
-    id: 5,
-    title: 'Design para Eventos e Estandes',
-    image: '/assets/images/projects/06-empresas/stande-evento-portal.webp',
-    imageAlt: 'Ambientação e Design Gráfico para Estandes de Eventos Corporativos',
-    description: 'Projetos de sinalização, ambientação e comunicação visual para eventos de grande porte.'
-  },
-  {
-    id: 6,
-    title: 'Branding para Clínicas Odontológicas',
-    image: '/assets/images/projects/06-empresas/valbao-dentista-cover.webp',
-    imageAlt: 'Identidade Visual Premium para Valbão Dentista',
-    description: 'Posicionamento de marca premium para consultórios odontológicos, focando em sofisticação e tecnologia.'
-  }
+  { id: 4, slug: 'identidade-fonoaudiologia', title: 'Identidade Visual para Fonoaudiologia', category: 'Branding', image: '/assets/images/projects/06-empresas/fonoaudiologia/girafala-cover-mockup.webp', imageAlt: 'Projeto de Branding Girafala - Fonoaudiologia Infantil', description: 'Desenvolvimento de marca lúdica e acolhedora para clínica especializada em fonoaudiologia infantil. Foco em UX emocional.' },
+  { id: 5, slug: 'eventos-estandes', title: 'Design para Eventos e Estandes', category: 'Graphic Design', image: '/assets/images/projects/06-empresas/stande-evento-portal.webp', imageAlt: 'Ambientação e Design Gráfico para Estandes Corporativos', description: 'Projetos de sinalização, ambientação e comunicação visual para eventos corporativos e estandes de grande porte.' },
+  { id: 6, slug: 'branding-odontologico', title: 'Branding para Clínicas Odontológicas', category: 'Branding', image: '/assets/images/projects/06-empresas/valbao-dentista-cover.webp', imageAlt: 'Identidade Visual Premium para Valbão Odontologia', description: 'Posicionamento de marca premium para consultórios odontológicos, unindo sofisticação e tecnologia.' }
 ];
