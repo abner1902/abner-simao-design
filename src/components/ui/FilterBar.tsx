@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { LayoutGrid, Monitor, Palette, Briefcase, Video } from 'lucide-react';
+import { LayoutGrid, Monitor, Palette, Briefcase, Video, type LucideIcon } from 'lucide-react';
 
 export type CategoryID = 'all' | 'web' | 'branding' | 'corporate' | 'audiovisual';
 
@@ -10,7 +10,7 @@ interface FilterBarProps {
   setActiveCategory: (id: CategoryID) => void;
 }
 
-const categories: { id: CategoryID; label: string; icon: any }[] = [
+const categories: { id: CategoryID; label: string; icon: LucideIcon }[] = [
   { id: 'all', label: 'Todos', icon: LayoutGrid },
   { id: 'web', label: 'Web', icon: Monitor },
   { id: 'branding', label: 'Branding', icon: Palette },
