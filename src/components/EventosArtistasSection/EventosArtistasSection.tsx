@@ -86,18 +86,19 @@ export default function EventosArtistasSection() {
 
   return (
     <section 
-      className="relative w-full py-24 overflow-hidden bg-transparent" 
+      className="relative w-full pt-2 pb-24 md:py-24 overflow-hidden bg-transparent" 
       aria-labelledby="eventos-artistas-heading"
     >
       {/* ✅ HEADER UNIFICADO */}
       <SectionHeader 
         title="ARTES PARA EVENTOS E ARTISTAS" 
         description="Flyers, capas de álbum e motion design para shows, festivais e lançamentos. Artes que vendem mais ingresso e engajam mais o seu público." 
+        className="mb-4 sm:mb-16"
       />
 
       <div className="relative w-full">
         <div ref={emblaRef} className="overflow-hidden px-4 sm:px-0">
-          <div className="flex touch-pan-y py-10" role="list">
+          <div className="flex touch-pan-y pt-6 pb-10 md:py-10" role="list">
             {eventosArtistas.map((item, index) => {
               const isActive = index === selectedIndex;
               

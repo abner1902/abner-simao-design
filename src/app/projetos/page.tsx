@@ -31,7 +31,7 @@ const layoutStyles = `
 
   /* ✅ REMOVE O VÁCUO DA PRIMEIRA SEÇÃO ATIVA */
   .projetos-flow-container > div:first-of-type section {
-    padding-top: 1rem !important;
+    padding-top: 0 !important;
   }
 
   @media (min-width: 768px) {
@@ -68,7 +68,7 @@ export default function ProjetosPage() {
       <Navbar />
 
       {/* ✅ Wrapper ajustado: pt-2 md:pt-4 cola o filtro na Navbar */}
-      <div className="relative pt-2 md:pt-4 pb-32 projetos-page-wrapper">
+      <div className="relative pt-4 md:pt-16 pb-32 projetos-page-wrapper">
         
         <FilterBar activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
 
