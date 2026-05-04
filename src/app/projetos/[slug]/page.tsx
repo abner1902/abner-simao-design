@@ -7,7 +7,7 @@ import { ArrowLeft, ExternalLink } from 'lucide-react';
 import QuickFactsTable from '@/components/project/QuickFactsTable';
 
 // Importação das duas fontes de dados
-import { webDesignProjects } from '@/data/webDesign';
+import { webDesignProjects } from '@/data/WebDesign';
 import { empresasData } from '@/data/empresas';
 
 export default function ProjectPage() {
@@ -109,14 +109,29 @@ export default function ProjectPage() {
         </div>
 
         {/* 4. O DESAFIO / DESCRIÇÃO */}
-        <section className="relative p-6 sm:p-10 rounded-3xl bg-white/40 dark:bg-white/5 backdrop-blur-xl border border-white/50 dark:border-white/10 shadow-lg">
-          <h2 className="font-gotham font-bold text-emerald-700 dark:text-emerald-400 text-label-lg uppercase tracking-[0.2em] mb-6">
-            Estratégia & Solução Visual
-          </h2>
-          <p className="font-gotham text-stone-800 dark:text-stone-100 text-body-md sm:text-body-lg leading-relaxed whitespace-pre-line">
-            {project.description || ('challenge' in project ? project.challenge : '')}
-          </p>
-        </section>
+        {/* DESCRIÇÃO CURTA */}
+        {'description' in project && project.description && (
+          <section className="relative p-6 sm:p-10 rounded-3xl bg-white/40 dark:bg-white/5 backdrop-blur-xl border border-white/50 dark:border-white/10 shadow-lg">
+            <h2 className="font-gotham font-bold text-emerald-700 dark:text-emerald-400 text-label-lg uppercase tracking-[0.2em] mb-6">
+              Visão Geral
+            </h2>
+            <p className="font-gotham text-stone-800 dark:text-stone-100 text-body-md sm:text-body-lg leading-relaxed">
+              {project.description}
+            </p>
+          </section>
+        )}
+
+        {/* DESAFIO & SOLUÇÃO */}
+        {'challenge' in project && project.challenge && (
+          <section className="relative p-6 sm:p-10 rounded-3xl bg-white/40 dark:bg-white/5 backdrop-blur-xl border border-white/50 dark:border-white/10 shadow-lg">
+            <h2 className="font-gotham font-bold text-emerald-700 dark:text-emerald-400 text-label-lg uppercase tracking-[0.2em] mb-6">
+              Estratégia & Solução Visual
+            </h2>
+            <p className="font-gotham text-stone-800 dark:text-stone-100 text-body-md sm:text-body-lg leading-relaxed whitespace-pre-line">
+              {project.challenge}
+            </p>
+          </section>
+        )}
 
         {/* 5. GALERIA (MASONRY/GRID) - Se existir */}
         {'gallery' in project && project.gallery && project.gallery.length > 0 && (

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
-import { webDesignProjects } from '@/data/webDesign';
+import { webDesignProjects } from '@/data/WebDesign';
 import SectionHeader from '@/components/ui/SectionHeader';  
 
 export default function WebDesignSection() {
