@@ -34,7 +34,7 @@ export const empresasData: EmpresaProject[] = [
       { src: '/assets/images/projects/06-empresas/ecommerce/gradient-aqua-boombox.webp', alt: 'Anúncio Digital Boombox Gradiente Aqua', caption: 'Gradiente — Boombox Aqua' },
       { src: '/assets/images/projects/06-empresas/ecommerce/speaker-aqua-waterphone.webp', alt: 'Campanha Speaker Aqua Waterphone Gradiente', caption: 'Gradiente — Speaker Aqua' },
       { src: '/assets/images/projects/06-empresas/ecommerce/boombox-anuncio-digital.webp', alt: 'Social Media e Anúncio Digital Boombox Gradiente', caption: 'Gradiente — Anúncio Digital' },
-      { src: '/assets/images/projects/06-empresas/ecommerce/tartaruga-speaker-aqua.webp', alt: 'Design de Produto Tartaruga Speaker Gradiente Aqua', caption: 'Gradiente — Tartaruga Speaker' }
+      { src: '/assets/images/projects/06-empresas/ecommerce/tartaruga-speaker-aqua.webp', alt: 'Design de Produto Tartaruga Speaker Gradiente Aqua', caption: 'Gradiente — Speaker Aqua Promo' }
     ]
   },
   {
@@ -82,7 +82,24 @@ export const empresasData: EmpresaProject[] = [
       { src: '/assets/images/projects/06-empresas/esportivo/volei-renata-03.webp', alt: 'Vôlei Renata Story Vertical', caption: 'Vôlei Renata — 03' }
     ]
   },
-  { id: 4, slug: 'identidade-fonoaudiologia', title: 'Identidade Visual para Fonoaudiologia', category: 'Branding', image: '/assets/images/projects/06-empresas/fonoaudiologia/girafala-cover-mockup.webp', imageAlt: 'Projeto de Branding Girafala - Fonoaudiologia Infantil', description: 'Desenvolvimento de marca lúdica e acolhedora para clínica especializada em fonoaudiologia infantil. Foco em UX emocional.' },
-  { id: 5, slug: 'eventos-estandes', title: 'Design para Eventos e Estandes', category: 'Graphic Design', image: '/assets/images/projects/06-empresas/stande-evento-portal-v2.webp', imageAlt: 'Ambientação e Design Gráfico para Estandes Corporativos', description: 'Projetos de sinalização, ambientação e comunicação visual para eventos corporativos e estandes de grande porte.' },
-  { id: 6, slug: 'branding-odontologico', title: 'Branding para Clínicas Odontológicas', category: 'Branding', image: '/assets/images/projects/06-empresas/valbao-dentista-cover.webp', imageAlt: 'Identidade Visual Premium para Valbão Odontologia', description: 'Posicionamento de marca premium para consultórios odontológicos, unindo sofisticação e tecnologia.' }
+  {
+  id: 4,
+  slug: 'identidade-fonoaudiologia',
+  title: 'Identidade Visual para Fonoaudiologia',
+  category: 'Branding · Identidade Visual',
+  image: '/assets/images/projects/06-empresas/fonoaudiologia/girafala-cover-mockup.webp',
+  imageAlt: 'Branding GiraFala — Identidade Visual para Clínica de Fonoaudiologia Infantil',
+  description: 'A GiraFala chegou com nome e conceito definidos — minha missão foi dar vida à marca. O desafio era traduzir fonoaudiologia infantil em uma linguagem visual que fosse ao mesmo tempo acolhedora para as famílias e confiável para os responsáveis. O resultado é uma identidade delicada e lúdica, com a girafa como símbolo natural do desenvolvimento da fala — longa, que alcança alturas, que cresce. Hoje o consultório está em plena expansão, e a marca acompanha esse crescimento com consistência.',
+  behance: undefined,
+  gallery: [
+    { src: '/assets/images/projects/06-empresas/fonoaudiologia/girafala-cover-mockup.webp', alt: 'Mockup papelaria GiraFala — Cartão e Identidade Visual', caption: 'GiraFala — Mockup Identidade' },
+    { src: '/assets/images/projects/06-empresas/fonoaudiologia/logo-oficial-girafala-01.webp', alt: 'Logo oficial GiraFala fundo colorido', caption: 'Logo — Versão Principal' },
+    { src: '/assets/images/projects/06-empresas/fonoaudiologia/logo-oficial-girafala-02.webp', alt: 'Logo oficial GiraFala fundo preto', caption: 'Logo — Versão Dark' },
+    { src: '/assets/images/projects/06-empresas/fonoaudiologia/logo-oficial-girafala-03.webp', alt: 'Logo oficial GiraFala fundo branco', caption: 'Logo — Versão Light' },
+    { src: '/assets/images/projects/06-empresas/fonoaudiologia/cartao-girafala.webp', alt: 'Cartão de visita GiraFala Fonoaudiologia', caption: 'Cartão de Visita' },
+    { src: '/assets/images/projects/06-empresas/fonoaudiologia/guia-de-cores-girafala.webp', alt: 'Guia de cores e tipografia GiraFala', caption: 'Guia de Cores & Tipografia' },
+  ]
+},
+  { id: 5, slug: 'evento-estande', title: 'Design para Evento e Estande', category: 'Graphic Design', image: '/assets/images/projects/06-empresas/stande-evento-portal-v2.webp', imageAlt: 'Ambientação e Design Gráfico para Estandes Corporativos', description: 'Projetos de sinalização, ambientação e comunicação visual para eventos corporativos e estandes de grande porte.' },
+  { id: 6, slug: 'branding-odontologico', title: 'Branding para Clínica Odontológica', category: 'Branding', image: '/assets/images/projects/06-empresas/valbao-dentista-cover.webp', imageAlt: 'Identidade Visual Premium para Valbão Odontologia', description: 'Posicionamento de marca premium para consultórios odontológicos, unindo sofisticação e tecnologia.' }
 ];

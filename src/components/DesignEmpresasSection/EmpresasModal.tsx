@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -18,20 +18,29 @@ export default function EmpresasModal({
   project,
 }: EmpresasModalProps) {
   
-  // Lógica para fechar com a tecla ESC
+  const [lightbox, setLightbox] = useState<GalleryItem | null>(null);
+
+  // ESC: fecha lightbox primeiro, depois o modal
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (lightbox) setLightbox(null);
+        else onClose();
+      }
     };
-    if (isOpen) {
-      window.addEventListener('keydown', handleEsc);
-    }
+    if (isOpen) window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, lightbox]);
+
+  // Reset lightbox ao fechar o modal
+  useEffect(() => {
+    if (!isOpen) setLightbox(null);
+  }, [isOpen]);
 
   if (!project) return null;
 
   return (
+    <>
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -90,20 +99,26 @@ export default function EmpresasModal({
                       duration: 0.5, 
                       ease: [0.19, 1, 0.22, 1] 
                     }}
-                    className="break-inside-avoid rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 group"
+                    className="break-inside-avoid rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-white/5 group cursor-zoom-in"
+                    onClick={(e) => { e.stopPropagation(); if (item.type !== 'video') setLightbox(item); }}
                   >
                     <div className="relative w-full">
                       {item.type === 'video' ? (
                         <video src={item.src} autoPlay muted loop playsInline className="w-full h-auto object-cover" />
                       ) : (
-                        <Image
-                          src={item.src}
-                          alt={item.alt}
-                          width={600}
-                          height={800}
-                          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                          sizes="(max-width: 640px) 50vw, 33vw"
-                        />
+                        <div className="relative">
+                          <Image
+                            src={item.src}
+                            alt={item.alt}
+                            width={600}
+                            height={800}
+                            className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                            sizes="(max-width: 640px) 50vw, 33vw"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20">
+                            <span className="text-white text-2xl">🔍</span>
+                          </div>
+                        </div>
                       )}
                     </div>
                     <div className="p-3 bg-white/80 dark:bg-black/60 backdrop-blur-md border-t border-zinc-200 dark:border-white/5">
@@ -133,5 +148,50 @@ export default function EmpresasModal({
         </motion.div>
       )}
     </AnimatePresence>
+  {/* ── LIGHTBOX ── */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
+            onClick={() => setLightbox(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.19, 1, 0.22, 1] }}
+              className="relative max-w-5xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Botão X */}
+              <button
+                onClick={() => setLightbox(null)}
+                className="absolute -top-12 right-0 p-2 text-white/70 hover:text-white transition-colors"
+                aria-label="Fechar imagem"
+              >
+                <X size={28} />
+              </button>
+
+              <Image
+                src={lightbox.src}
+                alt={lightbox.alt}
+                width={1200}
+                height={900}
+                className="w-full h-auto rounded-2xl object-contain shadow-2xl"
+              />
+
+              {/* Caption */}
+              <p className="mt-3 text-center font-gotham text-white/50 text-label-sm uppercase tracking-widest">
+                {lightbox.caption}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
