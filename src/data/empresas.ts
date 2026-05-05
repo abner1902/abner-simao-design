@@ -100,6 +100,71 @@ export const empresasData: EmpresaProject[] = [
     { src: '/assets/images/projects/06-empresas/fonoaudiologia/guia-de-cores-girafala.webp', alt: 'Guia de cores e tipografia GiraFala', caption: 'Guia de Cores & Tipografia' },
   ]
 },
-  { id: 5, slug: 'evento-estande', title: 'Design para Evento e Estande', category: 'Graphic Design', image: '/assets/images/projects/06-empresas/stande-evento-portal-v2.webp', imageAlt: 'Ambientação e Design Gráfico para Estandes Corporativos', description: 'Projetos de sinalização, ambientação e comunicação visual para eventos corporativos e estandes de grande porte.' },
+  {
+  id: 5,
+  slug: 'evento-estande',
+  title: 'Design para Evento e Estande',
+  category: 'Graphic Design',
+  image: '/assets/images/projects/06-empresas/stande-evento-portal-v2.webp',
+  imageAlt: 'Ambientação e Design Gráfico para Estandes Corporativos',
+  description: 'Criação completa da comunicação visual do estande da Portal Telemedicina para o Global Summit 2022, traduzindo o posicionamento da marca no encontro entre saúde e tecnologia. Fui responsável pelo desenvolvimento das artes vetorizadas e das peças em alta resolução para impressão em adesivos, além do folder institucional com três dobras, vinco, frente e verso, e do bloco de anotações alinhado à identidade visual da empresa. O resultado foi um sistema visual coeso, pensado para reforçar presença de marca, clareza de comunicação e percepção de inovação no ambiente expositivo.',
+  gallery: [
+    {
+      src: '/assets/images/projects/06-empresas/eventos/global-summit-2022-thumb.webp',
+      alt: 'Global Summit 2022 thumb do projeto de evento e estande',
+      caption: 'Global Summit — Thumb'
+    },
+    {
+      src: '/assets/images/projects/06-empresas/eventos/global-summit-photo-stand.webp',
+      alt: 'Vista geral do estande no evento Global Summit',
+      caption: 'Global Summit — Estande 01'
+    },
+    {
+      src: '/assets/images/projects/06-empresas/eventos/global-summit-photo-stand-02.webp',
+      alt: 'Estande corporativo Global Summit vista 02',
+      caption: 'Global Summit — Estande 02'
+    },
+    {
+      src: '/assets/images/projects/06-empresas/eventos/global-summit-photo-stand-03.webp',
+      alt: 'Estande corporativo Global Summit vista 03',
+      caption: 'Global Summit — Estande 03'
+    },
+    {
+      src: '/assets/images/projects/06-empresas/eventos/global-summit-photo-stand-04.webp',
+      alt: 'Estande corporativo Global Summit vista 04',
+      caption: 'Global Summit — Estande 04'
+    },
+    {
+      src: '/assets/images/projects/06-empresas/eventos/global-summit-photo-stand-05.webp',
+      alt: 'Estande corporativo Global Summit vista 05',
+      caption: 'Global Summit — Estande 05'
+    },
+    {
+      src: '/assets/images/projects/06-empresas/eventos/global-summit-photo-stand-06.webp',
+      alt: 'Estande corporativo Global Summit vista 06',
+      caption: 'Global Summit — Estande 06'
+    },
+    {
+      src: '/assets/images/projects/06-empresas/eventos/global-summit-photo-07-bloco-de-notas.webp',
+      alt: 'Material gráfico bloco de notas do Global Summit',
+      caption: 'Global Summit — Bloco de Notas'
+    },
+    {
+      src: '/assets/images/projects/06-empresas/eventos/global-summit-photo-08-folder-cmyk-impressao-3-dobras.webp',
+      alt: 'Folder impresso CMYK de três dobras do Global Summit',
+      caption: 'Global Summit — Folder'
+    },
+    {
+      src: '/assets/images/projects/06-empresas/eventos/global-summit-photo-09-global-summit-photo-08-folder-cmyk-impressao-3-dobras-capa.webp',
+      alt: 'Capa do folder impresso do Global Summit',
+      caption: 'Global Summit — Folder Capa'
+    },
+    {
+      src: '/assets/images/projects/06-empresas/eventos/global-summit-photo-10-stand-folders-view.webp',
+      alt: 'Vista do estande com folders do Global Summit',
+      caption: 'Global Summit — Materiais no Estande'
+    }
+  ]
+},
   { id: 6, slug: 'branding-odontologico', title: 'Branding para Clínica Odontológica', category: 'Branding', image: '/assets/images/projects/06-empresas/valbao-dentista-cover.webp', imageAlt: 'Identidade Visual Premium para Valbão Odontologia', description: 'Posicionamento de marca premium para consultórios odontológicos, unindo sofisticação e tecnologia.' }
 ];

@@ -22,7 +22,7 @@ const projects = [
     category: 'Design de Experiência e Eventos',
     description:
       'Comunicação visual estratégica para estande em evento de tecnologia de escala global, garantindo unidade visual e impacto de marca em grandes formatos.',
-    image: '/assets/images/projects/06-empresas/eventos/global-summit-2022-thumb.png',
+    image: '/assets/images/projects/06-empresas/eventos/global-summit-2022-thumb.webp',
     imageAlt: 'Estande Global Summit 2022 — Portal Telemedicina',
     slug: 'eventos-estandes', // Slug corrigido para abrir o projeto
   },
