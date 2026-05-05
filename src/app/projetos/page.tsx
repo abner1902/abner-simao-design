@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -50,7 +50,7 @@ const layoutStyles = `
   }
 `;
 
-export default function ProjetosPage() {
+function ProjetosPageContent() {
   const [activeCategory, setActiveCategory] = useState<CategoryID>('all');
   const searchParams = useSearchParams();
 
@@ -138,5 +138,13 @@ export default function ProjetosPage() {
 
       <Footer />
     </main>
+  );
+}
+
+export default function ProjetosPage() {
+  return (
+    <Suspense fallback={null}>
+      <ProjetosPageContent />
+    </Suspense>
   );
 }
