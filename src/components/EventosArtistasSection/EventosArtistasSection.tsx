@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useState, type MouseEvent } from 'react';
+import { useSearchParams } from 'next/navigation';
 import useEmblaCarousel from 'embla-carousel-react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -28,6 +29,7 @@ export default function EventosArtistasSection() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeProject, setActiveProject] = useState<EventoArtista | null>(null);
+  const searchParams = useSearchParams();
 
   // ✅ Link resolver memoizado
   const getProjectLink = useCallback((title: string): string | null => {
@@ -83,6 +85,21 @@ export default function EventosArtistasSection() {
     document.body.style.overflow = isModalOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [isModalOpen]);
+    useEffect(() => {
+    const project = searchParams.get('project');
+
+    if (!project) return;
+    if (project !== 'naturaiz-astral-labyrinth') return;
+
+    const targetProject = eventosArtistas.find((item) =>
+      item.title.toUpperCase().includes('ASTRAL LABYRINTH')
+    );
+
+    if (targetProject) {
+      setActiveProject(targetProject);
+      setIsModalOpen(true);
+    }
+  }, [searchParams]);
 
   return (
     <section 

@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Navbar, 
@@ -51,6 +52,25 @@ const layoutStyles = `
 
 export default function ProjetosPage() {
   const [activeCategory, setActiveCategory] = useState<CategoryID>('all');
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const project = searchParams.get('project');
+
+    if (!project) {
+      setActiveCategory('all');
+      return;
+    }
+
+    const projectCategoryMap: Record<string, CategoryID> = {
+      'valbao-odontologia': 'corporate',
+      'eventos-estandes': 'corporate',
+      'agya-sounds': 'web',
+      'naturaiz-astral-labyrinth': 'audiovisual',
+    };
+
+    setActiveCategory(projectCategoryMap[project] ?? 'all');
+  }, [searchParams]);
 
   const isVisible = (category: CategoryID) => activeCategory === 'all' || activeCategory === category;
 

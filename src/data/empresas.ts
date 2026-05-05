@@ -166,5 +166,32 @@ export const empresasData: EmpresaProject[] = [
     }
   ]
 },
-  { id: 6, slug: 'branding-odontologico', title: 'Branding para Clínica Odontológica', category: 'Branding', image: '/assets/images/projects/06-empresas/valbao-dentista-cover.webp', imageAlt: 'Identidade Visual Premium para Valbão Odontologia', description: 'Posicionamento de marca premium para consultórios odontológicos, unindo sofisticação e tecnologia.' }
+  {
+  id: 6,
+  slug: 'branding-odontologico',
+  title: 'Identidade Visual — Valbão Odontologia',
+  category: 'Branding',
+  image: '/assets/images/projects/06-empresas/valbao-dentista-cover.webp',
+  imageAlt: 'Identidade visual Valbão Odontologia (2022) — branding para clínica odontológica',
+  description: 'Desenvolvimento completo da identidade visual da Valbão Odontologia (2022), com construção de sistema de marca premium aplicado em comunicação institucional e peças de divulgação. O projeto inclui definições de tipografia, arquitetura de marca, comportamento visual, regras de aplicação e peças de papelaria, garantindo consistência e reconhecimento em todos os pontos de contato da clínica.',
+  behance: 'https://www.behance.net/gallery/142508127/IDENTIDADE-VISUAL-(BRANDING)-VALBAO-ODONTOLOGIA-2022',
+  gallery: [
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-branding-capa-01.webp', alt: 'Capa do projeto de identidade visual Valbão Odontologia', caption: 'Valbão — Capa' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-aplicacoes-prioritarias.webp', alt: 'Aplicações prioritárias da marca Valbão Odontologia', caption: 'Valbão — Aplicações prioritárias' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-aplicacoes.webp', alt: 'Aplicações da identidade visual da Valbão Odontologia', caption: 'Valbão — Aplicações' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-area-nao-interferencia.webp', alt: 'Área de não interferência do logotipo Valbão Odontologia', caption: 'Valbão — Área de não interferência' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-arquetipo.webp', alt: 'Arquétipo e posicionamento da marca Valbão Odontologia', caption: 'Valbão — Arquétipo' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-banner.webp', alt: 'Banner com identidade visual Valbão Odontologia', caption: 'Valbão — Banner' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-branding-02.webp', alt: 'Apresentação de branding Valbão Odontologia — composição 02', caption: 'Valbão — Branding 02' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-branding-04.webp', alt: 'Apresentação de branding Valbão Odontologia — composição 04', caption: 'Valbão — Branding 04' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-branding-05.webp', alt: 'Apresentação de branding Valbão Odontologia — composição 05', caption: 'Valbão — Branding 05' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-branding-Promo.webp', alt: 'Peça promocional com identidade visual Valbão Odontologia', caption: 'Valbão — Promo' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-branding-tipografia.webp', alt: 'Tipografia e sistema tipográfico da marca Valbão Odontologia', caption: 'Valbão — Tipografia' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-caneca.webp', alt: 'Mockup de caneca com marca Valbão Odontologia', caption: 'Valbão — Caneca' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-comportamento-da-marca.webp', alt: 'Comportamento da marca Valbão Odontologia (regras de aplicação)', caption: 'Valbão — Comportamento' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-entrada.webp', alt: 'Aplicação da marca Valbão Odontologia na entrada da clínica', caption: 'Valbão — Entrada' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-palavras-chave.webp', alt: 'Palavras-chave e atributos de marca Valbão Odontologia', caption: 'Valbão — Palavras-chave' },
+    { src: '/assets/images/projects/06-empresas/odontologia/valbao-papelaria.webp', alt: 'Papelaria institucional Valbão Odontologia', caption: 'Valbão — Papelaria' }
+  ]
+}
 ];

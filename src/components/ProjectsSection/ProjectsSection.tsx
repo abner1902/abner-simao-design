@@ -24,7 +24,7 @@ const projects = [
       'Comunicação visual estratégica para estande em evento de tecnologia de escala global, garantindo unidade visual e impacto de marca em grandes formatos.',
     image: '/assets/images/projects/06-empresas/eventos/global-summit-2022-thumb.webp',
     imageAlt: 'Estande Global Summit 2022 — Portal Telemedicina',
-    slug: 'eventos-estandes', // Slug corrigido para abrir o projeto
+    slug: 'eventos-estandes',
   },
   {
     id: 'agya-sounds',
@@ -44,7 +44,7 @@ const projects = [
       'Direção de arte completa para o lançamento do EP Lunar Pareidolia, integrando a criação da capa oficial com uma produção em Stop Motion biomecânica e sombria. Um projeto autoral que une design lúdico e psicodelia densa para o cenário de festivais.',
     image: '/assets/images/projects/naturaiz-ep-photo.webp',
     imageAlt: 'Cover Art EP Lunar Pareidolia — Naturaíz Records',
-    slug: 'naturaiz-records',
+    slug: 'naturaiz-astral-labyrinth',
   },
 ];
 
@@ -55,7 +55,6 @@ export default function ProjectsSection() {
       className="w-full bg-gradient-to-b from-green-500/30 via-sky-500/30 via-[43%] to-purple-500/30 py-20 px-4 sm:px-8"
     >
       <div className="mx-auto max-w-[1317px] flex flex-col items-center gap-16">
-
         {/* HEADER */}
         <div className="flex flex-col items-center gap-4 text-center">
           <h2 className="font-gotham font-black text-sky-900 dark:text-sky-300 text-3xl sm:text-4xl uppercase tracking-wide">
@@ -72,7 +71,6 @@ export default function ProjectsSection() {
           {projects.map((project, index) => (
             <li key={project.id}>
               <article className="group flex flex-col sm:flex-row gap-6 rounded-3xl bg-gradient-to-b from-sky-100/80 to-sky-50/80 dark:from-slate-900/60 dark:to-slate-800/60 backdrop-blur-md border border-white/60 dark:border-white/10 shadow-[0px_4px_14px_0px_rgba(0,0,0,0.25)] p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0px_8px_24px_0px_rgba(0,0,0,0.15)]">
-
                 <div className="relative w-full sm:w-[370px] h-64 sm:h-auto shrink-0 overflow-hidden rounded-2xl bg-zinc-200">
                   <Image
                     src={project.image}
@@ -81,8 +79,8 @@ export default function ProjectsSection() {
                     priority={index === 0}
                     sizes="(max-width: 640px) 100vw, 370px"
                     className={`object-cover object-center transition-transform duration-500 ease-out ${
-                      project.id === 'global-summit' 
-                        ? 'scale-[1.4] group-hover:scale-[1.55]' 
+                      project.id === 'global-summit'
+                        ? 'scale-[1.4] group-hover:scale-[1.55]'
                         : 'group-hover:scale-110'
                     }`}
                   />
@@ -102,14 +100,13 @@ export default function ProjectsSection() {
                   </p>
 
                   <Link
-                    href={`/projetos/${project.slug}`}
+                    href={`/projetos?project=${project.slug}`}
                     className="mt-2 inline-flex items-center gap-2 self-start px-6 py-3 rounded-xl font-gotham font-medium text-stone-900 dark:text-white text-sm uppercase tracking-widest bg-gradient-to-r from-white/70 to-blue-200 dark:from-slate-800/60 dark:to-blue-900/50 border border-sky-500 dark:border-sky-400 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.25)] transition-all duration-300 hover:brightness-95 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500"
                   >
                     VER DETALHES
                     <ArrowUpRight size={16} strokeWidth={2} />
                   </Link>
                 </div>
-
               </article>
             </li>
           ))}
@@ -122,7 +119,6 @@ export default function ProjectsSection() {
         >
           VER MAIS PROJETOS
         </Link>
-
       </div>
     </section>
   );
