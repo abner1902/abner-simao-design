@@ -1,11 +1,12 @@
 'use client';
+
 import Image from 'next/image';
 
 const services = [
   {
     title: "Design Engineer\n(UI/UX + Front-end)",
     description: "Web Design especializado em criação de interfaces modernas no Figma e desenvolvimento com Next.js, React e Tailwind. Foco em performance, SEO e fidelidade visual.",
-    image: "/assets/images/services/ui-ux.png",
+    image: "/assets/images/services/ui-ux.webp",
     gridClass: "lg:col-span-4 lg:row-span-2",
     type: "tall",
     imgW: 240,
@@ -14,7 +15,7 @@ const services = [
   {
     title: "Branding e Identidade Visual",
     description: "Criação de logotipos, manuais de marca e diretrizes visuais estratégicas para empresas de diversos segmentos e mercados corporativos, além de identidades exclusivas para DJs, artistas e grandes eventos de música eletrônica.",
-    image: "/assets/images/services/branding.png",
+    image: "/assets/images/services/branding.webp",
     gridClass: "lg:col-span-8",
     type: "grid",
     imgW: 200,
@@ -23,16 +24,17 @@ const services = [
   {
     title: "Motion Design e Edição de Vídeo",
     description: "Produção de conteúdo dinâmico, edição de vídeo, stop motion e motion graphics em After Effects e Premiere.",
-    image: "/assets/images/services/video.png",
+    image: "/assets/images/services/video.webp",
     gridClass: "lg:col-span-4",
     type: "grid",
     imgW: 160,
     imgH: 160,
+    isMotionDesign: true, // <-- Adicionado para este item
   },
   {
     title: "Diagramação e Design Editorial",
     description: "Projeto gráfico e diagramação de catálogos, revistas e materiais institucionais complexos (InDesign/Adobe Suite).",
-    image: "/assets/images/services/editorial.png",
+    image: "/assets/images/services/editorial.webp",
     gridClass: "lg:col-span-4",
     type: "grid",
     imgW: 140,
@@ -41,7 +43,7 @@ const services = [
   {
     title: "Design Visual e Artes Psicodélicas",
     description: "Ilustrações autorais e design lúdico para capas de EP, festivais de música eletrônica (Psytrance) e projetos que exigem uma estética única e imersiva.",
-    image: "/assets/images/services/illustration.png",
+    image: "/assets/images/services/illustration.webp",
     gridClass: "lg:col-span-8",
     type: "grid",
     imgW: 220,
@@ -50,7 +52,7 @@ const services = [
   {
     title: "Estratégia, SEO e Tráfego Pago",
     description: "Otimização de conversão, gestão de campanhas de tráfego e visibilidade orgânica para produtos digitais.",
-    image: "/assets/images/services/seo.png",
+    image: "/assets/images/services/seo.webp",
     gridClass: "lg:col-span-4",
     type: "grid",
     imgW: 160,
@@ -68,7 +70,7 @@ export default function ServicesSection() {
       <div
         className="absolute inset-0 -z-10"
         style={{
-          backgroundImage: 'url(/assets/images/services/bg-services.jpg)',
+          backgroundImage: 'url(/assets/images/services/bg-services.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -115,7 +117,8 @@ export default function ServicesSection() {
                         alt=""
                         width={s.imgW}
                         height={s.imgH}
-                        className="object-contain"
+                        // Aplica scale-125 APENAS no Motion Design
+                        className={`object-contain ${s.isMotionDesign ? 'scale-125' : ''}`}
                         sizes={`${s.imgW}px`}
                         priority
                       />
@@ -138,7 +141,8 @@ export default function ServicesSection() {
                         alt=""
                         width={s.imgW}
                         height={s.imgH}
-                        className="object-contain"
+                        // Aplica scale-125 APENAS no Motion Design
+                        className={`object-contain ${s.isMotionDesign ? 'scale-125' : ''}`}
                         sizes={`${s.imgW}px`}
                       />
                     </div>

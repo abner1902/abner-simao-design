@@ -81,7 +81,7 @@ function ProjetosPageContent() {
       {/* Background Fixo */}
       <div 
         className="fixed inset-0 -z-20 h-full w-full bg-cover bg-center bg-no-repeat opacity-70"
-        style={{ backgroundImage: "url('/assets/images/projects/bg/projects-bg.jpg')" }}
+        style={{ backgroundImage: "url('/assets/images/projects/bg/projects-bg.webp')" }}
       />
       <div className="fixed inset-0 -z-10 backdrop-blur-lg pointer-events-none bg-black/5 dark:bg-black/20" />
 

@@ -9,7 +9,7 @@ export default function HeroSection() {
       {/* Background Decorativo */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/assets/images/backgrounds/bg-liquid-forms.jpg"
+          src="/assets/images/backgrounds/bg-liquid-forms.webp"
           alt=""
           fill
           priority
@@ -44,7 +44,7 @@ export default function HeroSection() {
               <div className="flex justify-center lg:hidden w-full animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700 fill-mode-both py-4">
                 <div className="relative w-full max-w-[280px] aspect-square rounded-3xl overflow-hidden border border-white/20 shadow-xl bg-white/5">
                   <Image
-                    src="/assets/images/profile/abner-hero-photo.png"
+                    src="/assets/images/profile/abner-hero-photo.webp"
                     alt="Abner Simão"
                     fill
                     className="object-cover object-top scale-[1.10]"
@@ -72,7 +72,7 @@ export default function HeroSection() {
             <div className="hidden lg:flex justify-center items-center animate-in fade-in zoom-in-95 duration-1000 delay-500 fill-mode-both order-2">
               <div className="relative w-full aspect-square max-w-[360px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-white/5">
                 <Image
-                  src="/assets/images/profile/abner-hero-photo.png"
+                  src="/assets/images/profile/abner-hero-photo.webp"
                   alt="Abner Simão"
                   fill
                   className="object-cover object-top scale-[1.10]"

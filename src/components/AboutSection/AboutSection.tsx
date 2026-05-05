@@ -11,7 +11,7 @@ export default function AboutSection() {
     >
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/assets/images/about/geometric-about-bg.jpg"
+          src="/assets/images/about/geometric-about-bg.webp"
           alt=""
           fill
           className="object-cover opacity-100"
@@ -52,7 +52,7 @@ export default function AboutSection() {
           <article className="h-full flex flex-col items-center gap-6 rounded-[34px] bg-blue-100/70 dark:bg-slate-900/60 backdrop-blur-md border border-white/60 dark:border-white/10 shadow-[0px_4px_14px_0px_rgba(0,0,0,0.25)] p-8 text-center">
             <div className="relative w-48 h-48 rounded-3xl overflow-hidden">
               <Image
-                src="/assets/images/profile/abner-vector.jpg"
+                src="/assets/images/profile/abner-vector.webp"
                 alt="Abner Simão — Designer e Desenvolvedor Front-end"
                 fill
                 className="object-cover object-top"

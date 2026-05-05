@@ -28,7 +28,7 @@ export default function ProjectPage() {
         <div className="fixed inset-0 -z-20">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/assets/images/projects/bg/projects-bg.jpg')" }}
+            style={{ backgroundImage: "url('/assets/images/projects/bg/projects-bg.webp')" }}
           />
           <div className="absolute inset-0 backdrop-blur-2xl bg-white/50 dark:bg-slate-900/70" />
         </div>
@@ -53,7 +53,7 @@ export default function ProjectPage() {
       <div className="fixed inset-0 -z-20">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/assets/images/projects/bg/projects-bg.jpg')" }}
+          style={{ backgroundImage: "url('/assets/images/projects/bg/projects-bg.webp')" }}
         />
         <div className="absolute inset-0 backdrop-blur-2xl bg-white/40 dark:bg-slate-900/60" />
       </div>
