@@ -87,7 +87,7 @@ export default function Navbar() {
           <div className="flex flex-1 items-center">
             <Link href="/" className="transition-transform hover:scale-105">
               <Image
-                src="/assets/images/logos/logotipo-abnersimao-branco.png"
+                src="/assets/images/logos/logotipo-abnersimao-branco.webp"
                 alt="Abner Simão"
                 width={160}
                 height={40}
