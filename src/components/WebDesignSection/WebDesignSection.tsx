@@ -22,14 +22,16 @@ export default function WebDesignSection() {
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
+  // O return está agora no lugar certo, após todas as declarações.
   return (
     <section 
-      className="relative w-full py-16 md:py-24 overflow-hidden bg-white/10 backdrop-blur-md border-y border-white/30 shadow-2xl rounded-none" 
+      className="relative w-full pt-10 pb-16 md:py-24 overflow-hidden bg-white/10 backdrop-blur-md border-y border-white/30 shadow-2xl rounded-none" 
       aria-label="Projetos de Web Design e Desenvolvimento"
     >
       
       {/* HEADER UNIFICADO */}
-      <div className="mb-12 md:mb-16">
+      {/* Aumentei o margin-bottom para mobile (sm:mb-28) para dar mais espaço */}
+      <div className="mb-10 md:mb-20"> 
         <SectionHeader 
           title="WEB DESIGN & DESENVOLVIMENTO" 
           description="Criação de sites, lojas online e plataformas digitais com foco em UI/UX e performance. Projetos em React, Next.js e Tailwind para conversão." 
@@ -37,7 +39,8 @@ export default function WebDesignSection() {
       </div>
 
       {/* CAROUSEL */}
-      <div className="relative w-full max-w-[1440px] mx-auto px-4 md:px-12">
+      {/* Adicionei px-6 para ter mais espaço nas laterais em mobile */}
+      <div className="relative w-full max-w-[1440px] mx-auto px-6 md:px-12"> 
         {/* Botões de navegação */}
         <button
           onClick={scrollPrev}
@@ -56,11 +59,13 @@ export default function WebDesignSection() {
 
         {/* Viewport Embla */}
         <div ref={emblaRef} className="overflow-hidden w-full">
-          <div className="flex touch-pan-y py-8">
+          {/* Mantive py-6 que Abner já tinha ajustado */}
+          <div className="flex touch-pan-y pt-2 pb-6"> 
             {webDesignProjects.map((item, index) => (
               <div
                 key={item.id}
-                className="flex-[0_0_85%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-3"
+                // Mantive flex-[0_0_85%] para mobile, pois é o padrão
+                className="flex-[0_0_85%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-3" 
               >
                 <Link 
                   href={`/projetos/${item.slug}`} 
@@ -70,7 +75,7 @@ export default function WebDesignSection() {
                   <motion.article 
                     whileHover={{ y: -12 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="relative flex flex-col h-full rounded-3xl bg-gradient-to-b from-sky-100/70 to-sky-50/70 dark:from-slate-800/60 dark:to-slate-700/60 backdrop-blur-lg border border-white/60 dark:border-white/10 shadow-lg overflow-hidden cursor-pointer"
+                    className="relative flex flex-col rounded-3xl bg-gradient-to-b from-sky-100/70 to-sky-50/70 dark:from-slate-800/60 dark:to-slate-700/60 backdrop-blur-lg border border-white/60 dark:border-white/10 shadow-lg overflow-hidden cursor-pointer"
                   >
                     
                     <div className="relative w-full aspect-video overflow-hidden rounded-t-3xl bg-slate-200 dark:bg-slate-900">

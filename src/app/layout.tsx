@@ -46,7 +46,8 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors antialiased">
         <Navbar />
-        <main id="main-content" className="pt-20">
+        {/* pt-20 removido — cada página controla seu próprio espaçamento */}
+        <main id="main-content">
           {children}
         </main>
       </body>
