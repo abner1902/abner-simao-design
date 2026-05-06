@@ -100,7 +100,7 @@ export default function ProjectsSection() {
                   </p>
 
                   <Link
-                    href={`/projetos/${project.slug}`}
+                    href={`/projetos?project=${project.slug}`}
                     className="mt-2 inline-flex items-center gap-2 self-start px-6 py-3 rounded-xl font-gotham font-medium text-stone-900 dark:text-white text-sm uppercase tracking-widest bg-gradient-to-r from-white/70 to-blue-200 dark:from-slate-800/60 dark:to-blue-900/50 border border-sky-500 dark:border-sky-400 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.25)] transition-all duration-300 hover:brightness-95 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500"
                   >
                     VER DETALHES

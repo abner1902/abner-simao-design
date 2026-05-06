@@ -22,6 +22,5 @@ module.exports = {
   ...nextConfig,
   experimental: {
     scrollRestoration: true,
-    windowHistorySupport: true
   },
 };

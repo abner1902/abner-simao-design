@@ -37,6 +37,20 @@ export default function EmpresasModal({
     if (!isOpen) setLightbox(null);
   }, [isOpen]);
 
+  // Adicionar entrada no histórico quando modal abrir
+  useEffect(() => {
+    if (isOpen) {
+      window.history.pushState({ modalOpen: true }, '');
+    }
+
+    const handlePopState = () => {
+      if (isOpen) onClose();
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [isOpen, onClose]);
+
   if (!project) return null;
 
   return (

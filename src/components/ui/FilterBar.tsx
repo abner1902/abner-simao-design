@@ -22,7 +22,7 @@ export default function FilterBar({ activeCategory, setActiveCategory }: FilterB
   return (
     <>
       {/* ── DESKTOP: Pill bar no topo ── */}
-      <nav className="hidden md:flex w-full mb-8 justify-center px-6">
+      <nav className="hidden md:flex w-full my-6 justify-center px-6">
         <div className="flex bg-white/20 dark:bg-white/5 backdrop-blur-2xl border border-white/40 dark:border-white/10 p-1.5 rounded-full shadow-lg">
           {categories.map((cat) => {
             const isActive = activeCategory === cat.id;
