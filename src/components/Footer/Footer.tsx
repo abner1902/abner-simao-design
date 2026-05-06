@@ -17,7 +17,7 @@ export default function Footer() {
         {/* BACKGROUND */}
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/assets/images/backgrounds/geometric-liquid-bg-footer.jpg"
+            src="/assets/images/backgrounds/geometric-liquid-bg-footer.webp"
             alt=""
             fill
             className="object-cover opacity-100"

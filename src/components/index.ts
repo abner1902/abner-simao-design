@@ -12,3 +12,4 @@ export { default as WebDesignSection } from './WebDesignSection/WebDesignSection
 export { default as VideosSection } from './VideosSection/VideosSection';
 export { default as DesignImpressosSection } from './DesignImpressosSection/DesignImpressosSection';
 export { default as DesignEmpresasSection } from './DesignEmpresasSection/DesignEmpresasSection';
+export { default as ContatoSection } from './ContatoSection/ContatoSection';

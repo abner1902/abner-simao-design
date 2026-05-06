@@ -46,7 +46,7 @@ export default function Navbar() {
   const getSectionId = (item: string) => item.toLowerCase();
 
   const getHref = (item: string) => {
-    if (item === 'Contato') return '/contact';
+    if (item === 'Contato') return '/contato';
     if (item === 'Projetos') return '/projetos';
     return `/#${getSectionId(item)}`;
   };
@@ -68,7 +68,7 @@ export default function Navbar() {
       return;
     }
     if (item === 'Contato') {
-      router.push('/contact');
+      router.push('/contato');
       return;
     }
     if (pathname === '/') {

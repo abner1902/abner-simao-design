@@ -1,24 +1,22 @@
-import { 
-  Navbar, 
-  HeroSection, 
-  ToolsCarousel, 
-  ServicesSection, 
-  ProjectsSection, 
-  AboutSection, 
-  Footer,
-} from '@/components';
+import { HeroSection, ToolsCarousel, ServicesSection, ProjectsSection, AboutSection, Footer } from '@/components';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen">
-      <Navbar />
-      <HeroSection />
+    /* Removido pt-20 md:pt-24 para eliminar a linha branca no topo */
+    <main id="main-content" className="relative min-h-screen page-transition">
+      <section id="início">
+        <HeroSection />
+      </section>
       <ToolsCarousel />
-      <ServicesSection />
-      <section id="projetos" className="relative">
+      <section id="serviços">
+        <ServicesSection />
+      </section>
+      <section id="projetos">
         <ProjectsSection />
       </section>
-      <AboutSection />
+      <section id="sobre">
+        <AboutSection />
+      </section>
       <Footer />
     </main>
   );

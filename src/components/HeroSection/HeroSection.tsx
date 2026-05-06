@@ -5,9 +5,9 @@ import Link from 'next/link';
 
 export default function HeroSection() {
   return (
-    <section id="início" className="relative pt-20 lg:pt-16 pb-16 overflow-hidden">
-      {/* Background Decorativo */}
-      <div className="absolute inset-0 -z-10">
+    <section id="início" className="relative pt-32 lg:pt-36 pb-24 lg:pb-28 overflow-hidden">
+      {/* Background Decorativo — sobe -80px para cobrir a Navbar */}
+      <div className="absolute -top-20 left-0 right-0 bottom-0 -z-10">
         <Image
           src="/assets/images/backgrounds/bg-liquid-forms.webp"
           alt=""

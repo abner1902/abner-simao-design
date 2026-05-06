@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
@@ -15,14 +14,22 @@ export default function ProjetoModal() {
 
   useEffect(() => {
     const slug = searchParams.get('project');
-    if (slug) {
-      const found = empresasData.find((p: EmpresaProject) => p.slug === slug);
-      if (found) {
-        setProject(found);
-        setIsOpen(true);
-      }
+
+    // Se não tem slug, vai para a página real de projetos
+    if (!slug) {
+      router.replace('/projetos');
+      return;
     }
-  }, [searchParams]);
+
+    const found = empresasData.find((p: EmpresaProject) => p.slug === slug);
+    if (found) {
+      setProject(found);
+      setIsOpen(true);
+    } else {
+      // Slug inválido — vai para projetos
+      router.replace('/projetos');
+    }
+  }, [searchParams, router]);
 
   const handleClose = () => {
     setIsOpen(false);
@@ -53,7 +60,7 @@ export default function ProjetoModal() {
           >
             <X size={24} />
           </button>
-          
+
           <div className="relative aspect-video">
             <Image
               src={project.image}
@@ -62,7 +69,7 @@ export default function ProjetoModal() {
               className="object-cover"
             />
           </div>
-          
+
           <div className="p-6">
             <h2 className="font-gotham font-black text-2xl uppercase">{project.title}</h2>
             <p className="mt-4 text-stone-600 dark:text-stone-300">{project.description}</p>

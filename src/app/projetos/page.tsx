@@ -4,7 +4,6 @@ import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Navbar,
   EventosArtistasSection,
   LogotiposIdentidadeSection,
   WebDesignSection,

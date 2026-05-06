@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Navbar } from '@/components';
+import NextTopLoader from 'nextjs-toploader';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     siteName: 'Abner Simão Design',
     images: [
       {
-        url: '/assets/images/Favicon/og_image.jpg',
+        url: '/assets/images/Favicon/og_image.webp',
         width: 1200,
         height: 630,
         alt: 'Abner Simão - Portfolio',
@@ -29,26 +30,30 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Abner Simão | Design Engineer',
     description: 'Branding, UI/UX e Front-end Development.',
-    images: ['/assets/images/Favicon/og_image.jpg'],
+    images: ['/assets/images/Favicon/og_image.webp'],
   },
   icons: {
-    icon: '/assets/images/Favicon/fav-icon-abner-design.png',
-    apple: '/assets/images/Favicon/fav-icon-abner-design.png',
+    icon: '/assets/images/Favicon/fav-icon-abner-design.webp',
+    apple: '/assets/images/Favicon/fav-icon-abner-design.webp',
   },
 };
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors antialiased">
+        <NextTopLoader color="#8B5CF6" height={3} showSpinner={false} />
         <Navbar />
         {/* pt-20 removido — cada página controla seu próprio espaçamento */}
         <main id="main-content">
           {children}
+          {modal}
         </main>
       </body>
     </html>
