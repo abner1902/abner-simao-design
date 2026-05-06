@@ -70,13 +70,6 @@ function ProjetosPageContent() {
     }
   }, [searchParams, activeCategory]);
 
-  useEffect(() => {
-    const scrollTimeout = setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 300);
-    return () => clearTimeout(scrollTimeout);
-  }, [activeCategory]);
-
   const isVisible = (category: CategoryID) =>
     activeCategory === 'all' || activeCategory === category;
 

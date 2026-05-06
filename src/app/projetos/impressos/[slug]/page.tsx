@@ -37,7 +37,7 @@ export default function ProjectPage() {
             Projeto não encontrado
           </h1>
           <button
-            onClick={() => router.back()}
+            onClick={() => router.push('/projetos')}
             className="inline-flex items-center gap-2 text-stone-600 dark:text-stone-300 hover:text-[#075985] dark:hover:text-sky-300 font-gotham text-body-sm uppercase tracking-widest transition-colors"
           >
             <ArrowLeft size={16} /> Voltar para Projetos
@@ -60,7 +60,7 @@ export default function ProjectPage() {
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col gap-10">
         <button
-          onClick={() => router.back()}
+          onClick={() => router.push('/projetos')}
           className="self-start group flex items-center gap-2 text-stone-600 dark:text-stone-300 hover:text-[#075985] dark:hover:text-sky-300 transition-colors font-gotham text-body-sm uppercase tracking-widest"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />

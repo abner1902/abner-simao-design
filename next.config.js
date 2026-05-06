@@ -18,4 +18,10 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
 };
 
-module.exports = nextConfig;
+module.exports = {
+  ...nextConfig,
+  experimental: {
+    scrollRestoration: true,
+    windowHistorySupport: true
+  },
+};
