@@ -135,7 +135,11 @@ function ProjetosPageContent() {
 
 export default function ProjetosPage() {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={
+      <div className="min-h-screen w-full flex items-center justify-center bg-black">
+        <div className="w-8 h-8 rounded-full border-2 border-white/20 border-t-white animate-spin" />
+      </div>
+    }>
       <ProjetosPageContent />
     </Suspense>
   );
