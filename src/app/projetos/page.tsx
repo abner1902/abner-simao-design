@@ -4,7 +4,7 @@ import { Suspense, useEffect, useState } from 'react';
 import SectionLoader from '@/components/SectionLoader';
 
 import { useSearchParams } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
 const EventosArtistasSection = dynamic(() => import('@/components/EventosArtistasSection/EventosArtistasSection'), { ssr: false, loading: () => <SectionLoader /> });
@@ -55,6 +55,14 @@ function ProjetosPageContent() {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<CategoryID>('all');
 
+    // FORÇA RECARREGAR SE VIER DE NAVEGAÇÃO CLIENT-SIDE
+  useEffect(() => {
+    const navigationEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+    if (navigationEntry && navigationEntry.type !== 'reload') {
+      window.location.reload();
+    }
+  }, []);
+
   useEffect(() => {
     const category = searchParams.get('category');
     const validCategories: CategoryID[] = ['all', 'web', 'branding', 'corporate', 'audiovisual'];
@@ -88,7 +96,6 @@ function ProjetosPageContent() {
 
         {/* mt-4 md:mt-6 cola o conteúdo no FilterBar desktop */}
         <div className="projetos-flow-container mt-4 md:mt-6">
-          <AnimatePresence mode="popLayout">
 
             {isVisible('audiovisual') && (
               <motion.div key="av-arts" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} layout>
@@ -108,12 +115,6 @@ function ProjetosPageContent() {
               </motion.div>
             )}
 
-            {isVisible('audiovisual') && (
-              <motion.div key="av-videos" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} layout>
-                <VideosSection />
-              </motion.div>
-            )}
-
             {isVisible('corporate') && (
               <motion.div key="corp-print" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} layout>
                 <DesignImpressosSection />
@@ -126,7 +127,6 @@ function ProjetosPageContent() {
               </motion.div>
             )}
 
-          </AnimatePresence>
         </div>
       </div>
 

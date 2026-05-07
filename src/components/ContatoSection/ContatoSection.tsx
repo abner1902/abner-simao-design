@@ -69,7 +69,6 @@ export default function ContatoSection() {
                 className="object-cover object-center" 
                 quality={90} 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-100/80 dark:from-blue-950/80 via-transparent to-transparent" />
             </div>
             <div className="p-8 space-y-6 flex-grow flex flex-col justify-between">
               <div>
