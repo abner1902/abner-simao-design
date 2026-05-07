@@ -37,3 +37,8 @@ next-env.d.ts
 .idea
 *.swp
 *.swo
+.clineignore
+herosection-button-diff-before.md
+herosection-button-fix-summary.md
+projetos-page-diff-before.md
+projetos-page-fix-summary.md
