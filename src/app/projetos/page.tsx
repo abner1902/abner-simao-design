@@ -55,7 +55,7 @@ function ProjetosPageContent() {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<CategoryID>('all');
 
-    // FORÇA RECARREGAR SE VIER DE NAVEGAÇÃO CLIENT-SIDE
+  // FORÇA RECARREGAR SE VIER DE NAVEGAÇÃO CLIENT-SIDE
   useEffect(() => {
     const navigationEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
     if (navigationEntry && navigationEntry.type !== 'reload') {
@@ -85,16 +85,10 @@ function ProjetosPageContent() {
       />
       <div className="fixed inset-0 -z-10 backdrop-blur-lg pointer-events-none bg-black/5 dark:bg-black/20" />
 
-      {/* pt-20 = altura da Navbar fixa (80px)
-        Em mobile o FilterBar é um dock flutuante no bottom,
-        então não precisa de espaço extra no topo.
-        md:pt-24 dá respiro extra no desktop abaixo da Navbar + FilterBar estático.
-      */}
       <div className="relative pt-20 md:pt-28 pb-32 projetos-page-wrapper">
 
         <FilterBar activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
 
-        {/* mt-4 md:mt-6 cola o conteúdo no FilterBar desktop */}
         <div className="projetos-flow-container mt-4 md:mt-6">
 
             {isVisible('audiovisual') && (
@@ -112,6 +106,12 @@ function ProjetosPageContent() {
             {isVisible('web') && (
               <motion.div key="web-sec" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} layout>
                 <WebDesignSection />
+              </motion.div>
+            )}
+
+            {isVisible('audiovisual') && (
+              <motion.div key="av-videos" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} layout>
+                <VideosSection />
               </motion.div>
             )}
 
