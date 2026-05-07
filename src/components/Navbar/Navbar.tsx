@@ -27,6 +27,7 @@ export default function Navbar() {
   }, []);
 
   const toggleTheme = () => {
+    if (typeof window === 'undefined') return;
     const newState = !isDark;
     setIsDark(newState);
     localStorage.setItem('theme', newState ? 'dark' : 'light');
@@ -52,8 +53,9 @@ export default function Navbar() {
   };
 
   const handleClick = (e: React.MouseEvent, item: string) => {
-    e.preventDefault();
     setOpen(false);
+    if (item === 'Projetos' || item === 'Contato') return;
+    e.preventDefault();
 
     if (item === 'Início') {
       if (pathname === '/') {
@@ -63,14 +65,7 @@ export default function Navbar() {
       }
       return;
     }
-    if (item === 'Projetos') {
-      router.push('/projetos');
-      return;
-    }
-    if (item === 'Contato') {
-      router.push('/contato');
-      return;
-    }
+    
     if (pathname === '/') {
       scrollToSection(getSectionId(item));
     } else {

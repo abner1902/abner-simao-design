@@ -49,32 +49,16 @@ const layoutStyles = `
 `;
 
 function ProjetosPageContent() {
-  const [activeCategory, setActiveCategory] = useState<CategoryID>('all');
   const searchParams = useSearchParams();
+  const [activeCategory, setActiveCategory] = useState<CategoryID>('all');
 
   useEffect(() => {
-    const project = searchParams.get('project');
-    if (!project) return;
-
-    const projectCategoryMap: Record<string, CategoryID> = {
-      'valbao-odontologia': 'corporate',
-      'eventos-estandes': 'corporate',
-      'agya-sounds': 'web',
-      'naturaiz-astral-labyrinth': 'audiovisual',
-    };
-
-    const initialCategory = projectCategoryMap[project] ?? 'all';
-    if (initialCategory !== activeCategory) {
-      setActiveCategory(initialCategory);
+    const category = searchParams.get('category');
+    const validCategories: CategoryID[] = ['all', 'web', 'branding', 'corporate', 'audiovisual'];
+    if (validCategories.includes(category as CategoryID)) {
+      setActiveCategory(category as CategoryID);
     }
-  }, [searchParams, activeCategory]);
-
-  useEffect(() => {
-    const scrollTimeout = setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 300);
-    return () => clearTimeout(scrollTimeout);
-  }, [activeCategory]);
+  }, [searchParams]);
 
   const isVisible = (category: CategoryID) =>
     activeCategory === 'all' || activeCategory === category;

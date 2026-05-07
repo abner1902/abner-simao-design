@@ -6,6 +6,7 @@ import Link from 'next/link';
 export default function HeroSection() {
   return (
     <section id="início" className="relative pt-32 lg:pt-36 pb-24 lg:pb-28 overflow-hidden">
+      
       {/* Background Decorativo — sobe -80px para cobrir a Navbar */}
       <div className="absolute -top-20 left-0 right-0 bottom-0 -z-10">
         <Image
@@ -62,9 +63,14 @@ export default function HeroSection() {
                 >
                   Ver Projetos
                 </Link>
-                <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-white/40 to-emerald-400/50 dark:from-slate-800/60 dark:to-emerald-600/50 border border-emerald-500 text-slate-900 dark:text-white font-bold uppercase tracking-tight transition-all hover:shadow-lg backdrop-blur-sm text-sm">
-                  Solicitar Orçamento
-                </button>
+                <a 
+                  href="https://wa.me/5511996670948?text=Oi!%20Quero%20solicitar%20um%20orçamento" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="px-8 py-3 rounded-xl bg-gradient-to-r from-white/40 to-emerald-400/50 dark:from-slate-800/60 dark:to-emerald-600/50 border border-emerald-500 text-slate-900 dark:text-white font-bold uppercase tracking-tight transition-all hover:shadow-lg backdrop-blur-sm text-sm"
+                >
+                  SOLICITAR ORÇAMENTO
+                </a>
               </div>
             </div>
 
