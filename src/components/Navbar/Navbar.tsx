@@ -6,16 +6,11 @@ import { FiSun, FiMoon } from 'react-icons/fi';
 import { SiBehance } from 'react-icons/si';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import MobileMenu from './MobileMenu';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  const pathname = usePathname();
-  const router = useRouter();
-  const { scrollToSection } = useSmoothScroll();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -44,7 +39,15 @@ export default function Navbar() {
     'Contato': 'Contato',
   };
 
-  const getSectionId = (item: string) => item.toLowerCase();
+  const getSectionId = (item: string) => {
+    const maps: Record<string, string> = {
+      'Início': 'início',
+      'Serviços': 'serviços',
+      'Sobre': 'sobre',
+      'Projetos': 'projetos'
+    };
+    return maps[item] || item.toLowerCase();
+  };
 
   const getHref = (item: string) => {
     if (item === 'Contato') return '/contato';
@@ -52,27 +55,6 @@ export default function Navbar() {
     return `/#${getSectionId(item)}`;
   };
 
-  const handleClick = (e: React.MouseEvent, item: string) => {
-    setOpen(false);
-    if (item === 'Projetos' || item === 'Contato') return;
-    e.preventDefault();
-
-    if (item === 'Início') {
-      if (pathname === '/') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        router.push('/');
-      }
-      return;
-    }
-    
-    if (pathname === '/') {
-      scrollToSection(getSectionId(item));
-    } else {
-      sessionStorage.setItem('scrollTo', getSectionId(item));
-      router.push('/');
-    }
-  };
 
   return (
     <>
@@ -98,7 +80,6 @@ export default function Navbar() {
                 <li key={item}>
                   <Link
                     href={getHref(item)}
-                    onClick={(e) => handleClick(e, item)}
                     className="text-sm font-black uppercase tracking-tight text-white/80 transition-colors hover:text-emerald-400 dark:text-white/70 dark:hover:text-emerald-300"
                   >
                     {labels[item]}
@@ -143,7 +124,6 @@ export default function Navbar() {
         links={links}
         labels={labels}
         getHref={getHref}
-        handleClick={handleClick}
         onClose={() => setOpen(false)}
       />
     </>

@@ -8,7 +8,6 @@ interface MobileMenuProps {
   links: string[];
   labels: Record<string, string>;
   getHref: (item: string) => string;
-  handleClick: (e: React.MouseEvent, item: string) => void;
   onClose: () => void;
 }
 
@@ -17,7 +16,6 @@ export default function MobileMenu({
   links,
   labels,
   getHref,
-  handleClick,
   onClose,
 }: MobileMenuProps) {
   return (
@@ -59,8 +57,7 @@ export default function MobileMenu({
                     <Link
                       href={getHref(item)}
                       target={item === 'Tutoriais' ? '_blank' : '_self'}
-                      onClick={(e) => {
-                        handleClick(e, item);
+                      onClick={() => {
                         onClose();
                       }}
                       className="block py-5 text-sm font-black uppercase tracking-widest text-white/80 transition-colors hover:bg-white/10 dark:hover:bg-white/5 hover:text-emerald-400 dark:hover:text-emerald-300 border-b border-white/5 dark:border-white/5"

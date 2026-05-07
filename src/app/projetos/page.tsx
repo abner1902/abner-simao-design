@@ -1,17 +1,20 @@
 'use client';
 
 import { Suspense, useEffect, useState } from 'react';
+import SectionLoader from '@/components/SectionLoader';
+
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  EventosArtistasSection,
-  LogotiposIdentidadeSection,
-  WebDesignSection,
-  VideosSection,
-  DesignImpressosSection,
-  DesignEmpresasSection,
-  Footer
-} from '@/components';
+import dynamic from 'next/dynamic';
+
+const EventosArtistasSection = dynamic(() => import('@/components/EventosArtistasSection/EventosArtistasSection'), { ssr: false, loading: () => <SectionLoader /> });
+const LogotiposIdentidadeSection = dynamic(() => import('@/components/LogotiposIdentidadeSection/LogotiposIdentidadeSection'), { ssr: false, loading: () => <SectionLoader /> });
+const WebDesignSection = dynamic(() => import('@/components/WebDesignSection/WebDesignSection'), { ssr: false, loading: () => <SectionLoader /> });
+const VideosSection = dynamic(() => import('@/components/VideosSection/VideosSection'), { ssr: false, loading: () => <SectionLoader /> });
+const DesignImpressosSection = dynamic(() => import('@/components/DesignImpressosSection/DesignImpressosSection'), { ssr: false, loading: () => <SectionLoader /> });
+const DesignEmpresasSection = dynamic(() => import('@/components/DesignEmpresasSection/DesignEmpresasSection'), { ssr: false, loading: () => <SectionLoader /> });
+const Footer = dynamic(() => import('@/components/Footer/Footer'), { ssr: false });
+
 import FilterBar, { CategoryID } from '@/components/ui/FilterBar';
 
 const layoutStyles = `
@@ -74,8 +77,7 @@ function ProjetosPageContent() {
       />
       <div className="fixed inset-0 -z-10 backdrop-blur-lg pointer-events-none bg-black/5 dark:bg-black/20" />
 
-      {/*
-        pt-20 = altura da Navbar fixa (80px)
+      {/* pt-20 = altura da Navbar fixa (80px)
         Em mobile o FilterBar é um dock flutuante no bottom,
         então não precisa de espaço extra no topo.
         md:pt-24 dá respiro extra no desktop abaixo da Navbar + FilterBar estático.
