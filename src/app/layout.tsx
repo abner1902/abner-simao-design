@@ -40,20 +40,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  modal,
 }: {
   children: React.ReactNode;
-  modal: React.ReactNode;
 }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors antialiased">
         <NextTopLoader color="#8B5CF6" height={3} showSpinner={false} />
         <Navbar />
-        {/* pt-20 removido — cada página controla seu próprio espaçamento */}
         <main id="main-content">
           {children}
-          {modal}
         </main>
       </body>
     </html>

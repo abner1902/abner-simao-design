@@ -14,7 +14,7 @@ const projects = [
       'Projeto de modernização de marca para o setor de saúde, unindo minimalismo e confiança para criar uma presença visual autoritária no mercado odontológico.',
     image: '/assets/images/projects/valbao-photo.webp',
     imageAlt: 'Identidade visual Valbão Odontologia — logo e paleta de cores',
-    slug: 'valbao-odontologia',
+    slug: 'branding-odontologico',
   },
   {
     id: 'global-summit',
@@ -24,7 +24,7 @@ const projects = [
       'Comunicação visual estratégica para estande em evento de tecnologia de escala global, garantindo unidade visual e impacto de marca em grandes formatos.',
     image: '/assets/images/projects/06-empresas/eventos/global-summit-2022-thumb.webp',
     imageAlt: 'Estande Global Summit 2022 — Portal Telemedicina',
-    slug: 'eventos-estandes',
+    slug: 'evento-estande',
   },
   {
     id: 'agya-sounds',
@@ -34,7 +34,7 @@ const projects = [
       'Desenvolvimento de plataforma digital para gravadora de música eletrônica, focando em performance, SEO e uma interface imersiva que reflete a identidade psicodélica da marca.',
     image: '/assets/images/projects/03-web-design/agya-sounds-mockup.webp',
     imageAlt: 'Website Agya Sounds Recs — interface dark psicodélica',
-    slug: 'agya-sounds',
+    slug: 'agya-sounds-store',
   },
   {
     id: 'naturaiz-records',
@@ -44,7 +44,7 @@ const projects = [
       'Direção de arte completa para o lançamento do EP Lunar Pareidolia, integrando a criação da capa oficial com uma produção em Stop Motion biomecânica e sombria. Um projeto autoral que une design lúdico e psicodelia densa para o cenário de festivais.',
     image: '/assets/images/projects/naturaiz-ep-photo.webp',
     imageAlt: 'Cover Art EP Lunar Pareidolia — Naturaíz Records',
-    slug: 'naturaiz-astral-labyrinth',
+    slug: 'astral-labyrinth',
   },
 ];
 
@@ -100,9 +100,12 @@ export default function ProjectsSection() {
                   </p>
 
                   <Link
-                    href={`/projetos/${project.slug}`}
-                    className="mt-2 inline-flex items-center gap-2 self-start px-6 py-3 rounded-xl font-gotham font-medium text-stone-900 dark:text-white text-sm uppercase tracking-widest bg-gradient-to-r from-white/70 to-blue-200 dark:from-slate-800/60 dark:to-blue-900/50 border border-sky-500 dark:border-sky-400 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.25)] transition-all duration-300 hover:brightness-95 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500"
-                  >
+  href={`/projetos/${project.slug}`}
+  onClick={() => {
+    sessionStorage.setItem('homeScrollY', String(window.scrollY));
+  }}
+  className="mt-2 inline-flex items-center gap-2 self-start px-6 py-3 rounded-xl font-gotham font-medium text-stone-900 dark:text-white text-sm uppercase tracking-widest bg-gradient-to-r from-white/70 to-blue-200 dark:from-slate-800/60 dark:to-blue-900/50 border border-sky-500 dark:border-sky-400 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.25)] transition-all duration-300 hover:brightness-95 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500"
+>
                     VER DETALHES
                     <ArrowUpRight size={16} strokeWidth={2} />
                   </Link>

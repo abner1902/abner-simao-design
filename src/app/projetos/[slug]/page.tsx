@@ -9,6 +9,7 @@ import QuickFactsTable from '@/components/project/QuickFactsTable';
 // Importação das duas fontes de dados
 import { webDesignProjects } from '@/data/WebDesign';
 import { empresasData } from '@/data/empresas';
+import { eventosArtistas } from '@/data/eventosArtistas';
 
 export default function ProjectPage() {
   const router = useRouter();
@@ -19,11 +20,11 @@ export default function ProjectPage() {
 
   // ✅ UNIFICAÇÃO SENIOR: Criamos uma lista única para busca
   const project = useMemo(() => {
-    const allProjects = [...webDesignProjects, ...empresasData];
-    return allProjects.find((p) => p.slug === slug);
+    const allProjects = [...webDesignProjects, ...empresasData, ...eventosArtistas];
+    return allProjects.find((p) => (p.slug || p.id) === slug);
   }, [slug]);
 
-  // Navegação por teclado (ESC para voltar)
+  // Navegação por teclado (ESC para /projetos)
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') router.back();
@@ -47,7 +48,7 @@ export default function ProjectPage() {
           onClick={() => router.back()}
           className="mt-8 inline-flex items-center gap-2 text-[#075985] font-gotham font-bold text-xs uppercase tracking-[0.2em] hover:opacity-70 transition-all"
         >
-          <ArrowLeft size={16} /> Voltar para Projetos
+          <ArrowLeft size={16} /> Voltar para Projetos Recentes
         </button>
       </main>
     );
@@ -71,7 +72,7 @@ export default function ProjectPage() {
           className="self-start group flex items-center gap-2 text-stone-600 dark:text-stone-300 hover:text-[#075985] dark:hover:text-sky-300 transition-colors font-gotham text-xs font-bold uppercase tracking-widest"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-          Voltar para Projetos
+          Voltar para Projetos Recentes
         </button>
 
         {/* 1. HERO — Imagem principal do Case */}
@@ -99,12 +100,12 @@ export default function ProjectPage() {
         {/* 3. FICHA TÉCNICA (QuickFactsTable) */}
         <div className="w-full">
           <QuickFactsTable
-            role={'role' in project ? project.role : "Design Engineer"}
-            stack={'stack' in project ? project.stack : ["Figma", "Illustrator"]}
-            year={'year' in project ? project.year : "2022"}
-            methodology={'methodology' in project ? project.methodology : "Agile Design System"}
-            status={'status' in project ? project.status : "Case Study"}
-            liveLink={'liveLink' in project ? project.liveLink : undefined}
+            role={('role' in project ? role : "Diretor de Arte & Brand Designer") ?? "Diretor de Arte & Brand Designer"}
+            stack={('stack' in project ? stack : ["Illustrator", "Photoshop"]) ?? ["Illustrator", "Photoshop"]}
+            year={('year' in project ? year : "2022") ?? "2022"}
+            methodology={('methodology' in project ? methodology : "Sistema de Marca & Direção Visual") ?? "Sistema de Marca & Direção Visual"}
+            status={('status' in project ? status : "Branding & Identidade Visual") ?? "Branding & Identidade Visual"}
+            liveLink={('liveLink' in project ? liveLink : undefined) ?? undefined}
           />
         </div>
 
@@ -149,7 +150,24 @@ export default function ProjectPage() {
           </section>
         )}
 
-        {/* 6. CTA BEHANCE - Se existir */}
+        {/* 6. VÍDEO CLOUDINARY - Se existir */}
+        {'videoCloudinaryId' in project && project.videoCloudinaryId && (
+          <section className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-white/50 dark:border-white/10 mt-8">
+            <h2 className="font-gotham font-bold text-emerald-700 dark:text-emerald-400 text-label-lg uppercase tracking-[0.2em] mb-4 px-2">
+              Stop Motion
+            </h2>
+            <div className="relative w-full aspect-[9/16] max-w-sm mx-auto">
+              <iframe
+                src={`https://player.cloudinary.com/embed/?public_id=${project.videoCloudinaryId}&cloud_name=dq3qu3lv0&player[fluid]=true`}
+                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full rounded-2xl"
+              />
+            </div>
+          </section>
+        )}
+
+        {/* 7. CTA BEHANCE - Se existir */}
         {'behance' in project && project.behance && (
           <div className="flex justify-center mt-6">
             <a
