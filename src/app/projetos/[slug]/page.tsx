@@ -100,12 +100,12 @@ export default function ProjectPage() {
         {/* 3. FICHA TÉCNICA (QuickFactsTable) */}
         <div className="w-full">
           <QuickFactsTable
-            role={('role' in project ? role : "Diretor de Arte & Brand Designer") ?? "Diretor de Arte & Brand Designer"}
-            stack={('stack' in project ? stack : ["Illustrator", "Photoshop"]) ?? ["Illustrator", "Photoshop"]}
-            year={('year' in project ? year : "2022") ?? "2022"}
-            methodology={('methodology' in project ? methodology : "Sistema de Marca & Direção Visual") ?? "Sistema de Marca & Direção Visual"}
-            status={('status' in project ? status : "Branding & Identidade Visual") ?? "Branding & Identidade Visual"}
-            liveLink={('liveLink' in project ? liveLink : undefined) ?? undefined}
+            role={('role' in project ? project.role : "Diretor de Arte & Brand Designer") ?? "Diretor de Arte & Brand Designer"}
+            stack={('stack' in project ? project.stack : ["Illustrator", "Photoshop"]) ?? ["Illustrator", "Photoshop"]}
+            year={('year' in project ? project.year : "2022") ?? "2022"}
+            methodology={('methodology' in project ? project.methodology : "Sistema de Marca & Direção Visual") ?? "Sistema de Marca & Direção Visual"}
+            status={('status' in project ? project.status : "Branding & Identidade Visual") ?? "Branding & Identidade Visual"}
+            liveLink={('liveLink' in project ? project.liveLink : undefined) ?? undefined}
           />
         </div>
 
