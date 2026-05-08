@@ -15,6 +15,15 @@ export interface EmpresaProject {
   description: string;
   behance?: string;
   gallery?: GalleryItem[];
+  role?: string;
+  stack?: string[];
+  methodology?: string;
+  status?: string;
+  liveLink?: string;
+  challenge?: string;
+  videoCloudinaryId?: string;
+  caseImage?: string;
+  year?: string;
 }
 
 export const empresasData: EmpresaProject[] = [
