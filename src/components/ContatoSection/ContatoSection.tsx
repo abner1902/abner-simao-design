@@ -1,7 +1,108 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 
+// ─── Dados das opções do select ───────────────────────────────────────────
+const SELECT_OPTIONS = [
+  {
+    group: '🎨 Serviços de Design',
+    items: [
+      { value: 'logotipos', label: 'Criação de Logotipos' },
+      { value: 'identidade-visual', label: 'Identidade Visual' },
+      { value: 'ilustracao', label: 'Ilustração e Vetores' },
+      { value: 'impressao', label: 'Artes para Impressão' },
+      { value: 'video-reels', label: 'Edição de Vídeo e Reels' },
+    ],
+  },
+  {
+    group: '🚀 Desenvolvimento & Marketing',
+    items: [
+      { value: 'sites-nextjs', label: 'Sites em React e Next.js' },
+      { value: 'landing-pages', label: 'Criação de Landing Pages' },
+      { value: 'uiux-design', label: 'UI/UX Design' },
+      { value: 'seo-performance', label: 'SEO e Performance' },
+      { value: 'trafego-marketing', label: 'Tráfego Pago e Marketing Digital' },
+    ],
+  },
+];
+
+// ─── CustomSelect — substitui o <select> nativo do Android ───────────────
+interface CustomSelectProps {
+  value: string;
+  onChange: (value: string) => void;
+}
+
+function CustomSelect({ value, onChange }: CustomSelectProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedLabel = SELECT_OPTIONS
+    .flatMap((g) => g.items)
+    .find((item) => item.value === value)?.label;
+
+  return (
+    <div ref={containerRef} className="relative">
+      <button
+        type="button"
+        onClick={() => setIsOpen((prev) => !prev)}
+        className={`
+          w-full px-4 py-3 rounded-xl text-sm text-left flex items-center justify-between
+          bg-slate-100 dark:bg-white/5 border transition
+          ${isOpen ? 'border-cyan-500 dark:border-emerald-400/50' : 'border-slate-200 dark:border-white/10'}
+          ${value ? 'text-slate-900 dark:text-white' : 'text-slate-400 dark:text-white/30'}
+        `}
+      >
+        <span>{selectedLabel ?? 'Selecione uma opção...'}</span>
+        <svg
+          className={`w-4 h-4 shrink-0 transition-transform duration-200 text-slate-400 dark:text-white/40 ${isOpen ? 'rotate-180' : ''}`}
+          fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {isOpen && (
+        <div className="absolute z-50 mt-2 w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden max-h-72 overflow-y-auto">
+          {SELECT_OPTIONS.map((group) => (
+            <div key={group.group}>
+              <div className="px-4 pt-3 pb-1 text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-white/30">
+                {group.group}
+              </div>
+              {group.items.map((item) => (
+                <button
+                  key={item.value}
+                  type="button"
+                  onClick={() => { onChange(item.value); setIsOpen(false); }}
+                  className={`
+                    w-full text-left px-4 py-2.5 text-sm transition-colors
+                    ${value === item.value
+                      ? 'bg-cyan-500/10 dark:bg-emerald-400/10 text-cyan-600 dark:text-emerald-400 font-semibold'
+                      : 'text-slate-700 dark:text-white/70 hover:bg-slate-100 dark:hover:bg-white/5'
+                    }
+                  `}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Componente principal ─────────────────────────────────────────────────
 export default function ContatoSection() {
   const [formData, setFormData] = useState({
     nome: '',
@@ -12,34 +113,51 @@ export default function ContatoSection() {
   });
   const [status, setStatus] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSelectChange = (value: string) => {
+    setFormData({ ...formData, interesse: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('enviando');
-    setTimeout(() => {
+
+    try {
+      const response = await fetch('/api/contato', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Erro ao enviar');
+
       setStatus('sucesso');
       setFormData({ nome: '', email: '', telefone: '', interesse: '', mensagem: '' });
       setTimeout(() => setStatus(''), 4000);
-    }, 1200);
+    } catch (err) {
+      console.error(err);
+      setStatus('erro');
+      setTimeout(() => setStatus(''), 4000);
+    }
   };
 
   return (
-    <section 
-      id="contato" 
+    <section
+      id="contato"
       className="relative min-h-screen flex items-center pt-24 pb-24 sm:pt-32 sm:pb-32 px-4 md:px-8 overflow-visible bg-white dark:bg-slate-950 transition-colors duration-500"
     >
-      {/* Background Adaptativo com Glassmorphism Total */}
       <div className="absolute inset-0 z-0">
-        <Image 
-          src="/assets/images/contact/bg-contact-page.webp" 
-          alt="" 
-          fill 
-          className="object-cover object-center opacity-70 dark:opacity-100 transition-opacity duration-500" 
-          quality={90} 
-          priority 
+        <Image
+          src="/assets/images/contact/bg-contact-page.webp"
+          alt="" fill
+          className="object-cover object-center opacity-70 dark:opacity-100 transition-opacity duration-500"
+          quality={90} priority
         />
         <div className="absolute inset-0 bg-white/40 dark:bg-slate-950/60 backdrop-blur-xl transition-colors duration-500" />
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-transparent to-blue-500/20 dark:from-emerald-500/20 dark:to-cyan-500/20" />
@@ -51,7 +169,10 @@ export default function ContatoSection() {
             Vamos trabalhar juntos
           </p>
           <h2 className="font-gotham font-black text-4xl md:text-5xl lg:text-6xl text-slate-900 dark:text-white tracking-tighter leading-[1.1] py-2">
-            Fale com <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-emerald-400 dark:to-cyan-400">Abner Simão</span>
+            Fale com{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-emerald-400 dark:to-cyan-400">
+              Abner Simão
+            </span>
           </h2>
           <p className="mt-4 text-slate-600 dark:text-white/60 text-base max-w-xl mx-auto leading-relaxed">
             Branding, sites, UI/UX e desenvolvimento front-end. Conte seu projeto e vamos criar algo que converte.
@@ -62,12 +183,11 @@ export default function ContatoSection() {
           {/* Card Info */}
           <div className="flex flex-col h-full bg-white/40 dark:bg-white/5 backdrop-blur-xl rounded-3xl border border-slate-200 dark:border-white/10 shadow-xl overflow-hidden transition-all">
             <div className="relative w-full aspect-[4/3]">
-              <Image 
-                src="/assets/images/contact/abner-photo-contato.webp" 
-                alt="Abner Simão" 
-                fill 
-                className="object-cover object-center" 
-                quality={90} 
+              <Image
+                src="/assets/images/contact/abner-photo-contato.webp"
+                alt="Abner Simão" fill
+                className="object-cover object-center"
+                quality={90}
               />
             </div>
             <div className="p-8 space-y-6 flex-grow flex flex-col justify-between">
@@ -77,7 +197,6 @@ export default function ContatoSection() {
                   16 anos criando marcas, interfaces e experiências digitais. Atendo empresas, artistas e agências que buscam resultado de verdade.
                 </p>
               </div>
-              
               <div className="space-y-4 pt-6 border-t border-slate-200 dark:border-white/10">
                 <a href="https://wa.me/5511996670948" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 p-3 rounded-2xl hover:bg-slate-900/5 dark:hover:bg-white/5 transition-all">
                   <div className="w-10 h-10 rounded-xl bg-[#25D366]/10 flex items-center justify-center transition-transform group-hover:scale-110">
@@ -90,8 +209,7 @@ export default function ContatoSection() {
                     <span className="text-sm font-medium text-slate-700 dark:text-white/80">Resposta rápida</span>
                   </div>
                 </a>
-
-                <a href="mailto:abnersimao91@gmail.com" className="group flex items-center gap-4 p-3 rounded-2xl hover:bg-slate-900/5 dark:hover:bg-white/5 transition-all">
+                <a href="mailto:abnersimaodesign@gmail.com" className="group flex items-center gap-4 p-3 rounded-2xl hover:bg-slate-900/5 dark:hover:bg-white/5 transition-all">
                   <div className="w-10 h-10 rounded-xl bg-cyan-500/10 dark:bg-white/10 flex items-center justify-center transition-transform group-hover:scale-110">
                     <svg className="w-5 h-5 text-cyan-600 dark:text-white/70" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -99,7 +217,7 @@ export default function ContatoSection() {
                   </div>
                   <div>
                     <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-white/40 font-bold mb-0.5">E-mail</span>
-                    <span className="text-sm font-medium text-slate-700 dark:text-white/80">abnersimao91@gmail.com</span>
+                    <span className="text-sm font-medium text-slate-700 dark:text-white/80">abnersimaodesign@gmail.com</span>
                   </div>
                 </a>
               </div>
@@ -113,44 +231,51 @@ export default function ContatoSection() {
               <div className="space-y-4 flex-grow">
                 <div>
                   <label className="block text-slate-500 dark:text-white/50 text-xs uppercase tracking-widest mb-2">Nome completo *</label>
-                  <input type="text" name="nome" value={formData.nome} onChange={handleChange} required placeholder="Seu nome" className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/20 focus:outline-none focus:border-cyan-500 dark:focus:border-emerald-400/50 transition text-sm" />
+                  <input type="text" name="nome" value={formData.nome} onChange={handleChange} required placeholder="Seu nome"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/20 focus:outline-none focus:border-cyan-500 dark:focus:border-emerald-400/50 transition text-sm"
+                  />
                 </div>
                 <div>
                   <label className="block text-slate-500 dark:text-white/50 text-xs uppercase tracking-widest mb-2">Email *</label>
-                  <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="voce@exemplo.com" className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/20 focus:outline-none focus:border-cyan-500 dark:focus:border-emerald-400/50 transition text-sm" />
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="voce@exemplo.com"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/20 focus:outline-none focus:border-cyan-500 dark:focus:border-emerald-400/50 transition text-sm"
+                  />
                 </div>
+
+                {/* ✅ CustomSelect — sem dialog nativo do Android */}
                 <div>
                   <label className="block text-slate-500 dark:text-white/50 text-xs uppercase tracking-widest mb-2">Como posso te ajudar? *</label>
-                  <select 
-                    name="interesse" 
-                    value={formData.interesse} 
-                    onChange={handleChange} 
-                    required
-                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-blue-950 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white/80 focus:outline-none focus:border-cyan-500 dark:focus:border-emerald-400/50 transition text-sm cursor-pointer"
-                  >
-                    <option value="" disabled>Selecione uma opção...</option>
-                    <optgroup label="🎨 Serviços de Design">
-                      <option value="logotipos">Criação de Logotipos</option>
-                      <option value="identidade-visual">Identidade Visual</option>
-                      <option value="ilustracao">Ilustração e Vetores</option>
-                      <option value="impressao">Artes para Impressão</option>
-                      <option value="video-reels">Edição de Vídeo e Reels</option>
-                    </optgroup>
-                    <optgroup label="🚀 Desenvolvimento & Marketing">
-                      <option value="sites-nextjs">Sites em React e Next.js</option>
-                      <option value="landing-pages">Criação de Landing Pages</option>
-                      <option value="uiux-design">UI/UX Design</option>
-                      <option value="seo-performance">SEO e Performance</option>
-                      <option value="trafego-marketing">Tráfego Pago e Marketing Digital</option>
-                    </optgroup>
-                  </select>
+                  <CustomSelect value={formData.interesse} onChange={handleSelectChange} />
+                  {/* Input invisível mantém o required do HTML funcionando */}
+                  <input
+                    type="text" required value={formData.interesse} onChange={() => {}}
+                    className="sr-only" aria-hidden="true" tabIndex={-1}
+                  />
                 </div>
+
                 <div>
                   <label className="block text-slate-500 dark:text-white/50 text-xs uppercase tracking-widest mb-2">Mensagem *</label>
-                  <textarea name="mensagem" value={formData.mensagem} onChange={handleChange} rows={4} required placeholder="Conta seu projeto..." className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/20 focus:outline-none focus:border-cyan-500 dark:focus:border-emerald-400/50 transition text-sm resize-none" />
+                  <textarea name="mensagem" value={formData.mensagem} onChange={handleChange} rows={4} required placeholder="Conta seu projeto..."
+                    className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/20 focus:outline-none focus:border-cyan-500 dark:focus:border-emerald-400/50 transition text-sm resize-y"
+                  />
                 </div>
               </div>
-              <button type="submit" disabled={status === 'enviando'} className="w-full py-3 mt-6 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-emerald-500 dark:to-cyan-500 text-white font-black uppercase tracking-widest text-sm hover:opacity-90 transition-all duration-300 shadow-lg disabled:opacity-40">
+
+              {/* ✅ Mensagens de feedback */}
+              {status === 'sucesso' && (
+                <p className="text-center text-sm font-semibold text-emerald-500 dark:text-emerald-400 py-2">
+                  ✅ Mensagem enviada! Entrarei em contato em breve.
+                </p>
+              )}
+              {status === 'erro' && (
+                <p className="text-center text-sm font-semibold text-red-500 py-2">
+                  ❌ Erro ao enviar. Tente pelo WhatsApp.
+                </p>
+              )}
+
+              <button type="submit" disabled={status === 'enviando'}
+                className="w-full py-3 mt-6 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-emerald-500 dark:to-cyan-500 text-white font-black uppercase tracking-widest text-sm hover:opacity-90 transition-all duration-300 shadow-lg disabled:opacity-40"
+              >
                 {status === 'enviando' ? 'Enviando...' : 'Enviar mensagem'}
               </button>
             </form>
@@ -158,5 +283,5 @@ export default function ContatoSection() {
         </div>
       </div>
     </section>
-   );
+  );
 }
