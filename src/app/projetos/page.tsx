@@ -55,14 +55,6 @@ function ProjetosPageContent() {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<CategoryID>('all');
 
-  // FORÇA RECARREGAR SE VIER DE NAVEGAÇÃO CLIENT-SIDE
-  useEffect(() => {
-    const navigationEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
-    if (navigationEntry && navigationEntry.type !== 'reload') {
-      window.location.reload();
-    }
-  }, []);
-
   useEffect(() => {
     const category = searchParams.get('category');
     const validCategories: CategoryID[] = ['all', 'web', 'branding', 'corporate', 'audiovisual'];
