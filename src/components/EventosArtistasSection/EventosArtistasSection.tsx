@@ -18,7 +18,11 @@ interface EventoArtista {
   imageAlt: string;
 }
 
-export default function EventosArtistasSection() {
+interface EventosArtistasSectionProps {
+  onModalChange?: (isOpen: boolean) => void;
+}
+
+export default function EventosArtistasSection({ onModalChange }: EventosArtistasSectionProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: 'center',
@@ -46,11 +50,16 @@ export default function EventosArtistasSection() {
   }, [emblaApi]);
 
   // ✅ Handler tipado + type guard
+  const handleModalChange = useCallback((open: boolean) => {
+    setIsModalOpen(open);
+    onModalChange?.(open);
+  }, [onModalChange]);
+
   const handleCardClick = useCallback((item: unknown, isActive: boolean) => {
     if (!isActive || typeof item !== 'object' || item === null) return;
     setActiveProject(item as EventoArtista);
-    setIsModalOpen(true);
-  }, []);
+    handleModalChange(true);
+  }, [handleModalChange]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -62,7 +71,7 @@ export default function EventosArtistasSection() {
   // ✅ Fecha modal com ESC
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsModalOpen(false);
+      if (e.key === 'Escape') handleModalChange(false);
     };
     if (isModalOpen) document.addEventListener('keydown', handleEsc);
     return () => document.removeEventListener('keydown', handleEsc);
@@ -97,7 +106,7 @@ export default function EventosArtistasSection() {
 
     if (targetProject) {
       setActiveProject(targetProject);
-      setIsModalOpen(true);
+      handleModalChange(true);
     }
   }, [searchParams]);
 
@@ -197,7 +206,7 @@ export default function EventosArtistasSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setIsModalOpen(false)}
+            onClick={() => handleModalChange(false)}
             className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/95 backdrop-blur-2xl p-4 sm:p-10 cursor-zoom-out"
             role="dialog"
             aria-modal="true"
@@ -221,7 +230,7 @@ export default function EventosArtistasSection() {
                   </p>
                 </div>
                 <button 
-                  onClick={() => setIsModalOpen(false)}
+                  onClick={() => handleModalChange(false)}
                   className="p-2 bg-white/5 hover:bg-white/20 text-white rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                   aria-label="Fechar visualização"
                 >

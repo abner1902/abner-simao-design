@@ -8,6 +8,7 @@ export type CategoryID = 'all' | 'web' | 'branding' | 'corporate' | 'audiovisual
 interface FilterBarProps {
   activeCategory: CategoryID;
   setActiveCategory: (id: CategoryID) => void;
+  hideOnMobile?: boolean;
 }
 
 const categories: { id: CategoryID; label: string; icon: LucideIcon }[] = [
@@ -18,7 +19,7 @@ const categories: { id: CategoryID; label: string; icon: LucideIcon }[] = [
   { id: 'audiovisual', label: 'Audiovisual', icon: Video },
 ];
 
-export default function FilterBar({ activeCategory, setActiveCategory }: FilterBarProps) {
+export default function FilterBar({ activeCategory, setActiveCategory, hideOnMobile = false }: FilterBarProps) {
   return (
     <>
       {/* ── DESKTOP: Pill bar no topo ── */}
@@ -49,9 +50,15 @@ export default function FilterBar({ activeCategory, setActiveCategory }: FilterB
       </nav>
 
       {/* ── MOBILE: Bottom Dock Liquid Glass iOS 26 ── */}
-      <nav
-        className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[110] w-[92%] max-w-"
+      <motion.nav
+        className="md:hidden fixed bottom-6 left-[4%] z-[90] w-[92%]"
         aria-label="Filtros de categoria"
+        animate={{
+          y: hideOnMobile ? 120 : 0,
+          opacity: hideOnMobile ? 0 : 1,
+          pointerEvents: hideOnMobile ? 'none' : 'auto',
+        }}
+        transition={{ type: 'spring', bounce: 0.1, duration: 0.4 }}
       >
         <div
           className="
@@ -115,7 +122,7 @@ export default function FilterBar({ activeCategory, setActiveCategory }: FilterB
             );
           })}
         </div>
-      </nav>
+      </motion.nav>
     </>
   );
 }

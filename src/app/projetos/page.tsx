@@ -54,6 +54,7 @@ const layoutStyles = `
 function ProjetosPageContent() {
   const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<CategoryID>('all');
+  const [anyModalOpen, setAnyModalOpen] = useState(false);
 
   useEffect(() => {
     const category = searchParams.get('category');
@@ -67,7 +68,7 @@ function ProjetosPageContent() {
     activeCategory === 'all' || activeCategory === category;
 
   return (
-    <main className="relative min-h-screen w-full overflow-x-hidden">
+    <main className="relative min-h-screen w-full">
       <style dangerouslySetInnerHTML={{ __html: layoutStyles }} />
 
       {/* Background Fixo */}
@@ -79,13 +80,13 @@ function ProjetosPageContent() {
 
       <div className="relative pt-20 md:pt-28 pb-32 projetos-page-wrapper">
 
-        <FilterBar activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+        <FilterBar activeCategory={activeCategory} setActiveCategory={setActiveCategory} hideOnMobile={anyModalOpen} />
 
         <div className="projetos-flow-container mt-4 md:mt-6">
 
             {isVisible('audiovisual') && (
               <motion.div key="av-arts" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} layout>
-                <EventosArtistasSection />
+                <EventosArtistasSection onModalChange={setAnyModalOpen} />
               </motion.div>
             )}
 
