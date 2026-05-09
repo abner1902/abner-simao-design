@@ -102,7 +102,7 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://wa.me/5511996670948?text=Olá%20Abner!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-sky-700 dark:hover:text-sky-400 transition-colors">
+                    <Link href="/contato" className="flex items-center gap-2 hover:text-sky-700 dark:hover:text-sky-400 transition-colors">
                       <FaWhatsapp className="text-green-500 shrink-0" size={18} />
                       Contato via WhatsApp
                     </Link>
@@ -136,7 +136,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="https://wa.me/5511996670948"
+              href="/contato"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 inline-flex items-center justify-center gap-3 min-h-[5rem] py-4 px-6 rounded-2xl font-gotham font-bold text-stone-900 dark:text-white text-lg uppercase tracking-widest text-center bg-gradient-to-r from-white/60 to-teal-500/90 dark:from-slate-800/60 dark:to-teal-700/50 border border-teal-500 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.25)] transition-all duration-300 hover:brightness-95 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-500"

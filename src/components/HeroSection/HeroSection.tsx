@@ -64,7 +64,7 @@ export default function HeroSection() {
                   Ver Projetos
                 </Link>
                 <a 
-                  href="https://wa.me/5511996670948?text=Oi!%20Quero%20solicitar%20um%20orçamento" 
+                  href="/contato" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="px-8 py-3 rounded-xl bg-gradient-to-r from-white/40 to-emerald-400/50 dark:from-slate-800/60 dark:to-emerald-600/50 border border-emerald-500 text-slate-900 dark:text-white font-bold uppercase tracking-tight transition-all hover:shadow-lg backdrop-blur-sm text-sm"
