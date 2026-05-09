@@ -25,25 +25,25 @@ export default function HeroSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
             {/* Coluna de texto */}
-            <div className="flex flex-col justify-center items-center lg:items-start space-y-6 text-center lg:text-left order-1">
+            <div className="flex flex-col justify-center items-start space-y-6 text-left order-1">
               <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150 fill-mode-both">
-                <h1 className="font-black text-4xl sm:text-6xl lg:text-5xl xl:text-6xl leading-tight tracking-tighter font-gotham text-blue-900 dark:text-blue-300">
-                  Oi, eu sou Abner
+                <h1 className="font-black text-3xl sm:text-4xl lg:text-3xl xl:text-4xl leading-tight tracking-tighter font-gotham text-blue-900 dark:text-blue-300 lg:whitespace-nowrap">
+                  Direção de Arte & Design Engineer
                 </h1>
               </div>
 
-              <p className="text-xl font-bold text-emerald-600 dark:text-emerald-400 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both">
-                Eu crio marcas e construo experiências digitais modernas.
+              <p className="text-lg font-bold text-emerald-600 dark:text-emerald-400 leading-tight lg:whitespace-nowrap animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both">
+                Branding, UI/UX e front-end integrados — do Figma ao deploy.
               </p>
 
-              <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed max-w-lg animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both">
-                Designer com trajetória desde 2011 em branding, UI/UX e design digital,
-                combinando criatividade, estratégia e desenvolvimento front-end.
+              <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both">
+                Lenoxx • Gradiente • SPFC • Portal Telemedicina
+<span className="block mt-4 text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest">No mercado desde 2011</span>
               </p>
 
               {/* Foto mobile */}
               <div className="flex justify-center lg:hidden w-full animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700 fill-mode-both py-4">
-                <div className="relative w-full max-w-[280px] aspect-square rounded-3xl overflow-hidden border border-white/20 shadow-xl bg-white/5">
+                <div className="relative w-full max-w-[200px] aspect-square rounded-3xl overflow-hidden border border-white/20 shadow-xl bg-white/5">
                   <Image
                     src="/assets/images/profile/abner-hero-photo.webp"
                     alt="Abner Simão"
@@ -56,18 +56,16 @@ export default function HeroSection() {
               </div>
 
               {/* Botões */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full justify-center lg:justify-start animate-in fade-in slide-in-from-bottom-4 duration-700 delay-1000 fill-mode-both">
+              <div className="flex flex-col sm:flex-row gap-3 pt-4 w-full animate-in fade-in slide-in-from-bottom-4 duration-700 delay-1000 fill-mode-both">
                 <Link
                   href="/projetos"
-                  className="px-8 py-3 rounded-xl border-2 border-blue-900 dark:border-blue-400 text-blue-900 dark:text-blue-300 font-bold uppercase tracking-tight transition-all hover:bg-blue-900 hover:text-white text-sm text-center"
+                  className="flex-1 px-8 py-3 rounded-xl border-2 border-blue-900 dark:border-blue-400 text-blue-900 dark:text-blue-300 font-bold uppercase tracking-tight transition-all hover:bg-blue-900 hover:text-white text-sm text-center"
                 >
                   Ver Projetos
                 </Link>
                 <a 
-                  href="/contato" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-8 py-3 rounded-xl bg-gradient-to-r from-white/40 to-emerald-400/50 dark:from-slate-800/60 dark:to-emerald-600/50 border border-emerald-500 text-slate-900 dark:text-white font-bold uppercase tracking-tight transition-all hover:shadow-lg backdrop-blur-sm text-sm"
+                  href="/contato"
+                  className="flex-1 px-8 py-3 rounded-xl bg-gradient-to-r from-white/40 to-emerald-400/50 dark:from-slate-800/60 dark:to-emerald-600/50 border border-emerald-500 text-slate-900 dark:text-white font-bold uppercase tracking-tight transition-all hover:shadow-lg backdrop-blur-sm text-sm text-center"
                 >
                   SOLICITAR ORÇAMENTO
                 </a>
@@ -76,7 +74,7 @@ export default function HeroSection() {
 
             {/* Foto desktop */}
             <div className="hidden lg:flex justify-center items-center animate-in fade-in zoom-in-95 duration-1000 delay-500 fill-mode-both order-2">
-              <div className="relative w-full aspect-square max-w-[360px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-white/5">
+              <div className="relative w-full aspect-square max-w-[280px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-white/5">
                 <Image
                   src="/assets/images/profile/abner-hero-photo.webp"
                   alt="Abner Simão"
