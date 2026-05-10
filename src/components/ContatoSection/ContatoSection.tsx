@@ -6,7 +6,7 @@ import Image from 'next/image';
 const SELECT_OPTIONS = [
   {
     group: '🎨 Serviços de Design',
-    items: [
+    items:[
       { value: 'logotipos', label: 'Criação de Logotipos' },
       { value: 'identidade-visual', label: 'Identidade Visual' },
       { value: 'ilustracao', label: 'Ilustração e Vetores' },
@@ -16,7 +16,7 @@ const SELECT_OPTIONS = [
   },
   {
     group: '🚀 Desenvolvimento & Marketing',
-    items: [
+    items:[
       { value: 'sites-nextjs', label: 'Sites em React e Next.js' },
       { value: 'landing-pages', label: 'Criação de Landing Pages' },
       { value: 'uiux-design', label: 'UI/UX Design' },
@@ -33,7 +33,7 @@ interface CustomSelectProps {
 }
 
 function CustomSelect({ value, onChange }: CustomSelectProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const[isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function CustomSelect({ value, onChange }: CustomSelectProps) {
     }
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  },[]);
 
   const selectedLabel = SELECT_OPTIONS
     .flatMap((g) => g.items)
@@ -174,9 +174,17 @@ export default function ContatoSection() {
               Abner Simão
             </span>
           </h2>
-          <p className="mt-4 text-slate-800 dark:text-white/90 text-lg max-w-4xl mx-auto leading-relaxed font-medium">
+          <p className="hidden md:block mt-4 text-slate-900 dark:text-white/90 text-sm md:text-base max-w-4xl mx-auto leading-relaxed font-medium px-4 md:px-0 text-left md:text-center">
             Direção criativa, branding, UI/UX e desenvolvimento front-end para marcas que precisam de uma presença digital forte, moderna e estratégica. Do conceito ao lançamento: identidade visual, social media, websites, vídeos e experiências digitais criadas com visão integrada.
           </p>
+          <div className="md:hidden mt-4 px-4 text-left space-y-3">
+            <p className="text-slate-900 dark:text-white/90 text-sm leading-relaxed font-medium">
+              Direção criativa, branding, UI/UX e desenvolvimento front-end para marcas que precisam de uma presença digital forte, moderna e estratégica.
+            </p>
+            <p className="text-slate-900 dark:text-white/90 text-sm leading-relaxed font-medium">
+              Do conceito ao lançamento: identidade visual, social media, websites, vídeos e experiências digitais criadas com visão integrada.
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-stretch">
@@ -190,35 +198,39 @@ export default function ContatoSection() {
                 quality={90}
               />
             </div>
-            <div className="p-8 space-y-6 flex-grow flex flex-col justify-between">
-              <div>
-                <h3 className="font-gotham font-black text-2xl text-slate-900 dark:text-white tracking-tight">Criatividade, performance e tecnologia</h3>
-                <p className="mt-2 text-slate-800 dark:text-white/80 text-base leading-relaxed">
-                  Mais do que um designer ou desenvolvedor isolado, atuo como parceiro criativo para projetos que precisam unir estratégia, estética e execução. Há 16 anos desenvolvo marcas, interfaces e experiências digitais para empresas, artistas e agências — conectando branding, conteúdo, motion, front-end e direção visual em um único fluxo criativo.
+            <div className="p-8 space-y-6 flex-grow flex flex-col">
+              <div className="space-y-4">
+                <h3 className="font-gotham font-semibold text-[2.25rem] md:text-2xl text-slate-900 dark:text-white tracking-tight leading-[1.15] md:leading-tight text-left pb-4">
+                  <span className="md:hidden">Criatividade,<br />performance<br />e tecnologia</span><span className="hidden md:inline">Criatividade, performance e tecnologia</span>
+                </h3>
+                <p className="text-slate-800 dark:text-white/80 text-base md:text-lg leading-relaxed">
+                  Mais do que um designer ou desenvolvedor isolado, atuo como parceiro criativo para projetos que precisam unir estratégia, estética e execução.
+                </p>
+                <p className="text-slate-800 dark:text-white/80 text-base md:text-lg leading-relaxed">
+                  Desde 2011 desenvolvo marcas, interfaces e experiências digitais para empresas, artistas e agências — conectando branding, conteúdo, motion, front-end e direção visual em um único fluxo criativo.
                 </p>
               </div>
               <div className="space-y-4 pt-6 border-t border-slate-200 dark:border-white/10">
-                <a href="https://wa.me/5511996670948" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 p-4 rounded-2xl border border-[#25D366]/30 hover:border-[#25D366]/60 bg-[#25D366]/5 hover:bg-[#25D366]/10 shadow-[0_0_16px_rgba(37,211,102,0.1)] hover:shadow-[0_0_24px_rgba(37,211,102,0.2)] transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-[#25D366]/10 flex items-center justify-center transition-transform group-hover:scale-110">
-                    <svg className="w-6 h-6 fill-[#25D366]" viewBox="0 0 24 24">
+                <a href="https://wa.me/5511996670948" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-5 p-5 md:p-6 rounded-2xl border border-[#25D366]/30 hover:border-[#25D366]/60 bg-[#25D366]/5 hover:bg-[#25D366]/10 shadow-[0_0_16px_rgba(37,211,102,0.1)] hover:shadow-[0_0_24px_rgba(37,211,102,0.2)] transition-all">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center transition-transform group-hover:scale-110">
+                    <svg className="w-6 h-6 md:w-7 md:h-7 fill-[#25D366]" viewBox="0 0 24 24">
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.347.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.938 3.659 1.434 5.63 1.434h.006c6.558 0 11.897-5.335 11.9-11.894a11.856 11.856 0 00-3.486-8.412z"/>
                     </svg>
                   </div>
                   <div>
                     <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-white/40 font-bold mb-0.5">WhatsApp</span>
-                    <span className="text-sm font-medium text-slate-700 dark:text-white/80">Falar agora pelo WhatsApp</span>
+                    <span className="text-sm md:text-base font-medium text-slate-700 dark:text-white/80">Falar agora pelo WhatsApp</span>
                   </div>
                 </a>
-                <a href="mailto:abnersimaodesign@gmail.com" // NOVA
-className="group flex items-center gap-4 p-4 rounded-2xl border border-cyan-500/30 hover:border-cyan-500/60 bg-cyan-500/5 hover:bg-cyan-500/10 shadow-[0_0_16px_rgba(6,182,212,0.1)] hover:shadow-[0_0_24px_rgba(6,182,212,0.2)] transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-cyan-500/10 dark:bg-white/10 flex items-center justify-center transition-transform group-hover:scale-110">
-                    <svg className="w-5 h-5 text-cyan-600 dark:text-white/70" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <a href="mailto:abnersimaodesign@gmail.com" className="group flex items-center gap-5 p-5 md:p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-500/60 bg-cyan-500/5 hover:bg-cyan-500/10 shadow-[0_0_16px_rgba(6,182,212,0.1)] hover:shadow-[0_0_24px_rgba(6,182,212,0.2)] transition-all">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-cyan-500/10 dark:bg-white/10 flex items-center justify-center transition-transform group-hover:scale-110">
+                    <svg className="w-5 h-5 md:w-6 md:h-6 text-cyan-600 dark:text-white/70" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
                     <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-white/40 font-bold mb-0.5">E-mail</span>
-                    <span className="text-sm font-medium text-slate-700 dark:text-white/80">Enviar e-mail direto</span>
+                    <span className="text-sm md:text-base font-medium text-slate-700 dark:text-white/80">Enviar e-mail direto</span>
                   </div>
                 </a>
               </div>
@@ -227,9 +239,21 @@ className="group flex items-center gap-4 p-4 rounded-2xl border border-cyan-500/
 
           {/* Card Formulário */}
           <div className="flex flex-col h-full bg-white/60 dark:bg-white/5 backdrop-blur-xl rounded-3xl border border-slate-200 dark:border-white/10 shadow-xl p-8 transition-all">
+            
+            <div className="mb-6 pb-6 border-b border-slate-200 dark:border-white/10 text-slate-800 dark:text-white/80 text-base leading-relaxed">
+              <p>
+                Este portfólio é uma curadoria dos meus melhores e mais recentes trabalhos de variados setores. No{' '}
+                <a href="https://behance.net/abnersimao" target="_blank" rel="noopener noreferrer" className="text-cyan-600 dark:text-emerald-400 font-semibold hover:underline">
+                  Behance
+                </a>
+                , você encontra muito mais projetos desde o início da minha jornada no design.
+              </p>
+            </div>
+
             <h3 className="font-gotham font-black text-2xl text-slate-900 dark:text-white tracking-tight mb-6">Envie sua mensagem</h3>
-            <form onSubmit={handleSubmit} className="space-y-4 flex-grow flex flex-col">
-              <div className="space-y-4 flex-grow">
+
+            <form onSubmit={handleSubmit} className="flex flex-col flex-grow">
+              <div className="flex flex-col flex-grow gap-4">
                 <div>
                   <label className="block text-slate-700 dark:text-white/80 text-xs font-black uppercase tracking-widest mb-2">Nome completo *</label>
                   <input type="text" name="nome" value={formData.nome} onChange={handleChange} required placeholder="Seu nome"
@@ -243,26 +267,23 @@ className="group flex items-center gap-4 p-4 rounded-2xl border border-cyan-500/
                   />
                 </div>
 
-                {/* ✅ CustomSelect — sem dialog nativo do Android */}
                 <div>
                   <label className="block text-slate-700 dark:text-white/80 text-xs font-black uppercase tracking-widest mb-2">Como posso te ajudar? *</label>
                   <CustomSelect value={formData.interesse} onChange={handleSelectChange} />
-                  {/* Input invisível mantém o required do HTML funcionando */}
                   <input
                     type="text" required value={formData.interesse} onChange={() => {}}
                     className="sr-only" aria-hidden="true" tabIndex={-1}
                   />
                 </div>
 
-                <div>
+                <div className="flex flex-col flex-grow">
                   <label className="block text-slate-700 dark:text-white/80 text-xs font-black uppercase tracking-widest mb-2">Mensagem *</label>
-                  <textarea name="mensagem" value={formData.mensagem} onChange={handleChange} rows={4} required placeholder="Conta seu projeto..."
-                    className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/20 focus:outline-none focus:border-cyan-500 dark:focus:border-emerald-400/50 transition text-sm resize-y"
+                  <textarea name="mensagem" value={formData.mensagem} onChange={handleChange} required placeholder="Conta seu projeto..."
+                    className="w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-white/20 focus:outline-none focus:border-cyan-500 dark:focus:border-emerald-400/50 transition text-sm flex-grow resize-none"
                   />
                 </div>
               </div>
 
-              {/* ✅ Mensagens de feedback */}
               {status === 'sucesso' && (
                 <p className="text-center text-sm font-semibold text-emerald-500 dark:text-emerald-400 py-2">
                   ✅ Mensagem enviada! Entrarei em contato em breve.

@@ -120,13 +120,13 @@ export default function EmpresasModal({
                       {item.type === 'video' ? (
                         <video src={item.src} autoPlay muted loop playsInline className="w-full h-auto object-cover" />
                       ) : (
-                        <div className="relative">
+                        <div className="relative w-full">
                           <Image
                             src={item.src}
                             alt={item.alt}
                             width={600}
-                            height={800}
-                            className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                            height={900}
+                            className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                             sizes="(max-width: 640px) 50vw, 33vw"
                           />
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20">

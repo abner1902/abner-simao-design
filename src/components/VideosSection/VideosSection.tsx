@@ -229,7 +229,7 @@ export default function VideosSection() {
         {/* ✅ HEADER COM MAIS RESPIRO (só nesta seção) */}
         <SectionHeader 
           title="VÍDEOS PARA EVENTOS E LANÇAMENTOS" 
-          description="Há mais de 10 anos criando mais impacto visual com stop motion, aftermovies e covers animadas. Conteúdo pré e pós para eventos e lançamentos." 
+          description="Ampla experiência criando impacto visual através de stop motion, aftermovies e covers animadas para eventos, artistas e lançamentos." 
           className="mb-20 sm:mb-28"
         />
 

@@ -14,13 +14,13 @@ import { eventosArtistas } from '@/data/eventosArtistas';
 export default function ProjectPage() {
   const router = useRouter();
   const params = useParams();
-  
+
   // Garantimos que o slug seja tratado corretamente como string
-  const slug = typeof params?.slug === 'string' ? params.slug : '';
+  const slug = typeof params?.slug === 'string'? params.slug : '';
 
   // ✅ UNIFICAÇÃO SENIOR: Criamos uma lista única para busca
   const project = useMemo(() => {
-    const allProjects = [...webDesignProjects, ...empresasData, ...eventosArtistas];
+    const allProjects = [...webDesignProjects,...empresasData,...eventosArtistas];
     return allProjects.find((p) => (p.slug || p.id) === slug);
   }, [slug]);
 
@@ -78,7 +78,7 @@ export default function ProjectPage() {
         {/* 1. HERO — Imagem principal do Case */}
         <section className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-white/50 dark:border-white/10 bg-slate-200 dark:bg-slate-800">
           <Image
-            src={('caseImage' in project && project.caseImage) ? project.caseImage : project.image}
+            src={('caseImage' in project && project.caseImage)? project.caseImage : project.image}
             alt={project.imageAlt}
             fill
             priority
@@ -100,12 +100,12 @@ export default function ProjectPage() {
         {/* 3. FICHA TÉCNICA (QuickFactsTable) */}
         <div className="w-full">
           <QuickFactsTable
-            role={('role' in project ? project.role : "Diretor de Arte & Brand Designer") ?? "Diretor de Arte & Brand Designer"}
-            stack={('stack' in project ? project.stack : ["Illustrator", "Photoshop"]) ?? ["Illustrator", "Photoshop"]}
-            year={('year' in project ? project.year : "2022") ?? "2022"}
-            methodology={('methodology' in project ? project.methodology : "Sistema de Marca & Direção Visual") ?? "Sistema de Marca & Direção Visual"}
-            status={('status' in project ? project.status : "Branding & Identidade Visual") ?? "Branding & Identidade Visual"}
-            liveLink={('liveLink' in project ? project.liveLink : undefined) ?? undefined}
+            role={('role' in project? project.role : "Diretor de Arte & Brand Designer")?? "Diretor de Arte & Brand Designer"}
+            stack={('stack' in project? project.stack : ["Illustrator", "Photoshop"])?? ["Illustrator", "Photoshop"]}
+            year={('year' in project? project.year : "2022")?? "2022"}
+            methodology={('methodology' in project? project.methodology : "Sistema de Marca & Direção Visual")?? "Sistema de Marca & Direção Visual"}
+            status={('status' in project? project.status : "Branding & Identidade Visual")?? "Branding & Identidade Visual"}
+            liveLink={('liveLink' in project? project.liveLink : undefined)?? undefined}
           />
         </div>
 
@@ -136,14 +136,19 @@ export default function ProjectPage() {
 
         {/* 5. GALERIA (MASONRY/GRID) - Se existir */}
         {'gallery' in project && project.gallery && project.gallery.length > 0 && (
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-            {project.gallery.map((item, index) => (
-              <div key={index} className="relative aspect-video rounded-2xl overflow-hidden border border-white/30 shadow-md">
-                <Image 
-                  src={item.src} 
-                  alt={item.alt} 
-                  fill 
-                  className="object-cover hover:scale-105 transition-transform duration-500" 
+          <section className="columns-1 md:columns-2 gap-4 mt-4">
+            {project.gallery
+             .filter(item => item.src!== (('caseImage' in project && project.caseImage)? project.caseImage : project.image))
+             .map((item, index) => (
+              <div key={index} className="mb-4 break-inside-avoid rounded-2xl overflow-hidden border border-white/30 shadow-md">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  width={1200}
+                  height={0}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="w-full h-auto hover:scale-105 transition-transform duration-500"
+                  style={{ height: 'auto' }}
                 />
               </div>
             ))}
@@ -174,7 +179,7 @@ export default function ProjectPage() {
               href={project.behance}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 bg-[#075985] text-white px-10 py-5 rounded-full font-gotham font-bold text-[11px] uppercase tracking-[0.2em] hover:bg-sky-600 transition-all shadow-xl"
+              className="group flex items-center gap-3 bg-[#075985] text-white px-10 py-5 rounded-full font-gotham font-bold text- uppercase tracking-[0.2em] hover:bg-sky-600 transition-all shadow-xl"
             >
               <span>Ver Case Completo no Behance</span>
               <ExternalLink size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
