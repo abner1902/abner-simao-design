@@ -41,6 +41,39 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Abner Simão',
+  jobTitle: 'Design Engineer & Art Director',
+  description: 'Designer gráfico com 16 anos de experiência em branding, UI/UX e Design Engineering. Especialista em identidade visual e desenvolvimento front-end moderno.',
+  url: 'https://www.abnersimao.com.br',
+  image: 'https://www.abnersimao.com.br/assets/images/Favicon/og_image.webp',
+  email: 'abnersimaodesign@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'São Paulo',
+    addressRegion: 'SP',
+    addressCountry: 'BR',
+  },
+  sameAs: [
+    'https://www.behance.net/abnersimao',
+    'https://www.linkedin.com/in/abner-simao-design/',
+    'https://www.instagram.com/abnersimao.design',
+    'https://www.facebook.com/abnersimaodesign',
+  ],
+  knowsAbout: [
+    'Branding',
+    'Identidade Visual',
+    'UI/UX Design',
+    'Design Engineering',
+    'Next.js',
+    'React',
+    'Tailwind CSS',
+    'Figma',
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -49,6 +82,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <NextTopLoader color="#8B5CF6" height={3} showSpinner={false} />
         <Navbar />
         <main id="main-content">
