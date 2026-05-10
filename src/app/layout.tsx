@@ -9,7 +9,10 @@ export const metadata: Metadata = {
   keywords: ['designer gráfico', 'front-end', 'UI/UX', 'branding', 'Next.js', 'React', 'São Paulo', 'Design Engineer'],
   authors: [{ name: 'Abner Simão' }],
   creator: 'Abner Simão',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://abner-simao-design.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.abnersimao.com.br'),
+  verification: {
+    google: '_07SQRl96xFM371el9hoCG0SbJTIgb71xJzdV4BRY6g',
+  },
   openGraph: {
     title: 'Abner Simão | Design Engineer & Art Director',
     description: '16 anos de experiência unindo design estratégico e código de alta performance.',
