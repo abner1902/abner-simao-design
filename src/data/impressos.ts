@@ -11,6 +11,8 @@ export interface ImpressoProject {
   thumb: string;
   imageAlt: string;
   behanceUrl: string;
+  partnerUrl?: string;
+  partnerLabel?: string;
 }
 
 export const impressosData: ImpressoProject[] = [
@@ -26,7 +28,7 @@ export const impressosData: ImpressoProject[] = [
     image: '/assets/images/projects/05-impressos/full/patacones-alta-aprovada.webp',
     thumb: '/assets/images/projects/05-impressos/thumbs/patacones-impresso-mockup.webp',
     imageAlt: 'Banner Patacones',
-    behanceUrl: 'https://www.behance.net/gallery/SEU_LINK_AQUI'
+    behanceUrl: 'https://www.behance.net/gallery/64743985/FOLDER-LOGOTIPO-PATACONES-GASTRONOMIA-COLOMBIANA'
   },
   {
     id: 'pizza-cardapio',
@@ -40,7 +42,7 @@ export const impressosData: ImpressoProject[] = [
     image: '/assets/images/projects/05-impressos/full/pizza-alta-aprovada.webp',
     thumb: '/assets/images/projects/05-impressos/thumbs/cardapio-mockup-melhor-fatia-pizza.webp',
     imageAlt: 'Cardápio Melhor Fatia da Pizza',
-    behanceUrl: 'https://www.behance.net/gallery/SEU_LINK_AQUI'
+    behanceUrl: 'https://www.behance.net/gallery/35423115/A-Melhor-Fatia-da-Pizza-InDesign'
   },
   {
     id: 'duque-carnes-caixa',
@@ -54,7 +56,9 @@ export const impressosData: ImpressoProject[] = [
     image: '/assets/images/projects/05-impressos/full/caixa-duque-alta-aprovada.webp',
     thumb: '/assets/images/projects/05-impressos/thumbs/caixa-churrasco-impresso.webp',
     imageAlt: 'Caixa Duque Carnes',
-    behanceUrl: ''
+    behanceUrl: '',
+    partnerUrl: 'https://centercaixas.com.br/',
+    partnerLabel: 'Produzido por Center Caixas'
   },
   {
     id: 'gradiente-speaker',
@@ -68,6 +72,6 @@ export const impressosData: ImpressoProject[] = [
     image: '/assets/images/projects/05-impressos/full/speaker-alta-aprovada.webp',
     thumb: '/assets/images/projects/05-impressos/thumbs/gradiente-speaker-mockup.webp',
     imageAlt: 'Speaker Gradiente',
-    behanceUrl: ''
+    behanceUrl: 'https://www.behance.net/gallery/75504923/Gradiente-Marketing-2019'
   }
 ];

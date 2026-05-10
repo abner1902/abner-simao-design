@@ -54,6 +54,7 @@ export const empresasData: EmpresaProject[] = [
     image: '/assets/images/projects/06-empresas/saude/design-para-saude-cover.webp',
     imageAlt: 'Ecossistema Visual para Grupo Equilibrium - Health Marketing',
     description: 'Comunicação estratégica para o Grupo Equilibrium (Health Marketing). Produção audiovisual e design de performance para BHB Food e Academia da Nutrição. Gestão técnica de campanhas de Ads e produção de podcasts semanais para o mercado de nutrição.',
+    behance: 'https://www.behance.net/gallery/126650743/FORUM-ACADEMIA-DA-NUTRICAO-2021-ONLINE-WEBINAR-EVENT',
     gallery: [
       // --- GRUPO BHB FOOD ---
       { src: 'https://res.cloudinary.com/dq3qu3lv0/video/upload/q_auto/f_auto/v1777650879/BHB_FOOD_-_ONLINE_EDITION_VIDEO_PRINCIPAL_Behance_v1no0p.mp4', alt: 'BHB Food Online Edition Vídeo Principal', caption: 'BHB Food — Principal', type: 'video' },
@@ -99,7 +100,7 @@ export const empresasData: EmpresaProject[] = [
   image: '/assets/images/projects/06-empresas/fonoaudiologia/girafala-cover-mockup.webp',
   imageAlt: 'Branding GiraFala — Identidade Visual para Clínica de Fonoaudiologia Infantil',
   description: 'A GiraFala chegou com nome e conceito definidos — minha missão foi dar vida à marca. O desafio era traduzir fonoaudiologia infantil em uma linguagem visual que fosse ao mesmo tempo acolhedora para as famílias e confiável para os responsáveis. O resultado é uma identidade delicada e lúdica, com a girafa como símbolo natural do desenvolvimento da fala — longa, que alcança alturas, que cresce. Hoje o consultório está em plena expansão, e a marca acompanha esse crescimento com consistência.',
-  behance: undefined,
+  behance: 'https://www.behance.net/gallery/220338661/Identidade-Visual-GiraFala-Desenvolvimento-Infantil',
   gallery: [
     { src: '/assets/images/projects/06-empresas/fonoaudiologia/girafala-cover-mockup.webp', alt: 'Mockup papelaria GiraFala — Cartão e Identidade Visual', caption: 'GiraFala — Mockup Identidade' },
     { src: '/assets/images/projects/06-empresas/fonoaudiologia/logo-oficial-girafala-01.webp', alt: 'Logo oficial GiraFala fundo colorido', caption: 'Logo — Versão Principal' },
@@ -122,6 +123,7 @@ methodology: 'Design Editorial & Ambientação de Marca',
 year: '2022',
   image: '/assets/images/projects/06-empresas/stande-evento-portal-v2.webp',
   imageAlt: 'Ambientação e Design Gráfico para Estandes Corporativos',
+  behance: 'https://www.behance.net/gallery/154716693/GLOBAL-SUMMIT-2022-PORTAL-TELEMEDICINA',
   description: 'Criação completa da comunicação visual do estande da Portal Telemedicina para o Global Summit 2022, traduzindo o posicionamento da marca no encontro entre saúde e tecnologia. Fui responsável pelo desenvolvimento das artes vetorizadas e das peças em alta resolução para impressão em adesivos, além do folder institucional com três dobras, vinco, frente e verso, e do bloco de anotações alinhado à identidade visual da empresa. O resultado foi um sistema visual coeso, pensado para reforçar presença de marca, clareza de comunicação e percepção de inovação no ambiente expositivo.',
   gallery: [
     {
