@@ -48,6 +48,12 @@ methodology: 'Plataforma Educacional, Curadoria de Conteúdo Multimídia, Integr
 status: 'Projeto Autoral / Educacional',
 year: '2021',
 liveLink: 'https://www.psychedeliclab.com.br/',
+  gallery: [
+    {
+      src: '/assets/images/projects/03-web-design/psychedelic-lab-tutoriais-tabela/prova-real-psychedelic-lab-seo.webp',
+      alt: 'Psychedelic Lab — 1º lugar no Google para Curso de Darkpsy'
+    }
+  ],
 description: 'Primeira plataforma brasileira de ensino profissional de Darkpsy, com tutoriais em vídeo, downloads gratuitos (drums, presets, wavetables) e comunidade ativa.',
 challenge: 'A Psychedelic Lab é a primeira plataforma do Brasil dedicada ao ensino de Darkpsy. O desafio era organizar tutoriais, downloads e a estrutura do curso em uma interface limpa, sem poluir a navegação.\n\nCriei uma curadoria visual com cards de vídeos (YouTube), área de free downloads (drums, kicks, presets) e integração com a comunidade. Os módulos do curso são gerenciados via Hotmart, com checkout otimizado. Implementei o Facebook Pixel diretamente no código para rastreamento avançado, criação de públicos customizados e remarketing, deixando a base técnica pronta para campanhas de tráfego pago.\n\nResultado: O site ranqueia em 1º lugar no Google para "Curso de Darkpsy", atraindo produtores organicamente, enquanto a infraestrutura suporta estratégias de conversão e vendas escaláveis.'  },
 {
@@ -64,6 +70,12 @@ methodology: 'Figma Design System, DOM-based Lazy Loading, Slug-based Routing',
 status: 'Freelance',
 year: '2026',
 liveLink: 'https://agyasounds.com.br/',
+  gallery: [
+    {
+      src: '/assets/images/projects/03-web-design/agya-sounds-site-tabela/prova-real-seo-agya-sounds.webp',
+      alt: 'Agya Sounds — Prova real de SEO e performance'
+    }
+  ],
 description: 'E-commerce imersivo para gravadora de música eletrônica com 44 artistas, unindo estética psicodélica com performance técnica.',
 challenge: 'O projeto exigia catalogar 44 artistas com dados estruturados (slugs, datas, metadados) sem comprometer a performance inicial do site.\n\nCriei todo o design system no Figma antes da implementação. No front-end, utilizei manipulação direta do DOM para carregar o conteúdo de cada artista apenas sob demanda (on-click), reduzindo drasticamente o bundle inicial e garantindo LCP otimizado mesmo com grande volume de dados.'
 }

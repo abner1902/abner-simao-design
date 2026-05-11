@@ -136,7 +136,7 @@ export default function ProjectPage() {
 
         {/* 5. GALERIA (MASONRY/GRID) - Se existir */}
         {'gallery' in project && project.gallery && project.gallery.length > 0 && (
-          <section className="columns-1 md:columns-2 gap-4 mt-4">
+          <section className={`gap-4 mt-4 ${'gallery' in project && project.gallery && project.gallery.length === 1 ? 'flex justify-center' : 'columns-1 md:columns-2'}`}>
             {project.gallery
              .filter(item => item.src!== (('caseImage' in project && project.caseImage)? project.caseImage : project.image))
              .map((item, index) => (
