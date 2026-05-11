@@ -14,6 +14,7 @@ methodology?: string;
 status?: string;
 description: string;
 challenge: string;
+  gallery?: { src: string; alt: string }[];
 }
 
 export const webDesignProjects: WebDesignProject[] = [
