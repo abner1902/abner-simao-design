@@ -73,7 +73,7 @@ export default function ProjectPage() {
             alt={`${project.title} - Portfólio Abner Simão Design`}
             fill
             priority
-            className="object-cover"
+            className="object-contain"
             sizes="(max-width: 768px) 100vw, 1024px"
           />
         </section>

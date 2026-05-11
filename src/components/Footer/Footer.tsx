@@ -108,9 +108,9 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="mailto:abnersimao91@gmail.com" className="flex items-center gap-2 hover:text-sky-700 dark:hover:text-sky-400 transition-colors">
+                    <Link href="mailto:abnersimaodesign@gmail.com" className="flex items-center gap-2 hover:text-sky-700 dark:hover:text-sky-400 transition-colors">
                       <Mail className="text-sky-500 shrink-0" size={18} />
-                      abnersimao91@gmail.com
+                      abnersimaodesign@gmail.com
                     </Link>
                   </li>
                 </ul>
