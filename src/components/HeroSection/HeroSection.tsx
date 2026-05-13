@@ -50,7 +50,7 @@ export default function HeroSection() {
               {/* Subheadline */}
               <p className="max-w-2xl text-base font-semibold leading-relaxed text-emerald-600 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both dark:text-emerald-400 sm:text-lg">
 
-                Branding, direção de arte e front-end com React/Next.js. 
+                Direção de arte e front-end com React/Next.js. 
 
               </p>
 
