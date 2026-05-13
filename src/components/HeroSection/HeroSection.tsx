@@ -39,7 +39,7 @@ export default function HeroSection() {
 
                 <h1 className="max-w-[640px] font-gotham text-[1.5rem] font-black leading-[1.02] tracking-tight text-blue-900 dark:text-blue-300 sm:text-[1.7rem] lg:text-[1.72rem] xl:text-[1.85rem]">
 
-                  Designer UI/UX <span className="block lg:inline">& Creative Developer</span>
+                  Designer UI/UX &<span className="block lg:inline"> Creative Developer</span>
 
                   {/* Subtitle removido para melhor leitura no mobile */}
 
