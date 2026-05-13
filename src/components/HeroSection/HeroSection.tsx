@@ -6,107 +6,131 @@ import Link from 'next/link';
 export default function HeroSection() {
   return (
     <section
-      id="início"
-      className="relative pt-20 lg:pt-36 pb-16 lg:pb-28 overflow-hidden"
+      id="inicio"
+      aria-label="Hero section"
+      className="relative overflow-hidden pt-20 pb-16 lg:pt-32 lg:pb-24"
     >
-      {/* Background Decorativo */}
-      <div className="absolute -top-20 left-0 right-0 bottom-0 -z-10">
+      {/* Background */}
+      <div className="absolute inset-0 -z-10">
         <Image
           src="/assets/images/backgrounds/bg-liquid-forms.webp"
-          alt=""
+          alt="Background abstrato com formas fluidas"
           fill
           priority
           quality={75}
+          sizes="100vw"
           className="object-cover"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/50 to-cyan-50/40 dark:from-slate-950/50 dark:via-slate-900/50 dark:to-blue-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/50 to-cyan-50/40 dark:from-slate-950/60 dark:via-slate-900/50 dark:to-blue-950/30" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden bg-white/10 dark:bg-slate-900/40 backdrop-blur-[24px] border border-white/40 dark:border-white/10 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.3)] p-8 sm:p-12 lg:p-10 animate-in fade-in duration-700">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="relative overflow-hidden rounded-3xl border border-white/40 bg-white/10 p-8 shadow-[0px_8px_32px_0px_rgba(0,0,0,0.25)] backdrop-blur-[24px] animate-in fade-in duration-700 dark:border-white/10 dark:bg-slate-900/40 sm:p-10 lg:p-10">
 
-            {/* Coluna de texto */}
-            <div className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left space-y-6 order-1">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-10">
+
+            {/* Conteúdo */}
+            <div className="order-1 flex flex-col items-center justify-center space-y-6 text-center lg:items-start lg:text-left">
 
               {/* Headline */}
               <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150 fill-mode-both">
-                <h1 className="font-black text-3xl sm:text-4xl lg:text-3xl xl:text-4xl leading-tight tracking-tighter font-gotham text-blue-900 dark:text-blue-300 lg:whitespace-nowrap">
-                  Direção de Arte & Design Engineer
+
+                <h1 className="max-w-[640px] font-gotham text-[1.5rem] font-black leading-[1.02] tracking-tight text-blue-900 dark:text-blue-300 sm:text-[1.7rem] lg:text-[1.72rem] xl:text-[1.85rem]">
+
+                  Designer UI/UX <span className="block lg:inline">& Creative Developer</span>
+
+                  {/* Subtitle removido para melhor leitura no mobile */}
+
                 </h1>
+
               </div>
 
               {/* Subheadline */}
-              <p className="text-lg font-bold text-emerald-600 dark:text-emerald-400 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both">
-                Branding, UI/UX, motion design e desenvolvimento front-end para marcas, artistas e experiências digitais.
+              <p className="max-w-2xl text-base font-semibold leading-relaxed text-emerald-600 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 fill-mode-both dark:text-emerald-400 sm:text-lg">
+
+                Branding, direção de arte e front-end com React/Next.js. 
+
               </p>
 
               {/* Texto institucional */}
-              <p className="text-base text-slate-700 dark:text-slate-300 leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both">
-                Projetos autorais, identidade visual e direção criativa desde 2011.
+              <p className="max-w-xl text-sm leading-relaxed text-slate-700 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both dark:text-slate-300 sm:text-base">
 
-                <span className="block mt-4 text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest">
-                  Branding • Motion • UI/UX • Front-End
+                Para marcas e projetos digitais.
+Identidades visuais, sites e experiências autorais desde 2011.
+
+                <span className="mt-4 block text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
+                  Branding • Motion Design • Sites • Vetorização
                 </span>
+
               </p>
 
               {/* Foto mobile */}
-              <div className="flex justify-center lg:hidden w-full animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700 fill-mode-both py-4">
-                <div className="relative w-full max-w-[200px] aspect-square rounded-3xl overflow-hidden border border-white/20 shadow-xl bg-white/5">
+              <div className="flex w-full justify-center py-4 lg:hidden animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700 fill-mode-both">
+
+                <div className="relative aspect-square w-full max-w-[208px] overflow-hidden rounded-3xl border border-white/20 bg-white/5 shadow-xl">
 
                   <Image
                     src="/assets/images/profile/abner-hero-photo.webp"
-                    alt="Abner Simão"
+                    alt="Abner Simão — Designer UI/UX & Creative Developer"
                     fill
-                    className="object-cover object-top scale-[1.10]"
                     priority
                     quality={100}
+                    sizes="208px"
+                    className="object-cover object-top scale-[1.08]"
                   />
 
                 </div>
+
               </div>
 
-              {/* Botões */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-4 w-full animate-in fade-in slide-in-from-bottom-4 duration-700 delay-1000 fill-mode-both">
+              {/* CTA */}
+              <div className="flex w-full flex-col gap-3 pt-4 sm:flex-row animate-in fade-in slide-in-from-bottom-4 duration-700 delay-1000 fill-mode-both">
 
                 <Link
                   href="/projetos"
-                  className="flex-1 px-8 py-3 rounded-xl border-2 border-blue-900 dark:border-blue-400 text-blue-900 dark:text-blue-300 font-bold uppercase tracking-tight transition-all hover:bg-blue-900 hover:text-white text-sm text-center"
+                  aria-label="Ver projetos de branding, UI UX e desenvolvimento criativo"
+                  className="flex-1 rounded-xl border-2 border-blue-900 px-8 py-3 text-center text-sm font-bold uppercase tracking-tight text-blue-900 transition-all hover:bg-blue-900 hover:text-white dark:border-blue-400 dark:text-blue-300"
                 >
                   Ver Projetos
                 </Link>
 
-                <a
+                <Link
                   href="/contato"
-                  className="flex-1 px-8 py-3 rounded-xl bg-gradient-to-r from-white/40 to-emerald-400/50 dark:from-slate-800/60 dark:to-emerald-600/50 border border-emerald-500 text-slate-900 dark:text-white font-bold uppercase tracking-tight transition-all hover:shadow-lg backdrop-blur-sm text-sm text-center"
+                  aria-label="Solicitar orçamento para UI UX, branding e desenvolvimento front-end"
+                  className="flex-1 rounded-xl border border-emerald-500 bg-gradient-to-r from-white/40 to-emerald-400/50 px-8 py-3 text-center text-sm font-bold uppercase tracking-tight text-slate-900 transition-all hover:shadow-lg dark:from-slate-800/60 dark:to-emerald-600/50 dark:text-white"
                 >
-                  SOLICITAR ORÇAMENTO
-                </a>
+                  Solicitar Orçamento
+                </Link>
 
               </div>
+
             </div>
 
             {/* Foto desktop */}
-            <div className="hidden lg:flex justify-center items-center animate-in fade-in zoom-in-95 duration-1000 delay-500 fill-mode-both order-2">
+            <div className="order-2 hidden items-center justify-center lg:flex animate-in fade-in zoom-in-95 duration-1000 delay-500 fill-mode-both">
 
-              <div className="relative w-full aspect-square max-w-[280px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-white/5">
+              <div className="relative aspect-square w-full max-w-[288px] overflow-hidden rounded-3xl border border-white/20 bg-white/5 shadow-2xl">
 
                 <Image
                   src="/assets/images/profile/abner-hero-photo.webp"
                   alt="Abner Simão"
                   fill
-                  className="object-cover object-top scale-[1.10]"
                   priority
                   quality={100}
+                  sizes="288px"
+                  className="object-cover object-top scale-[1.08]"
                 />
 
               </div>
+
             </div>
 
           </div>
+
         </div>
+
       </div>
     </section>
   );

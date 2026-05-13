@@ -4,8 +4,8 @@ import NextTopLoader from 'nextjs-toploader';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: 'Abner Simão | Design Engineer & Art Director',
-  description: 'Designer gráfico com 16 anos de experiência em branding, UI/UX e Design Engineering. Especialista em identidade visual e desenvolvimento front-end moderno.',
+  title: 'Identidade Visual, Branding e Sites para Empresas e Artistas | Abner Simão',
+  description: 'Criação de identidade visual, branding e sites profissionais em React. +15 anos de experiência. Atendo empresas e artistas em São Paulo e online.',
   keywords: ['designer gráfico', 'front-end', 'UI/UX', 'branding', 'Next.js', 'React', 'São Paulo', 'Design Engineer'],
   authors: [{ name: 'Abner Simão' }],
   creator: 'Abner Simão',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     google: '_07SQRl96xFM371el9hoCG0SbJTIgb71xJzdV4BRY6g',
   },
   openGraph: {
-    title: 'Abner Simão | Design Engineer & Art Director',
+    title: 'Identidade Visual, Branding e Sites para Empresas e Artistas | Abner Simão',
     description: '16 anos de experiência unindo design estratégico e código de alta performance.',
     url: '/',
     siteName: 'Abner Simão Design',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Abner Simão | Design Engineer',
+    title: 'Identidade Visual e Branding | Abner Simão',
     description: 'Branding, UI/UX e Front-end Development.',
     images: ['/assets/images/Favicon/og_image.webp'],
   },
@@ -46,7 +46,7 @@ const jsonLd = {
   '@type': 'Person',
   name: 'Abner Simão',
   jobTitle: 'Design Engineer & Art Director',
-  description: 'Designer gráfico com 16 anos de experiência em branding, UI/UX e Design Engineering. Especialista em identidade visual e desenvolvimento front-end moderno.',
+  description: 'Criação de identidade visual, branding e sites profissionais em React. +15 anos de experiência. Atendo empresas e artistas em São Paulo e online.',
   url: 'https://www.abnersimao.com.br',
   image: 'https://www.abnersimao.com.br/assets/images/Favicon/og_image.webp',
   email: 'abnersimaodesign@gmail.com',
