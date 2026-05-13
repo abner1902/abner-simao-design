@@ -58,7 +58,7 @@ export default function HeroSection() {
               <p className="max-w-xl text-sm leading-relaxed text-slate-700 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-both dark:text-slate-300 sm:text-base">
 
                 Para marcas e projetos digitais.
-Identidades visuais, sites e experiências autorais desde 2011.
+Identidades visuais, landing pages e experiências autorais desde 2011.
 
                 <span className="mt-4 block text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
                   Branding • Motion Design • Sites • Vetorização
