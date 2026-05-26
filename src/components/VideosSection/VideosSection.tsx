@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -8,44 +8,41 @@ import SectionHeader from '@/components/ui/SectionHeader';
 // ─── Dados dos vídeos (7 vídeos = equilíbrio 3-1-3) ───────────────────────────
 const VIDEOS = [
   {
-    id: 'snapinsta.com.br-69f33eea614a4_yrgrbo',
-    title: 'Astral Labyrinth EP',
-    label: 'Cover Animada para EP',
-  },
-  {
-    id: 'obscure_wvkern',
-    title: 'Obscure Crew - Indoor',
-    label: 'Flyer Animado para Evento',
-  },
-  {
-    id: 'khandroma-introspection-ep-video_evjbot',
-    title: 'Khandroma EP',
-    label: 'Cover Animada para EP',
-  },
-  {
-    id: 'agya-sounds-aquarius-edition_jfuqz7',
-    title: 'Agya Sounds Label Party',
-    label: 'Identidade Audiovisual — Open Air',
-  },
-  {
-    id: 'vajrapani-naturaiz_xz2dkb',
+    id: 'ENt1oyB45Rw',
     title: 'Vajrapani',
     label: 'Cover Animada para EP',
   },
   {
-    id: 'pinealvision_video_base_2._sem_som_after_effects_bruto_vkb7uz',
+    id: '9R3Nyco7vbU',
     title: 'Absycho',
     label: 'Release Animado para Lançamento',
   },
   {
-    id: 'snapinsta.com.br-69f35a32309cc_t4kisu',
+    id: '2-_BK99qF4c',
+    title: 'Astral Labyrinth EP',
+    label: 'Cover Animada para EP',
+  },
+  {
+    id: 'l5VvkC5kaT0',
+    title: 'Agya Sounds Label Party',
+    label: 'Identidade Audiovisual — Open Air',
+  },
+  {
+    id: 'T5BR6dGwMGs',
     title: 'Agya Effect',
     label: 'Cover Animado para Evento - Nekrópolis',
   },
+  {
+    id: '3LkczcVHpoY',
+    title: 'Obscure Crew - Indoor',
+    label: 'Flyer Animado para Evento',
+  },
+  {
+    id: 'ku6VhdKyBv8',
+    title: 'Khandroma EP',
+    label: 'Cover Animada para EP',
+  },
 ];
-
-const CLOUDINARY_BASE = 'https://res.cloudinary.com/dq3qu3lv0/video/upload/w_500,h_889,c_fill,g_center';
-const CLOUDINARY_STREAM = 'https://res.cloudinary.com/dq3qu3lv0/video/upload';
 
 // ─── Transform 3D com Proporção Áurea (φ = 1.618) ─────────────────────────────
 function getTransform(position: number): string {
@@ -86,22 +83,6 @@ interface VideoCardProps {
 }
 
 function VideoCard({ videoId, title, label, position, isCenter, onClick }: VideoCardProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) video.play().catch(() => {});
-        else video.pause();
-      },
-      { threshold: 0.3 }
-    );
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
-
   const isClickable = position !== 3;
 
   return (
@@ -126,15 +107,10 @@ function VideoCard({ videoId, title, label, position, isCenter, onClick }: Video
           }
         `}
       >
-        <video
-          ref={videoRef}
-          src={`${CLOUDINARY_BASE}/${videoId}.mp4`}
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${videoId}`}
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          allow="autoplay; fullscreen"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
         
@@ -168,7 +144,7 @@ export default function VideosSection() {
   const prev = useCallback(() => setActiveIndex((i) => (i - 1 + total) % total), [total]);
   const next = useCallback(() => setActiveIndex((i) => (i + 1) % total), [total]);
 
-  // ✅ Navegação por teclado (setas)
+  // Navegação por teclado (setas)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (isModalOpen) return;
@@ -187,7 +163,7 @@ export default function VideosSection() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [prev, next, isModalOpen]);
 
-  // ✅ Fecha modal com ESC
+  // Fecha modal com ESC
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setIsModalOpen(false);
@@ -196,7 +172,7 @@ export default function VideosSection() {
     return () => document.removeEventListener('keydown', handleEsc);
   }, [isModalOpen]);
 
-  // ✅ Bloqueia scroll quando modal está aberto
+  // Bloqueia scroll quando modal está aberto
   useEffect(() => {
     document.body.style.overflow = isModalOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -207,7 +183,7 @@ export default function VideosSection() {
     setIsModalOpen(true);
   }, []);
 
-  // ✅ getPosition otimizado para 7 vídeos
+  // getPosition otimizado para 7 vídeos
   function getPosition(videoIndex: number): number {
     const diff = (videoIndex - activeIndex + total) % total;
     if (diff === 0) return 3;
@@ -226,7 +202,7 @@ export default function VideosSection() {
     <section className="relative w-full py-32 overflow-visible">
       <div className="relative max-w-7xl mx-auto px-6">
         
-        {/* ✅ HEADER COM MAIS RESPIRO (só nesta seção) */}
+        {/* HEADER */}
         <SectionHeader 
           title="VÍDEOS PARA EVENTOS E LANÇAMENTOS" 
           description="Ampla experiência criando impacto visual através de stop motion, aftermovies e covers animadas para eventos, artistas e lançamentos." 
@@ -276,7 +252,11 @@ export default function VideosSection() {
               className="snap-center shrink-0 relative w-[220px] h-[390px] rounded-[2rem] overflow-hidden border border-white/10 cursor-pointer"
               onClick={() => openModal(video.id)}
             >
-              <video src={`${CLOUDINARY_BASE}/${video.id}.mp4`} className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline />
+              <iframe
+                src={`https://www.youtube.com/embed/${video.id}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${video.id}`}
+                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                allow="autoplay; fullscreen"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-0 p-5">
                 <p className="text-white font-medium">{video.title}</p>
@@ -287,7 +267,7 @@ export default function VideosSection() {
         </div>
       </div>
 
-      {/* ✅ MODAL DE ZOOM - Vídeo em Tela Cheia */}
+      {/* MODAL - Vídeo em Tela Cheia */}
       <AnimatePresence>
         {isModalOpen && currentVideo && (
           <motion.div
@@ -326,19 +306,17 @@ export default function VideosSection() {
                 </button>
               </div>
 
-              {/* Player de Vídeo - Maior e Centralizado */}
+              {/* Player de Vídeo */}
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black">
-                <video
-                  src={`${CLOUDINARY_STREAM}/${currentVideo.id}.mp4`}
-                  className="absolute inset-0 w-full h-full object-contain"
-                  autoPlay
-                  controls
-                  playsInline
-                  preload="auto"
+                <iframe
+                  src={`https://www.youtube.com/embed/${currentVideo.id}?autoplay=1&rel=0`}
+                  className="absolute inset-0 w-full h-full"
+                  allow="autoplay; fullscreen"
+                  allowFullScreen
                 />
               </div>
 
-              {/* Footer discreto */}
+              {/* Footer */}
               <div className="flex items-center justify-center px-2">
                 <p className="text-white/40 font-gotham text-[10px] uppercase tracking-tighter">
                   © {new Date().getFullYear()} Abner Simão Design Studio
