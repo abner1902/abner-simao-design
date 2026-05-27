@@ -77,6 +77,7 @@ export default function ProjectsSection() {
                     alt={project.imageAlt}
                     fill
                     priority={index === 0}
+                    loading={index === 0 ? "eager" : "lazy"}
                     sizes="(max-width: 640px) 100vw, 370px"
                     className={`object-cover object-center transition-transform duration-500 ease-out ${
                       project.id === 'global-summit'

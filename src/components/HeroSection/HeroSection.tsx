@@ -76,7 +76,7 @@ Identidades visuais, landing pages e experiências autorais desde 2011.
                     alt="Abner Simão — Designer UI/UX & Creative Developer"
                     fill
                     priority
-                    quality={100}
+                    quality={80}
                     sizes="208px"
                     className="object-cover object-top scale-[1.08]"
                   />
@@ -118,7 +118,7 @@ Identidades visuais, landing pages e experiências autorais desde 2011.
                   alt="Abner Simão"
                   fill
                   priority
-                  quality={100}
+                  quality={80}
                   sizes="288px"
                   className="object-cover object-top scale-[1.08]"
                 />

@@ -14,6 +14,7 @@ export default function AboutSection() {
           src="/assets/images/about/geometric-about-bg.webp"
           alt=""
           fill
+          loading="lazy"
           className="object-cover opacity-100"
           aria-hidden="true"
         />
@@ -55,6 +56,8 @@ export default function AboutSection() {
                 src="/assets/images/profile/abner-vector.webp"
                 alt="Abner Simão — Designer e Desenvolvedor Front-end"
                 fill
+                loading="lazy"
+                sizes="192px"
                 className="object-cover object-top"
               />
             </div>

@@ -40,6 +40,8 @@ export default function ToolsCarousel() {
                 src={tool.src}
                 alt={tool.alt}
                 fill
+                loading="lazy"
+                sizes="64px"
                 className="object-contain"
               />
             </div>
