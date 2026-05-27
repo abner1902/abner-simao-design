@@ -73,7 +73,7 @@ export default function ServicesSection() {
           backgroundImage: 'url(/assets/images/services/bg-services.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
+          backgroundAttachment: 'scroll',
         }}
         aria-hidden="true"
       />
