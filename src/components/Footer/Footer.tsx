@@ -78,7 +78,12 @@ export default function Footer() {
                 </h3>
                 <ul className="flex flex-col gap-3 font-gotham font-medium text-stone-900 dark:text-stone-300 text-lg">
                   <li>
-                    <Link href="#" className="flex items-center gap-2 hover:text-sky-700 dark:hover:text-sky-400 transition-colors">
+                    <Link 
+                      href="/assets/documents/Curriculo-Abner-Simao-2026-atualizado.pdf" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="flex items-center gap-2 hover:text-sky-700 dark:hover:text-sky-400 transition-colors"
+                    >
                       <FaFilePdf className="text-red-500 shrink-0" size={18} />
                       Baixar Currículo
                     </Link>
@@ -128,7 +133,9 @@ export default function Footer() {
           {/* BOTÕES CTA */}
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-[1100px]">
             <Link
-              href="#"
+              href="/assets/documents/Curriculo-Abner-Simao-2026-atualizado.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex-1 inline-flex items-center justify-center gap-3 min-h-[5rem] py-4 px-6 rounded-2xl font-gotham font-bold text-stone-900 dark:text-white text-lg uppercase tracking-widest text-center bg-gradient-to-r from-white/40 to-blue-200/60 dark:from-slate-800/60 dark:to-blue-900/50 border border-sky-500 dark:border-sky-400 shadow-[0px_4px_24px_0px_rgba(0,0,0,0.25)] transition-all duration-300 hover:brightness-95 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500"
             >
               <FaFilePdf className="text-red-500 shrink-0" size={24} />
