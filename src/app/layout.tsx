@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Navbar } from '@/components';
 import NextTopLoader from 'nextjs-toploader';
 import '@/styles/globals.css';
@@ -109,6 +110,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        {/* Google Analytics GA4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-BZ9DK9ZK7H"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BZ9DK9ZK7H');
+          `}
+        </Script>
+      </head>
       <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors antialiased">
         <script
           type="application/ld+json"
