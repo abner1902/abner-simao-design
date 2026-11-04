@@ -10,10 +10,8 @@ export default function Footer() {
 
   return (
     <footer id="contato" aria-label="Contato e rodapé">
-
       {/* SEÇÃO PRINCIPAL */}
       <div className="relative py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
-
         {/* BACKGROUND */}
         <div className="absolute inset-0 -z-10">
           <Image
@@ -27,8 +25,7 @@ export default function Footer() {
         </div>
 
         <div className="max-w-[1317px] mx-auto flex flex-col items-center gap-12">
-
-          {/* HEADER - Ajustado com -4 pontos de escala */}
+          {/* HEADER */}
           <div className="flex flex-col items-center gap-4 text-center">
             <h2 className="font-gotham font-ultra text-sky-900 dark:text-sky-300 text-xl sm:text-3xl uppercase tracking-wide">
               Vamos criar algo incrível juntos?
@@ -65,6 +62,9 @@ export default function Footer() {
                 <ul className="flex flex-col gap-2 font-gotham font-medium text-stone-900 dark:text-stone-300 text-lg leading-8">
                   <li>• Sites em React e Next.js</li>
                   <li>• Criação de Landing Pages</li>
+                  <li>
+                    • <Link href="/presskit" className="hover:text-emerald-600 dark:hover:text-emerald-400 font-bold underline transition-colors">Press Kit Digital para Artistas</Link>
+                  </li>
                   <li>• UI/UX Design</li>
                   <li>• SEO e Performance</li>
                   <li>• Tráfego Pago e Marketing Digital</li>
@@ -181,7 +181,6 @@ export default function Footer() {
           © {currentYear} Abner Simão Design. Sites em Next.js, UI/UX, Branding, Vídeos para Eventos, Artes para Impressão e Tráfego Pago | São Paulo, Brasil.
         </p>
       </div>
-
     </footer>
   );
 }

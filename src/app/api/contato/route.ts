@@ -1,17 +1,17 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-// Instancia o Resend com a chave do .env.local
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
     const { nome, email, interesse, mensagem } = await request.json();
 
+    // Instancia o Resend no momento da requisição
+    const resend = new Resend(process.env.RESEND_API_KEY || 're_fallback_for_build');
+
     const { error } = await resend.emails.send({
-      from: 'Site Abner Simão <onboarding@resend.dev>', // domínio próprio depois
+      from: 'Site Abner Simão <onboarding@resend.dev>',
       to: 'abnersimaodesign@gmail.com',
-      replyTo: email, // ao responder, vai direto pro cliente
+      replyTo: email,
       subject: `Novo contato: ${interesse}`,
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px;background:#f8fafc;border-radius:12px;">

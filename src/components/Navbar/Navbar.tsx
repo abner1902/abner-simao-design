@@ -29,12 +29,13 @@ export default function Navbar() {
     document.documentElement.classList.toggle('dark');
   };
 
-  const links = ['Início', 'Serviços', 'Projetos', 'Sobre', 'Contato'];
+  const links = ['Início', 'Serviços', 'Projetos', 'Press Kit', 'Sobre', 'Contato'];
 
   const labels: Record<string, string> = {
     'Início': 'Início',
     'Serviços': 'Serviços',
     'Projetos': 'Projetos',
+    'Press Kit': 'Press Kit',
     'Sobre': 'Sobre',
     'Contato': 'Contato',
   };
@@ -52,16 +53,16 @@ export default function Navbar() {
   const getHref = (item: string) => {
     if (item === 'Contato') return '/contato';
     if (item === 'Projetos') return '/projetos';
+    if (item === 'Press Kit') return '/presskit';
     return `/#${getSectionId(item)}`;
   };
-
 
   return (
     <>
       <nav className="fixed top-0 left-0 z-[60] w-full bg-blue-900/80 dark:bg-slate-950/90 backdrop-blur-md border-b border-white/20 dark:border-white/10 shadow-lg">
-        <div className="flex h-16 md:h-20 w-full items-center px-6 md:px-12 lg:px-20">
+        <div className="flex h-16 md:h-20 w-full items-center justify-between px-6 md:px-12 lg:px-16">
           {/* COLUNA 1: Logo */}
-          <div className="flex flex-1 items-center">
+          <div className="flex items-center">
             <Link href="/" className="transition-transform hover:scale-105">
               <Image
                 src="/assets/images/logos/logotipo-abnersimao-branco.webp"
@@ -75,47 +76,47 @@ export default function Navbar() {
           </div>
 
           {/* COLUNA 2: Menu Desktop */}
-          <ul className="hidden items-center justify-center gap-8 lg:flex flex-1">
-              {links.map((item) => (
-                <li key={item}>
-                  <Link
-                    href={getHref(item)}
-                    className="text-sm font-black uppercase tracking-tight text-white/80 transition-colors hover:text-emerald-400 dark:text-white/70 dark:hover:text-emerald-300"
-                  >
-                    {labels[item]}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <ul className="hidden items-center justify-center gap-5 xl:gap-7 lg:flex">
+            {links.map((item) => (
+              <li key={item}>
+                <Link
+                  href={getHref(item)}
+                  className="whitespace-nowrap text-sm font-black uppercase tracking-tight text-white/80 transition-colors hover:text-emerald-400 dark:text-white/70 dark:hover:text-emerald-300"
+                >
+                  {labels[item]}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
           {/* COLUNA 3: Ícones */}
-          <div className="flex flex-1 items-center justify-end gap-5">
-              <a
-                href="https://www.behance.net/abnersimao"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Behance"
-                className="text-2xl text-white/70 transition-colors hover:text-emerald-400"
-              >
-                <SiBehance />
-              </a>
+          <div className="flex items-center justify-end gap-5">
+            <a
+              href="https://www.behance.net/abnersimao"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Behance"
+              className="text-2xl text-white/70 transition-colors hover:text-emerald-400"
+            >
+              <SiBehance />
+            </a>
 
-              <button
-                onClick={toggleTheme}
-                aria-label="Alternar tema"
-                className="hidden text-2xl text-white/70 transition-colors hover:text-emerald-400 md:block"
-              >
-                {isDark ? <FiSun size={22} /> : <FiMoon size={22} />}
-              </button>
+            <button
+              onClick={toggleTheme}
+              aria-label="Alternar tema"
+              className="hidden text-2xl text-white/70 transition-colors hover:text-emerald-400 md:block"
+            >
+              {isDark ? <FiSun size={22} /> : <FiMoon size={22} />}
+            </button>
 
-              <button
-                onClick={() => setOpen(!open)}
-                aria-label="Menu"
-                className="text-2xl text-white/70 transition-colors hover:text-emerald-400 lg:hidden"
-              >
-                {open ? <FiX /> : <FiMenu />}
-              </button>
-            </div>
+            <button
+              onClick={() => setOpen(!open)}
+              aria-label="Menu"
+              className="text-2xl text-white/70 transition-colors hover:text-emerald-400 lg:hidden"
+            >
+              {open ? <FiX /> : <FiMenu />}
+            </button>
+          </div>
         </div>
       </nav>
 
