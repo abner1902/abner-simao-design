@@ -12,6 +12,28 @@ import Footer from '@/components/Footer/Footer';
 export const metadata: Metadata = {
   title: 'Press Kit Digital Musical | Abner Simão Design',
   description: 'Crie seu Press Kit musical personalizado com link vitalício, sem mensalidade. Para DJs, bandas e cantores.',
+  openGraph: {
+    title: 'Press Kit Digital Musical | Link Vitalício sem Mensalidade',
+    description: 'Crie seu Press Kit Digital personalizado com design exclusivo, fundo personalizado, players e links vitalícios.',
+    url: 'https://www.abnersimao.com.br/presskit',
+    siteName: 'Abner Simão Design',
+    images: [
+      {
+        url: 'https://www.abnersimao.com.br/assets/images/presskit/open-graph-preskit-image-service.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Press Kit Digital Musical - Abner Simão Design',
+      },
+    ],
+    locale: 'pt_BR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Press Kit Digital Musical | Abner Simão Design',
+    description: 'Crie seu Press Kit Digital personalizado com link vitalício sem mensalidade.',
+    images: ['https://www.abnersimao.com.br/assets/images/presskit/open-graph-preskit-image-service.jpg'],
+  },
 };
 
 export default function PresskitPage() {
